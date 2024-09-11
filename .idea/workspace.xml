@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7baa1a59-7a9a-4a3c-bd2e-0c4907487005" name="更改" comment="完成了科技树添加脚本">
-      <change beforePath="$PROJECT_DIR$/src/techtree.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/techtree.py" afterDir="false" />
-    </list>
+    <list default="true" id="7baa1a59-7a9a-4a3c-bd2e-0c4907487005" name="更改" comment="完成了科技树添加脚本" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -84,7 +82,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1726034509423</updated>
-      <workItem from="1726034513301" duration="3233000" />
+      <workItem from="1726034513301" duration="3266000" />
     </task>
     <task id="LOCAL-00001" summary="完成了科技树添加脚本">
       <option name="closed" value="true" />
@@ -110,7 +108,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726037762773</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="完成了科技树添加脚本">
+      <option name="closed" value="true" />
+      <created>1726037792264</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1726037792264</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
