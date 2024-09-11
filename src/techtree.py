@@ -132,4 +132,4 @@ items_info = [
 unlockables = ["haybuild", "woodbuild", "stonebuild"]
 
 generate_files(levels, initial_x, initial_y, items_info, unlockables)
-print("文件已生成")
+print("文件已生成！")
