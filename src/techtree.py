@@ -17,12 +17,17 @@ def generate_item_core(item_id, x, y, texture, texture_hovered, recipe, unlockab
     ]
 
     # 动态生成数量检查逻辑
-    quantity_checks = [
-        f"if(局部变量.recipe{i + 1} < {required_quantities[i]}){{" for i in range(len(required_quantities))
-    ]
+    if len(required_quantities) > 1:
+        # 多个条件时，生成使用 '||' 连接的检查逻辑
+        quantity_check_condition = ' || '.join([f"局部变量.recipe{i + 1} < {required_quantities[i]}" for i in range(len(required_quantities))])
+        quantity_check = f"if({quantity_check_condition}){{"
+    else:
+        # 单个条件时，正常生成
+        quantity_check = f"if(局部变量.recipe1 < {required_quantities[0]}){{"
 
     # 最终的内容生成
     return f"""
+    
 {item_id}_texture:
   x: "{x}"
   y: "{y}"
@@ -66,7 +71,7 @@ def generate_item_core(item_id, x, y, texture, texture_hovered, recipe, unlockab
           {''.join(recipe_checks)}
           局部变量.计数 = 局部变量.计数 + 1;
         }});
-        {' else '.join(quantity_checks)}{{
+        {quantity_check}
           方法.消息('§b你的背包中没有足够的材料');
           方法.actionbar('文本');
           方法.界面变量.{item_key}_craftable=false;
@@ -74,8 +79,7 @@ def generate_item_core(item_id, x, y, texture, texture_hovered, recipe, unlockab
           方法.执行按键指令('{item_id}');
           方法.界面变量.{item_key}_craftable=true;
         }};
-      }};
-      if(方法.取变量('player_has_permission_recipe.{item_key}')!="yes" && 方法.取变量('player_has_permission_recipe.unlockable.{unlockable}')=="yes"){{
+      }} else if(方法.取变量('player_has_permission_recipe.unlockable.{unlockable}')=="yes"){{
         if(方法.取变量('player_level')>=1){{
           方法.执行按键指令('{item_id}_unlock');
         }} else {{
@@ -103,8 +107,8 @@ def generate_files(levels, initial_x, initial_y, items_info, unlockables):
                     item_id=item_id,
                     x=f"{x}+{index * 16}",
                     y=f"{y}+{level * 16}",
-                    texture=f"icon/{item_id.lower()}",
-                    texture_hovered=f"icon/{item_id.lower()}",
+                    texture=f"icon/{item_id.lower().split('_')[1]}",
+                    texture_hovered=f"icon/{item_id.lower().split('_')[1]}",
                     recipe=recipe,
                     unlockable=unlockables[level],
                     recipe_items=recipe_items,
