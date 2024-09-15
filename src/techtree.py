@@ -19,7 +19,8 @@ def generate_item_core(item_id, x, y, texture, texture_hovered, recipe, unlockab
     # 动态生成数量检查逻辑
     if len(required_quantities) > 1:
         # 多个条件时，生成使用 '||' 连接的检查逻辑
-        quantity_check_condition = ' || '.join([f"局部变量.recipe{i + 1} < {required_quantities[i]}" for i in range(len(required_quantities))])
+        quantity_check_condition = ' || '.join(
+            [f"局部变量.recipe{i + 1} < {required_quantities[i]}" for i in range(len(required_quantities))])
         quantity_check = f"if({quantity_check_condition}){{"
     else:
         # 单个条件时，正常生成
@@ -88,10 +89,57 @@ def generate_item_core(item_id, x, y, texture, texture_hovered, recipe, unlockab
       }};
     """
 
+
+def generate_item_var(item_id, unlockable, generated_set):
+    item_key = item_id.lower().split('_')[1]
+    var = []
+
+    # 检查重复的变量
+    if f'player_has_permission_recipe.{item_key}' not in generated_set:
+        generated_set.add(f'player_has_permission_recipe.{item_key}')
+        var.append(f"方法.更新变量值('player_has_permission_recipe.{item_key}');\n")
+
+    for i in range(len(unlockable)):
+        if f'player_has_permission_recipe.unlockable.{unlockable[i]}' not in generated_set:
+            generated_set.add(f'player_has_permission_recipe.unlockable.{unlockable[i]}')
+            var.append(f"方法.更新变量值('player_has_permission_recipe.unlockable.{unlockable[i]}');\n")
+
+    return ''.join(var)
+
+
+
+def generate_item_command(item_id, recipe, unlockable, recipe_items, required_quantities):
+    item_key = item_id.lower().split('_')[1]
+    if len(required_quantities) > 1:
+        quantity_check_condition = ''.join(
+        [
+        f"\\\\- caonima[console]clear %player_name% {recipe_items[i]} {required_quantities[i]}caonima '\n'        " for i in range(len(required_quantities))])
+        quantity_check = f"{quantity_check_condition}"
+    else:
+        # 单个条件时，正常生成
+        quantity_check = f"\\\\- caonima[console]clear %player_name% {recipe_items} {required_quantities[0]}caonima"
+    command = [
+    f"""
+    {item_id}:
+        {quantity_check}
+        \\\\- "[console]give %player_name% {item_id} 1"
+    {item_id}_unlock:
+        \\\\- "[console]xp -1L %player_name%"
+        \\\\- "[console]manuaddp %player_name% recipe.{item_key}"
+    """
+    ]
+    return f"""
+    {''.join(command)}
+        """
+
+
 # 生成文件
 def generate_files(levels, initial_x, initial_y, items_info, unlockables):
     # 创建文件夹
     os.makedirs('output', exist_ok=True)
+
+    # 存储已经生成的变量，以避免重复
+    generated_set = set()
 
     # 打开文件写入
     with open('output/core.yaml', 'w', encoding='utf-8') as core_file, \
@@ -114,8 +162,31 @@ def generate_files(levels, initial_x, initial_y, items_info, unlockables):
                     recipe_items=recipe_items,
                     required_quantities=required_quantities
                 )
+                command_content = generate_item_command(
+                    item_id=item_id,
+                    recipe=recipe,
+                    unlockable=unlockables[level],
+                    recipe_items=recipe_items,
+                    required_quantities=required_quantities
+                )
+                var_content = generate_item_var(
+                    item_id=item_id,
+                    unlockable=unlockables,
+                    generated_set=generated_set  # 传入去重的集合
+                )
                 core_content = core_content.replace('{{', '{').replace('}}', '}')
+                var_content = var_content.replace("\n        ", '')
+                var_content = var_content.replace("\n    ", '')
+                var_content = var_content.replace("方法.", '    方法.')
+                command_content = command_content.replace("['", '').replace("']", '')
+                command_content = command_content.replace("caonima", '"')
+                command_content = command_content.replace("'", '')
+                command_content = command_content.replace("    ", '')
+                command_content = command_content.replace("\\\\", '    ')
                 core_file.write(core_content + "\n")
+                var_file.write(var_content)
+                command_file.write(command_content)
+
 
 # 示例输入
 levels = 3
@@ -123,14 +194,14 @@ initial_x = "0.69*方法.取屏幕宽度+80"
 initial_y = "界面变量.techtree滚动值*6+0.32*方法.取屏幕高度"
 
 items_info = [
-    [("MINERUSTADDONS_HAYWALL", "MINERUSTADDONS_CLOTH 8", ['minerustaddons:cloth'], [8]),
-     ("MINERUSTADDONS_HAYCEILING", "MINERUSTADDONS_CLOTH 4", ['minerustaddons:cloth'], [4])],
-    [("MINERUSTADDONS_WOODWALL", "MINERUSTADDONS_PLANKITEM 8", ['minerustaddons:plankitem'], [8]),
-     ("MINERUSTADDONS_WOODCEILING", "MINERUSTADDONS_PLANKITEM 4", ['minerustaddons:plankitem'], [4])],
+    [("MINERUSTADDONS_HAYWALL", "MINERUSTADDONS_CLOTH 8", ['minerustaddons_cloth'], [8]),
+     ("MINERUSTADDONS_HAYCEILING", "MINERUSTADDONS_CLOTH 4", ['minerustaddons_cloth'], [4])],
+    [("MINERUSTADDONS_WOODWALL", "MINERUSTADDONS_PLANKITEM 8", ['minerustaddons_plankitem'], [8]),
+     ("MINERUSTADDONS_WOODCEILING", "MINERUSTADDONS_PLANKITEM 4", ['minerustaddons_plankitem'], [4])],
     [("MINERUSTADDONS_STONEWALL", "MINERUSTADDONS_PIECESTONE 4 MINERUSTADDONS_NAILS 4",
-      ['minerustaddons:piecestone', 'minerustaddons:nails'], [4, 4]),
+      ['minerustaddons_piecestone', 'minerustaddons_nails'], [4, 4]),
      ("MINERUSTADDONS_STONECEILING", "MINERUSTADDONS_PIECESTONE 2 MINERUSTADDONS_NAILS 2",
-      ['minerustaddons:piecestone', 'minerustaddons:nails'], [2, 2])]
+      ['minerustaddons_piecestone', 'minerustaddons_nails'], [2, 2])]
 ]
 
 unlockables = ["haybuild", "woodbuild", "stonebuild"]
