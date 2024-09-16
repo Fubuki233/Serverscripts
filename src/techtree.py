@@ -39,7 +39,7 @@ def generate_item_core(item_id, x, y, texture, texture_hovered, recipe, unlockab
     if(方法.取变量('player_has_permission_recipe.{item_key}')!="yes" && 方法.取变量('player_has_permission_recipe.unlockable.{unlockable}')=="yes"){{
       return "{texture}_unlockable.png";
     }};
-    return "icon/unknownrecipe.png"
+    return "icon/unknown_recipe.png"
   textureHovered:     
     if(方法.取变量('player_has_permission_recipe.{item_key}')=="yes"){{
       return "{texture_hovered}.png";
@@ -108,7 +108,7 @@ def generate_item_var(item_id, unlockable, generated_set):
 
 
 
-def generate_item_command(item_id, recipe, unlockable, recipe_items, required_quantities):
+def generate_item_command(item_id, recipe, unlockable,unlockable_, recipe_items, required_quantities,level):
     item_key = item_id.lower().split('_')[1]
     if len(required_quantities) > 1:
         quantity_check_condition = ''.join(
@@ -126,6 +126,7 @@ def generate_item_command(item_id, recipe, unlockable, recipe_items, required_qu
     {item_id}_unlock:
         \\\\- "[console]xp -1L %player_name%"
         \\\\- "[console]manuaddp %player_name% recipe.{item_key}"
+        \\\\- "[console]manuaddp %player_name% recipe.unlockable.{unlockable_}"
     """
     ]
     return f"""
@@ -166,8 +167,10 @@ def generate_files(levels, initial_x, initial_y, items_info, unlockables):
                     item_id=item_id,
                     recipe=recipe,
                     unlockable=unlockables[level],
+                    unlockable_=unlockables_[level],
                     recipe_items=recipe_items,
-                    required_quantities=required_quantities
+                    required_quantities=required_quantities,
+                    level=level
                 )
                 var_content = generate_item_var(
                     item_id=item_id,
@@ -189,22 +192,36 @@ def generate_files(levels, initial_x, initial_y, items_info, unlockables):
 
 
 # 示例输入
-levels = 3
-initial_x = "0.69*方法.取屏幕宽度+80"
-initial_y = "界面变量.techtree滚动值*6+0.32*方法.取屏幕高度"
+levels = 4
+initial_x = "0.35*方法.取屏幕宽度"
+initial_y = "界面变量.滚动值*6+0.25*方法.取屏幕高度"
 
 items_info = [
-    [("MINERUSTADDONS_HAYWALL", "MINERUSTADDONS_CLOTH 8", ['minerustaddons_cloth'], [8]),
-     ("MINERUSTADDONS_HAYCEILING", "MINERUSTADDONS_CLOTH 4", ['minerustaddons_cloth'], [4])],
-    [("MINERUSTADDONS_WOODWALL", "MINERUSTADDONS_PLANKITEM 8", ['minerustaddons_plankitem'], [8]),
-     ("MINERUSTADDONS_WOODCEILING", "MINERUSTADDONS_PLANKITEM 4", ['minerustaddons_plankitem'], [4])],
-    [("MINERUSTADDONS_STONEWALL", "MINERUSTADDONS_PIECESTONE 4 MINERUSTADDONS_NAILS 4",
-      ['minerustaddons_piecestone', 'minerustaddons_nails'], [4, 4]),
-     ("MINERUSTADDONS_STONECEILING", "MINERUSTADDONS_PIECESTONE 2 MINERUSTADDONS_NAILS 2",
-      ['minerustaddons_piecestone', 'minerustaddons_nails'], [2, 2])]
+    [("MINERUSTADDONS_ROCK", "MINERUSTADDONS_PIECESTONE 4", ['MINERUSTADDONS_PIECESTONE'], [4])],
+    [("MINERUSTADDONS_BONEKNIFE", "MINERUSTADDONS_RESBONE 4", ['MINERUSTADDONS_RESBONE'], [4]),
+     ("MINERUSTADDONS_BONETOOL", "MINERUSTADDONS_RESBONE 4", ['MINERUSTADDONS_RESBONE'], [4]),
+     ("MINERUSTADDONS_WOODENSPEAR", "MINERUSTADDONS_PIECEWOOD 4", ['MINERUSTADDONS_PIECEWOOD'], [4]),
+     ("MINERUSTADDONS_WOODENSWORD", "MINERUSTADDONS_PLANKITEM 4 MINERUSTADDONS_STICKITEM 1", ['MINERUSTADDONS_PLANKITEM', 'MINERUSTADDONS_STICKITEM'], [4, 1])],
+    [("MINERUSTADDONS_STONEPICKAXE", "MINERUSTADDONS_PIECESTONE 4 MINERUSTADDONS_STICKITEM 1", ['minerustaddons_piecestone', 'MINERUSTADDONS_STICKITEM'], [4, 1]),
+     ("MINERUSTADDONS_STONEAXE", "MINERUSTADDONS_PIECESTONE 4 MINERUSTADDONS_STICKITEM 1", ['minerustaddons_piecestone', 'MINERUSTADDONS_STICKITEM'], [4, 1]),
+     ("MINERUSTADDONS_STONESPEAR", "MINERUSTADDONS_PIECESTONE 1 MINERUSTADDONS_STICKITEM 1", ['minerustaddons_piecestone', 'MINERUSTADDONS_STICKITEM'], [1, 1]),
+     ("MINERUSTADDONS_KNIFE", "MINERUSTADDONS_PIECESTONE 4 MINERUSTADDONS_STICKITEM 1", ['minerustaddons_piecestone', 'MINERUSTADDONS_STICKITEM'], [4, 1])],
+    [("MINERUSTADDONS_METALPICKAXE",  "MINERUSTADDONS_MHQ 4 MINERUSTADDONS_NAILS 4 MINERUSTADDONS_BOLTS 4 MINERUSTADDONS_METALPICKAXELOWERDETAIL 1",
+      ['MINERUSTADDONS_MHQ', 'MINERUSTADDONS_NAILS', 'MINERUSTADDONS_BOLTS', 'MINERUSTADDONS_METALPICKAXELOWERDETAIL'], [4, 4, 4, 1]),
+     ("MINERUSTADDONS_METALAXE",  "MINERUSTADDONS_MHQ 4 MINERUSTADDONS_NAILS 4 MINERUSTADDONS_BOLTS 4 MINERUSTADDONS_METALPICKAXELOWERDETAIL 1",
+      ['MINERUSTADDONS_MHQ', 'MINERUSTADDONS_NAILS', 'MINERUSTADDONS_BOLTS', 'MINERUSTADDONS_METALPICKAXELOWERDETAIL'], [4, 4, 4, 1]),
+     ("MINERUSTADDONS_COMBATKNIFE",  "MINERUSTADDONS_MHQ 4 MINERUSTADDONS_METALPICKAXELOWERDETAIL 1",
+      ['MINERUSTADDONS_MHQ', 'MINERUSTADDONS_METALPICKAXELOWERDETAIL'], [4, 1]),
+     ("MINERUSTADDONS_METALSWORD",  "MINERUSTADDONS_MHQ 4 MINERUSTADDONS_METALPICKAXELOWERDETAIL 1",
+      ['MINERUSTADDONS_MHQ', 'MINERUSTADDONS_METALPICKAXELOWERDETAIL'], [4, 1]),
+     ("MINERUSTADDONS_MACE",  "MINERUSTADDONS_MHQ 4 MINERUSTADDONS_NAILS 8 MINERUSTADDONS_METALPICKAXELOWERDETAIL 1",
+      ['MINERUSTADDONS_MHQ', 'MINERUSTADDONS_NAILS', 'MINERUSTADDONS_METALPICKAXELOWERDETAIL'], [4, 8, 1]),
+     ("MINERUSTADDONS_WARHAMMER",  "MINERUSTADDONS_MHQ 8 MINERUSTADDONS_METALPICKAXELOWERDETAIL 1",
+      ['MINERUSTADDONS_MHQ', 'MINERUSTADDONS_METALPICKAXELOWERDETAIL'], [4, 1])]
 ]
 
-unlockables = ["haybuild", "woodbuild", "stonebuild"]
+unlockables = ["rock", "bonetools", "stonetools","mentaltools"] #所有层级的权限节点
+unlockables_ = ["bonetools", "stonetools","mentaltools","void"] #去除第一位，树冠补void
 
 generate_files(levels, initial_x, initial_y, items_info, unlockables)
 print("文件已生成")
