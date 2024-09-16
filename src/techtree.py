@@ -222,6 +222,5 @@ items_info = [
 
 unlockables = ["rock", "bonetools", "stonetools","mentaltools"] #所有层级的权限节点
 unlockables_ = ["bonetools", "stonetools","mentaltools","void"] #去除第一位，树冠补void
-
 generate_files(levels, initial_x, initial_y, items_info, unlockables)
 print("文件已生成")
