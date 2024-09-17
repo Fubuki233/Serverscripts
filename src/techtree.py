@@ -5,7 +5,7 @@ import numpy as np
 
 # 创建主界面
 root = tk.Tk()
-root.title("Item Generator")
+root.title("Tech Tree Generator")
 root.geometry("400x300+100+100")
 # 定义输入字段
 item_id_var = tk.StringVar()
