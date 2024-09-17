@@ -43,8 +43,7 @@ tk.Entry(root, textvariable=level_var).grid(row=2, column=1)
 
 tk.Label(root, text=f"permission nodes(separate with comma, quantities=level):").grid(row=3, column=0)
 tk.Entry(root, textvariable=permission_nodes).grid(row=3, column=1)
-
-
+text_widget = tk.Text(root, width=40, height=10)
 # tk.Label(root, text="Item ID:").grid(row=2, column=0)
 # tk.Entry(root, textvariable=item_id_var).grid(row=2, column=1)
 
@@ -132,12 +131,13 @@ def recipe_command():
             recipe[i][j] = recipe_str  # 存储字符串变量
             quantities[i][j] = quantities_int  # 存储字符串变量
 
-            tk.Label(root, text=f"product:").grid(row=0 + i * 6, column=j + 8)
-            tk.Entry(root, textvariable=product_str).grid(row=1 + i * 6, column=j + 8)
-            tk.Label(root, text=f"recipes (separate with comma)").grid(row=2 + i * 6, column=j + 8)
-            tk.Entry(root, textvariable=recipe_str).grid(row=3 + i * 6, column=j + 8)
-            tk.Label(root, text=f"quantities (separate with comma)").grid(row=4 + i * 6, column=j + 8)
-            tk.Entry(root, textvariable=quantities_int).grid(row=5 + i * 6, column=j + 8)
+            tk.Label(root, text=f"product:").grid(row=0 + i * 7, column=j + 8)
+            tk.Entry(root, textvariable=product_str).grid(row=1 + i * 7, column=j + 8)
+            tk.Label(root, text=f"recipes (separate with comma)").grid(row=2 + i * 7, column=j + 8)
+            tk.Entry(root, textvariable=recipe_str).grid(row=3 + i * 7, column=j + 8)
+            tk.Label(root, text=f"quantities (separate with comma)").grid(row=4 + i * 7, column=j + 8)
+            tk.Entry(root, textvariable=quantities_int).grid(row=5 + i * 7, column=j + 8)
+            tk.Label(root, text=f"--------------------------------------------------").grid(row=6 + i * 7, column=j + 8)
     print(f"product:{product}")
     submit_btn.grid(row=6 + recipe_num_val[i], column=0)
     recipe_btn = ttk.Button(root, text="generate", command=generate)
