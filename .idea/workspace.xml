@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7baa1a59-7a9a-4a3c-bd2e-0c4907487005" name="更改" comment="测试通过的科技树框架">
+    <list default="true" id="7baa1a59-7a9a-4a3c-bd2e-0c4907487005" name="更改" comment="修复权限解锁不正确的问题">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/techtree.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/techtree.py" afterDir="false" />
     </list>
@@ -90,7 +90,8 @@
       <workItem from="1726034513301" duration="3266000" />
       <workItem from="1726037812153" duration="842000" />
       <workItem from="1726403313442" duration="11280000" />
-      <workItem from="1726497490111" duration="6935000" />
+      <workItem from="1726497490111" duration="12902000" />
+      <workItem from="1726544288076" duration="16650000" />
     </task>
     <task id="LOCAL-00001" summary="完成了科技树添加脚本">
       <option name="closed" value="true" />
@@ -148,7 +149,23 @@
       <option name="project" value="LOCAL" />
       <updated>1726414756938</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="修复权限解锁不正确的问题">
+      <option name="closed" value="true" />
+      <created>1726507026937</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1726507026937</updated>
+    </task>
+    <task id="LOCAL-00009" summary="修复权限解锁不正确的问题">
+      <option name="closed" value="true" />
+      <created>1726507067754</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1726507067754</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,9 +176,10 @@
     <MESSAGE value="完成了科技树添加脚本" />
     <MESSAGE value="修复quantity_checks的错误逻辑" />
     <MESSAGE value="测试通过的科技树框架" />
-    <option name="LAST_COMMIT_MESSAGE" value="测试通过的科技树框架" />
+    <MESSAGE value="修复权限解锁不正确的问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复权限解锁不正确的问题" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/$techtree.coverage" NAME="techtree 覆盖结果" MODIFIED="1726506842963" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/$techtree.coverage" NAME="techtree 覆盖结果" MODIFIED="1726561033776" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
   </component>
 </project>
