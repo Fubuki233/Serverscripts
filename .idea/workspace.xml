@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7baa1a59-7a9a-4a3c-bd2e-0c4907487005" name="更改" comment="添加了gui，超级简化制作方式">
-      <change afterPath="$PROJECT_DIR$/src/test.py" afterDir="false" />
+    <list default="true" id="7baa1a59-7a9a-4a3c-bd2e-0c4907487005" name="更改" comment="添加gui，分离所有权限节点并可以自由放置节点，未完工">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/techtree.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/techtree.py" afterDir="false" />
     </list>
@@ -59,7 +58,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Python.techtree.executor": "Debug",
+    "Python.techtree.executor": "Run",
     "Python.test.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -96,7 +95,8 @@
       <workItem from="1726544288076" duration="17341000" />
       <workItem from="1726577912242" duration="6653000" />
       <workItem from="1726628034415" duration="20463000" />
-      <workItem from="1726712675288" duration="4172000" />
+      <workItem from="1726712675288" duration="4362000" />
+      <workItem from="1726756499075" duration="4384000" />
     </task>
     <task id="LOCAL-00001" summary="完成了科技树添加脚本">
       <option name="closed" value="true" />
@@ -194,7 +194,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726577965473</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="添加gui，分离所有权限节点并可以自由放置节点，未完工">
+      <option name="closed" value="true" />
+      <created>1726717180708</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1726717180708</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,10 +226,11 @@
     <MESSAGE value="测试通过的科技树框架" />
     <MESSAGE value="修复权限解锁不正确的问题" />
     <MESSAGE value="添加了gui，超级简化制作方式" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加了gui，超级简化制作方式" />
+    <MESSAGE value="添加gui，分离所有权限节点并可以自由放置节点，未完工" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加gui，分离所有权限节点并可以自由放置节点，未完工" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/$techtree.coverage" NAME="techtree 覆盖结果" MODIFIED="1726717004361" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/$techtree.coverage" NAME="techtree 覆盖结果" MODIFIED="1726760565040" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/$test.coverage" NAME="test 覆盖结果" MODIFIED="1726629976439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
   </component>
 </project>

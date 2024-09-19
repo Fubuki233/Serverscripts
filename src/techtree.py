@@ -11,14 +11,14 @@ import os
 
 
 class DraggableRectangle:
-    def __init__(self, canvas, x1, y1, x2, y2, itemid, recipes, quantities_new, icon_path, upper_id=None):
+    def __init__(self, canvas, x1, y1, x2, y2, itemid, recipes, quantities_new, icon_path, lower_id=None):
         global recipe_spilt
         item_id = itemid
         self.x_axis = f"{x1 / 1920}*方法.取屏幕宽度"
         self.y_axis = f"{y1 / 1080}*方法.取屏幕高度"
-        self.upper_id = upper_id
-        self.quantities = quantities_new
-        self.recipe = recipes
+        self.lower_id = lower_id
+        self.quantities = []
+        self.recipe_spilt = []
         self.itemid = itemid
         self.canvas = canvas
         self.icon_path = icon_path
@@ -26,8 +26,10 @@ class DraggableRectangle:
         # 处理 itemid 获取下划线后的部分，并设置图标路径
         self.icon_path = os.path.join(icon_path, itemid.split("_")[-1] + ".png") if itemid else None
         print(f"icon_path={self.icon_path}")
-        recipe_spilt = split_by_comma(recipes)
-        print(f"recipe_spilt={recipe_spilt}")
+        self.recipe_spilt = split_by_comma(recipes)
+        self.quantities = split_by_comma(quantities_new)
+        print(f"recipe_spilt={self.recipe_spilt}")
+        print(f"quantities={self.quantities}")
         # 创建组件背景
         self.image_tk = None
         if self.icon_path and os.path.exists(self.icon_path):
@@ -93,8 +95,8 @@ class DraggableRectangle:
                 print(f"selected_nodes={selected_nodes}")
                 print(f"cinfo0={connect_info[connect_num][0]}")
                 print(f"cinfo1={connect_info[connect_num][1]}")
-                self.set_upper_id()
-                print(f"lower:{self.upper_id}")
+                self.set_lower_id()
+                print(f"lower:{self.lower_id}")
                 create_line()
 
     def set_position(self, new_x, new_y):
@@ -113,9 +115,9 @@ class DraggableRectangle:
         global selected_nodes, connect_info, connect_num
         selected_nodes[1].set_position(100, 100)  # 修改节点的位置
 
-    def set_upper_id(self):  # lower permission only
-        print(f"loweritemid={selected_nodes[0].itemid}")
-        self.upper_id = selected_nodes[0].itemid
+    def set_lower_id(self):  # lower permission only
+        print(f"loweritemid={selected_nodes[1].itemid}")
+        self.lower_id = selected_nodes[1].itemid
 
 
 class ConnectionLine:
@@ -171,7 +173,6 @@ intstr_product = []
 intstr_recipe = []
 intvar_quantities = []
 product = []
-recipe_separate = []
 recipe = []
 recipe_spilt = []
 quantities = []
@@ -252,14 +253,14 @@ def create_node():
 
 def test_nodes():
     for i in range(node_total):
-        # itemid, recipes, quantities_new, icon_path, upper_id = None
+        # itemid, recipes, quantities_new, icon_path, lower_id = None
         print("-------------------------------------------")
         print(f"x={nodes_list[i].x_axis}")
         print(f"y={nodes_list[i].y_axis}")
         print(f"itemid={nodes_list[i].itemid}")
         print(f"recipes={nodes_list[i].recipe}")
         print(f"uantities={nodes_list[i].quantities}")
-        print(f"upper_id={nodes_list[i].upper_id}")
+        print(f"lower_id={nodes_list[i].lower_id}")
 
 
 def bgp_():
@@ -446,7 +447,7 @@ def generate_item_core(item_id, x, y, texture, texture_hovered, unlockable, reci
   limitHeight: 200
   tip: |-
     if(方法.取变量('player_has_permission_recipe.{item_key}')=="yes"){{
-      return '{recipe}';
+      return '可以合成';
     }};
     if(方法.取变量('player_has_permission_recipe.{item_key}')!="yes" && 方法.取变量('player_has_permission_recipe.unlockable.{unlockable}')=="yes"){{
       return '单击消耗 1科技点 来解锁配方';
@@ -480,24 +481,17 @@ def generate_item_core(item_id, x, y, texture, texture_hovered, unlockable, reci
     """
 
 
-def generate_item_var(item_id, unlockable, generated_set):
-    item_key = item_id.lower().split('_')[1]
+def generate_item_var(nodes_list):
     var = []
-
     # 检查重复的变量
-    if f'player_has_permission_recipe.{item_key}' not in generated_set:
-        generated_set.add(f'player_has_permission_recipe.{item_key}')
-        var.append(f"方法.更新变量值('player_has_permission_recipe.{item_key}');\n")
-
-    for i in range(len(unlockable)):
-        if f'player_has_permission_recipe.unlockable.{unlockable[i]}' not in generated_set:
-            generated_set.add(f'player_has_permission_recipe.unlockable.{unlockable[i]}')
-            var.append(f"方法.更新变量值('player_has_permission_recipe.unlockable.{unlockable[i]}');\n")
+    for i in range(node_total):
+        var.append(f"方法.更新变量值('player_has_permission_recipe.{nodes_list[i].lower_id}');\n")
+        var.append(f"方法.更新变量值('player_has_permission_recipe.unlockable.{nodes_list[i].lower_id}');\n")
 
     return ''.join(var)
 
 
-def generate_item_command(item_id, unlockable, unlockable_, recipe_items, required_quantities, level):
+def generate_item_command(item_id, unlockable, unlockable_, recipe_items, required_quantities):
     item_key = item_id.lower().split('_')[1]
     if len(required_quantities) > 1:
         quantity_check_condition = ''.join(
@@ -522,80 +516,72 @@ def generate_item_command(item_id, unlockable, unlockable_, recipe_items, requir
     return f"""
     {''.join(command)}
         """
-
+core_content = ""
+command_content = ""
+var_content = ""
 
 # 生成文件
-def generate_files(levels, initial_x, initial_y, items_info, unlockables, unlockables_):
+def generate_files(nodes_list):
+    global core_content,command_content,var_content
     # 创建文件夹
     os.makedirs('output', exist_ok=True)
 
     # 存储已经生成的变量，以避免重复
-    generated_set = set()
 
     # 打开文件写入
-    with open('output/core.yaml', 'w', encoding='utf-8') as core_file, \
-            open('output/command.yaml', 'w', encoding='utf-8') as command_file, \
-            open('output/var.yaml', 'w', encoding='utf-8') as var_file:
+    with    open('output/core.yaml', 'w', encoding='utf-8') as core_file, open('output/command.yaml', 'w',
+                                                                               encoding='utf-8') as command_file, open(
+        'output/var.yaml', 'w', encoding='utf-8') as var_file:
+        for i in range(node_total):
+            core_content += generate_item_core(
+                item_id=nodes_list[i].itemid,
+                x=nodes_list[i].x_axis,
+                y=nodes_list[i].y_axis,
+                texture=os.path.join("icon/", nodes_list[i].itemid.split("_")[-1]) if nodes_list[i].itemid else None,
+                texture_hovered=os.path.join("icon/", nodes_list[i].itemid.split("_")[-1]) if nodes_list[
+                    i].itemid else None,
+                unlockable=nodes_list[i].lower_id,
+                recipe_items=nodes_list[i].recipe_spilt,
+                required_quantities=nodes_list[i].quantities
+            )
 
-        x = initial_x
-        y = initial_y
-
-        for level, items in enumerate(items_info):
-            for index, (item_id, recipe_items, required_quantities) in enumerate(items):
-                core_content = generate_item_core(
-                    item_id=item_id,
-                    x=f"{x}+{index * 16}",
-                    y=f"{y}+{level * 16}",
-                    texture=f"icon/{item_id.lower().split('_')[1]}",
-                    texture_hovered=f"icon/{item_id.lower().split('_')[1]}",
-                    unlockable=unlockables[level],
-                    recipe_items=recipe_items,
-                    required_quantities=required_quantities
-                )
-                command_content = generate_item_command(
-                    item_id=item_id,
-                    unlockable=unlockables[level],
-                    unlockable_=unlockables_[level],
-                    recipe_items=recipe_items,
-                    required_quantities=required_quantities,
-                    level=level
-                )
-                var_content = generate_item_var(
-                    item_id=item_id,
-                    unlockable=unlockables,
-                    generated_set=generated_set  # 传入去重的集合
-                )
-                core_content = core_content.replace('{{', '{').replace('}}', '}')
-                var_content = var_content.replace("\n        ", '')
-                var_content = var_content.replace("\n    ", '')
-                var_content = var_content.replace("方法.", '    方法.')
-                command_content = command_content.replace("['", '').replace("']", '')
-                command_content = command_content.replace("caonima", '"')
-                command_content = command_content.replace("'", '')
-                command_content = command_content.replace("    ", '')
-                command_content = command_content.replace("\\\\", '    ')
-                core_file.write(core_content + "\n")
-                var_file.write(var_content)
-                command_file.write(command_content)
+            command_content = generate_item_command(
+                item_id=nodes_list[i].itemid,
+                unlockable=nodes_list[i].lower_id,
+                unlockable_=nodes_list[i].lower_id,
+                recipe_items=nodes_list[i].recipe_spilt,
+                required_quantities=nodes_list[i].quantities
+            )
 
 
-submit_btn = ttk.Button(root, text="Submit")
-submit_btn.grid(row=7, column=0)
+            var_content = generate_item_var(
+                nodes_list=nodes_list
+            )
+            print(f"core_content={core_content}")
+            print(f"core_content=")
+        if core_content is not None:
+            core_content = core_content.replace('{{', '{').replace('}}', '}')
+        if var_content is not None:
+            var_content = var_content.replace("\n        ", '')
+            var_content = var_content.replace("\n    ", '')
+            var_content = var_content.replace("方法.", '    方法.')
+        if command_content is not None:
+            command_content = command_content.replace("['", '').replace("']", '')
+            command_content = command_content.replace("caonima", '"')
+            command_content = command_content.replace("'", '')
+            command_content = command_content.replace("    ", '')
+            command_content = command_content.replace("\\\\", '    ')
+        core_file.write(core_content + "\n")
+        var_file.write(var_content)
+        command_file.write(command_content)
 
 
 # 示例输入
 def generate():
-    levels = level_var.get()
-    initial_x = x_var.get()
-    initial_y = y_var.get()
-    items_info = analysis()
-    unlockables = nodes  # 所有层级的权限节点
-    unlockables_ = nodes_shift  # 去除第一位，树冠补None
-    print(unlockables)
-    print(f"Length of unlockables: {len(unlockables)}")
-    print(f"Length of unlockables_: {len(unlockables_)}")
-    generate_files(levels, initial_x, initial_y, items_info, unlockables, unlockables_)
+    generate_files(nodes_list)
     print("文件已生成")
 
 
+submit_btn = ttk.Button(root, text="Submit", command=generate)
+submit_btn.grid(row=7, column=0)
 root.mainloop()
