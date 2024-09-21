@@ -46,7 +46,7 @@ class DraggableRectangle:
         self.tag = canvas.create_text(x1 - 20, (y1 + y2) // 2, text="", anchor="e")
 
         # 创建按钮
-        self.button = tk.Button(canvas, text="Connect", width=1, height=1, command=self.select_node)
+        self.button = tk.Button(canvas, text="连接节点", width=6, height=1, command=self.select_node)
         self.button_window = canvas.create_window((x1 + x2) // 2, y1 - 8, window=self.button)
 
         # 绑定拖动事件到透明的矩形
@@ -147,7 +147,7 @@ class DraggableRectangle:
                                          self.canvas.coords(self.rect)[0] + 64, self.canvas.coords(self.rect)[1] + 64,
                                          outline="red", width=2)
         selected_coord = self.canvas.coords(self.rect)
-        info_text = (f"-----Test Info-----\n"
+        info_text = (f"-----调试信息-----\n"
                      f"node id    = {self}\n"
                      f"x              = {self.x_axis}\n"
                      f"y              = {self.y_axis}\n"
@@ -233,7 +233,7 @@ def create_line():
 
 # 创建主界面
 root = tk.Tk()
-root.title("Tech Tree Generator")
+root.title("树形图设计者")
 id = 0
 # 定义输入字段
 Item_ID_var = tk.StringVar()
@@ -278,19 +278,19 @@ window_height = 1080
 canvas = tk.Canvas(root, width=window_width, height=window_height)
 canvas.grid(row=0, column=0, rowspan=50, columnspan=50)  # 覆盖整个窗口
 root.geometry(f"{window_width}x{window_height}")
-tk.Label(root, text="Item ID:").grid(row=0, column=0)
+tk.Label(root, text="物品 ID:").grid(row=0, column=0)
 tk.Entry(root, textvariable=Item_ID_var).grid(row=0, column=1)
 
-tk.Label(root, text="recipes(comma seperated):").grid(row=1, column=0)
+tk.Label(root, text="配方(多个配方用 , 分割):").grid(row=1, column=0)
 tk.Entry(root, textvariable=recipe_new).grid(row=1, column=1)
 
-tk.Label(root, text="quantities(comma seperated)").grid(row=2, column=0)
+tk.Label(root, text="数量(多个数量用 , 分割，必须与配方数相符)").grid(row=2, column=0)
 tk.Entry(root, textvariable=quantities_var).grid(row=2, column=1)
 
-tk.Label(root, text="bgp path:").grid(row=3, column=0)
+tk.Label(root, text="背景图路径:").grid(row=3, column=0)
 tk.Entry(root, textvariable=bgp).grid(row=3, column=1)
 
-tk.Label(root, text="icons path:").grid(row=4, column=0)
+tk.Label(root, text="物品图标路径:").grid(row=4, column=0)
 tk.Entry(root, textvariable=icons).grid(row=4, column=1)
 
 
@@ -356,13 +356,6 @@ def bgp_():
         print(f"Error loading image: {e}")
 
 
-def modify_node():
-    """修改节点参数"""
-    itemid = Item_ID_var.get()
-    for node in nodes_list:
-        if node.itemid == itemid:
-            node.update_parameters()
-            break
 
 
 def delete_node():
@@ -379,18 +372,16 @@ def delete_node():
 
 
 # 增加修改和删除按钮到界面
-modify_btn = ttk.Button(root, text="Modify Node", command=modify_node)
-modify_btn.grid(row=7, column=0)
-delete_btn = ttk.Button(root, text="Delete Node", command=delete_node)
-delete_btn.grid(row=8, column=0)
+delete_btn = ttk.Button(root, text="删除节点", command=delete_node)
+delete_btn.grid(row=5, column=1)
 
 # 提交按钮
-submit_btn = ttk.Button(root, text="Create Node", command=create_node)
+submit_btn = ttk.Button(root, text="创建节点", command=create_node)
 submit_btn.grid(row=5, column=0)
-submit_btn = ttk.Button(root, text="Set bgp", command=bgp_)
+submit_btn = ttk.Button(root, text="设置背景", command=bgp_)
 submit_btn.grid(row=6, column=0)
 # 在创建主界面部分添加
-info_label = tk.Label(root, text="Node Info will be displayed here", justify="left", anchor="w", padx=10)
+info_label = tk.Label(root, text="双击节点后信息在这里显示", justify="left", anchor="w", padx=10)
 info_label.place(x=0, y=400)
 
 
@@ -594,6 +585,6 @@ def generate():
     print("文件已生成")
 
 
-submit_btn = ttk.Button(root, text="Submit", command=generate)
-submit_btn.grid(row=7, column=0)
+submit_btn = ttk.Button(root, text="生成文件", command=generate)
+submit_btn.grid(row=6, column=1)
 root.mainloop()
