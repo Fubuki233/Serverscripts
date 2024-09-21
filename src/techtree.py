@@ -22,14 +22,14 @@ class DraggableRectangle:
         self.canvas = canvas
         selected_id = self
         self.icon_path = icon_path
-        print(self.quantities)
+        ##print(self.quantities)
         # 处理 itemid 获取下划线后的部分，并设置图标路径
-        self.icon_path = os.path.join(icon_path, itemid.split("_")[-1] + ".png") if itemid else None
-        print(f"icon_path={self.icon_path}")
+        self.icon_path = os.path.join(icon_path, itemid.split(":")[-1] + ".png") if itemid else None
+        ##print(f"icon_path={self.icon_path}")
         self.recipe_spilt = split_by_comma(recipes)
         self.quantities = split_by_comma(quantities_new)
-        print(f"recipe_spilt={self.recipe_spilt}")
-        print(f"quantities={self.quantities}")
+        ##print(f"recipe_spilt={self.recipe_spilt}")
+        ##print(f"quantities={self.quantities}")
         # 创建组件背景
         self.image_tk = None
         if self.icon_path and os.path.exists(self.icon_path):
@@ -42,8 +42,8 @@ class DraggableRectangle:
         # 创建一个透明矩形用于绑定事件
         self.rect = canvas.create_rectangle(x1, y1, x2, y2, outline="", fill="", tags="draggable")
 
-        self.text = canvas.create_text((x1 + x2) // 2, (y1 + y2) // 2, text="Node")
-        self.tag = canvas.create_text(x1 - 20, (y1 + y2) // 2, text=item_id, anchor="e")
+        self.text = canvas.create_text((x1 + x2) // 2, (y1 + y2) // 2, text="")
+        self.tag = canvas.create_text(x1 - 20, (y1 + y2) // 2, text="", anchor="e")
 
         # 创建按钮
         self.button = tk.Button(canvas, text="Connect", width=1, height=1, command=self.select_node)
@@ -82,7 +82,7 @@ class DraggableRectangle:
         self.x = event.x
         self.y = event.y
         self.x_axis = f"{self.x / 1920}*方法.取屏幕宽度"
-        self.y_axis = f"{self.y / 1080}*方法.取屏幕高度"
+        self.y_axis = f"{self.y / 1080}*方法.取屏幕高度+界面变量.滚动值*6"
         self.selected = True
         # 更新连接线位置
         if self.selected:
@@ -99,15 +99,16 @@ class DraggableRectangle:
         global selected_nodes, connect_info, connect_num
         if len(selected_nodes) < 2:
             selected_nodes.append(self)
-            print(f"connect_num={connect_num}")
+
             connect_info[connect_num][0] = selected_nodes[0]
             if len(selected_nodes) == 2:
                 connect_info[connect_num][1] = selected_nodes[1]
-                print(f"selected_nodes={selected_nodes}")
-                print(f"cinfo0={connect_info[connect_num][0]}")
-                print(f"cinfo1={connect_info[connect_num][1]}")
+                #print(f"connect_num={connect_num}")
+                #print(f"selected_nodes={selected_nodes}")
+                #print(f"cinfo0={connect_info[connect_num][0]}")
+                #print(f"cinfo1={connect_info[connect_num][1]}")
                 self.set_lower_id()
-                print(f"lower:{self.lower_id}")
+                #print(f"lower:{self.lower_id}")
                 create_line()
 
     def set_position(self, new_x, new_y):
@@ -131,7 +132,7 @@ class DraggableRectangle:
         if selected_nodes[0].lower_id[0] == "None":
             del selected_nodes[0].lower_id[0]
         selected_nodes[0].lower_id.append(selected_nodes[1].itemid)
-        print(f"{selected_nodes[0].itemid}'s lower itemid={selected_nodes[0].lower_id}")
+        #print(f"{selected_nodes[0].itemid}'s lower itemid={selected_nodes[0].lower_id}")
         # selected_nodes[1].move_node_to_new_position()
 
     def show_parameters(self, event=None):
@@ -146,6 +147,15 @@ class DraggableRectangle:
                                          self.canvas.coords(self.rect)[0] + 64, self.canvas.coords(self.rect)[1] + 64,
                                          outline="red", width=2)
         selected_coord = self.canvas.coords(self.rect)
+        info_text = (f"-----Test Info-----\n"
+                     f"node id    = {self}\n"
+                     f"x              = {self.x_axis}\n"
+                     f"y              = {self.y_axis}\n"
+                     f"itemid       = {self.itemid}\n"
+                     f"recipes     = {self.recipe_spilt}\n"
+                     f"quantities = {self.quantities}\n"
+                     f"lower_id   = {self.lower_id}")
+        info_label.config(text=info_text)
 
     def update_parameters(self):
         """更新节点参数"""
@@ -154,7 +164,7 @@ class DraggableRectangle:
         self.quantities = split_by_comma(quantities_var.get())
         # 更新画布上的显示
         self.canvas.itemconfig(self.tag, text=self.itemid)
-        self.canvas.itemconfig(self.text, text="Node")
+        self.canvas.itemconfig(self.text, text="")
 
     def delete_node(self):
         """删除节点并解绑连接线"""
@@ -166,7 +176,6 @@ class DraggableRectangle:
         lines = [line for line in lines if line not in self.lines]
         # 清空与此节点相关的线
         self.lines.clear()
-
         # 删除节点和相关的图形对象
         self.canvas.delete(self.rect)
         self.canvas.delete(self.text)
@@ -230,8 +239,8 @@ id = 0
 Item_ID_var = tk.StringVar()
 tag = tk.StringVar()
 quantities_var = tk.StringVar()
-bgp = tk.StringVar()
-icons = tk.StringVar()
+bgp = tk.StringVar(value=r'F:\0美术素材\craftscection.png')
+icons = tk.StringVar(value=r"F:\0客户端\.minecraft\resourcepacks\DragonCore\icon")
 y_var = tk.StringVar()
 level_var = tk.IntVar()
 recipe_var = tk.StringVar()
@@ -322,29 +331,19 @@ def create_node():
                               icons.get())
     nodes_list[node_total] = node  # 将节点和别名存储在字典中
     node_total += 1
-    print(f"nodes_list={nodes_list[0]}")
-    print(f"node_total={node_total}")
+    #print(f"nodes_list={nodes_list[0]}")
+    #print(f"node_total={node_total}")
 
 
-def test_nodes():
-    for i in range(node_total):
-        # itemid, recipes, quantities_new, icon_path, lower_id = None
-        print("-------------------------------------------")
-        print(f"x={nodes_list[i].x_axis}")
-        print(f"y={nodes_list[i].y_axis}")
-        print(f"itemid={nodes_list[i].itemid}")
-        print(f"recipes={nodes_list[i].recipe}")
-        print(f"uantities={nodes_list[i].quantities}")
-        print(f"lower_id={nodes_list[i].lower_id}")
 
 
 def bgp_():
     global bgpimg
 
     # 加载并显示图片
-    print("11")
+    #print("11")
     try:
-        print("112")
+        #print("112")
         # 打开并调整图片大小
         bgpimg = Image.open(bgp.get())
         # 将图片转换为 Tkinter 兼容格式
@@ -371,9 +370,11 @@ def delete_node():
     global selected_id, node_total
     for i in range(node_total):
         if nodes_list[i].nodeid == selected_id:
+            nodes_list[i].delete_node()
             del nodes_list[i]
-            node_total = node_total -1
-            print(node_total)
+            node_total = node_total - 1
+            #print(node_total)
+            #print(nodes_list)
             break
 
 
@@ -388,11 +389,14 @@ submit_btn = ttk.Button(root, text="Create Node", command=create_node)
 submit_btn.grid(row=5, column=0)
 submit_btn = ttk.Button(root, text="Set bgp", command=bgp_)
 submit_btn.grid(row=6, column=0)
+# 在创建主界面部分添加
+info_label = tk.Label(root, text="Node Info will be displayed here", justify="left", anchor="w", padx=10)
+info_label.place(x=0, y=400)
 
 
 def generate_item_core(item_id, x, y, texture, texture_hovered, unlockable, recipe_items, required_quantities,
                        width=16, height=16):
-    item_key = item_id.lower().split('_')[1]  # 提取下划线后的内容并小写
+    item_key = item_id.lower().split(":")[1]  # 提取下划线后的内容并小写
     # 动态生成局部变量和判断逻辑
     recipe_variables = [f"局部变量.recipe{i + 1} = 0;" for i in range(len(recipe_items))]
     recipe_checks = [
@@ -480,17 +484,17 @@ def generate_item_core(item_id, x, y, texture, texture_hovered, unlockable, reci
 def generate_item_var(nodes_list):
     var = []
     unlockable_list = ""
-    print(node_total)
+    #print(node_total)
     # 检查重复的变量
     for i in range(node_total):
-        print(nodes_list)
+        #print(nodes_list)
         unlockable_list += f"方法.更新变量值('player_has_permission_recipe.unlockable.{nodes_list[i].itemid}');\n"
         unlockable_list += f"方法.更新变量值('player_has_permission_recipe.{nodes_list[i].itemid}');\n"
     return unlockable_list
 
 
 def generate_item_command(item_id, unlockable, unlockable_, recipe_items, required_quantities):
-    item_key = item_id.lower().split('_')[1]
+    item_key = item_id.lower().split(":")[1]
     unlockable_list = ""
     if len(unlockable_) > 1:
         for i in range(len(unlockable_)):
@@ -550,8 +554,8 @@ def generate_files(nodes_list):
                 item_id=nodes_list[i].itemid,
                 x=nodes_list[i].x_axis,
                 y=nodes_list[i].y_axis,
-                texture=os.path.join("icon/", nodes_list[i].itemid.split("_")[-1]) if nodes_list[i].itemid else None,
-                texture_hovered=os.path.join("icon/", nodes_list[i].itemid.split("_")[-1]) if nodes_list[
+                texture=os.path.join("icon/", nodes_list[i].itemid.split(":")[-1]) if nodes_list[i].itemid else None,
+                texture_hovered=os.path.join("icon/", nodes_list[i].itemid.split(":")[-1]) if nodes_list[
                     i].itemid else None,
                 unlockable=nodes_list[i].lower_id,
                 recipe_items=nodes_list[i].recipe_spilt,
