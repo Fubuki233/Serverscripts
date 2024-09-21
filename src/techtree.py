@@ -7,15 +7,20 @@ import os
 
 class DraggableRectangle:
     def __init__(self, canvas, x1, y1, x2, y2, itemid, recipes, quantities_new, icon_path, lower_id=None):
-        global recipe_spilt
+        global recipe_spilt,selected_id
         item_id = itemid
+        self.x1 = x1
+        self.y1 = y1
         self.x_axis = f"{(x1 + 623) / 1920}*方法.取屏幕宽度"
         self.y_axis = f"{y1 / 1080}*方法.取屏幕高度"
         self.lower_id = ["None"]
         self.quantities = []
         self.recipe_spilt = []
+        self.lines = []  # 存储与此节点相关的连接线
         self.itemid = itemid
+        self.nodeid = self
         self.canvas = canvas
+        selected_id = self
         self.icon_path = icon_path
         print(self.quantities)
         # 处理 itemid 获取下划线后的部分，并设置图标路径
@@ -80,7 +85,7 @@ class DraggableRectangle:
         self.selected = True
         # 更新连接线位置
         if self.selected:
-            for line in lines:
+            for line in self.lines:
                 line.update_position()
 
     def select_node(self):
@@ -124,10 +129,15 @@ class DraggableRectangle:
 
     def show_parameters(self, event=None):
         """在输入框中显示当前节点的参数"""
-        Item_ID_var.set(self.itemid)
-        recipe_new.set(",".join(self.recipe_spilt))
-        quantities_var.set(",".join(self.quantities))
-
+        global selected_id,border
+        selected_id=self
+        Item_ID_var.set(selected_id.itemid)
+        recipe_new.set(",".join(selected_id.recipe_spilt))
+        quantities_var.set(",".join(selected_id.quantities))
+        print(selected_id)
+        canvas.delete(border)
+        border = canvas.create_rectangle(self.canvas.coords(self.rect)[0] - 2, self.canvas.coords(self.rect)[1] - 2, self.canvas.coords(self.rect)[0] + 64, self.canvas.coords(self.rect)[1] + 64, outline="red", width=2)
+        print(self.canvas.coords(self.rect))
     def update_parameters(self):
         """更新节点参数"""
         self.itemid = Item_ID_var.get()
@@ -137,9 +147,19 @@ class DraggableRectangle:
         self.canvas.itemconfig(self.tag, text=self.itemid)
         self.canvas.itemconfig(self.text, text="Node")
 
+
     def delete_node(self):
-        """删除节点"""
-        # 从画布上移除节点和相关元素
+        """删除节点并解绑连接线"""
+        global lines
+        # 解绑所有与该节点相关的连接线
+        for line in self.lines[:]:
+            line.delete_line()  # 删除连接线对象
+        # 从全局线列表中移除这些线
+        lines = [line for line in lines if line not in self.lines]
+        # 清空与此节点相关的线
+        self.lines.clear()
+
+        # 删除节点和相关的图形对象
         self.canvas.delete(self.rect)
         self.canvas.delete(self.text)
         self.canvas.delete(self.button_window)
@@ -148,6 +168,8 @@ class DraggableRectangle:
             self.canvas.delete(self.image_item)
         # 从全局节点列表中移除
         nodes_list.remove(self)
+        canvas.delete(border)
+
 
 class ConnectionLine:
     def __init__(self, canvas, rect1, rect2):
@@ -156,14 +178,31 @@ class ConnectionLine:
         self.rect2 = rect2
         self.line = canvas.create_line(self.get_center(self.rect1), self.get_center(self.rect2), fill="white", width=3)
 
+        # 将连接线对象添加到相关节点的线列表中
+        rect1.lines.append(self)
+        rect2.lines.append(self)
+
     def get_center(self, rect):
-        # 计算矩形的中心点
-        x1, y1, x2, y2 = self.canvas.coords(rect.rect)
-        return (x1 + x2) // 2, (y1 + y2) // 2
+        # 检查节点是否存在，以避免删除后报错
+        if self.canvas.coords(rect.rect):
+            x1, y1, x2, y2 = self.canvas.coords(rect.rect)
+            return (x1 + x2) // 2, (y1 + y2) // 2
+        return None, None  # 如果节点不存在，返回空值
 
     def update_position(self):
-        # 更新连接线的位置
-        self.canvas.coords(self.line, self.get_center(self.rect1), self.get_center(self.rect2))
+        pos1 = self.get_center(self.rect1)
+        pos2 = self.get_center(self.rect2)
+        if pos1 and pos2:  # 确保节点存在
+            self.canvas.coords(self.line, pos1, pos2)
+
+    def delete_line(self):
+        """删除连接线"""
+        self.canvas.delete(self.line)
+        # 从两个节点的 lines 列表中移除此连接线
+        if self in self.rect1.lines:
+            self.rect1.lines.remove(self)
+        if self in self.rect2.lines:
+            self.rect2.lines.remove(self)
 
 
 def create_line():
@@ -213,6 +252,8 @@ connect_info = [[None for _ in range(2)] for _ in range(100)]
 lines = []
 alias_dict = {}
 connect_num = 0
+selected_id = ""
+border = None  # 用于存储红框的引用
 # 布局
 window_width = 1920
 window_height = 1080
@@ -315,9 +356,9 @@ def modify_node():
 
 def delete_node():
     """删除选中的节点"""
-    itemid = Item_ID_var.get()
+    global selected_id
     for node in nodes_list:
-        if node.itemid == itemid:
+        if node.nodeid == selected_id:
             node.delete_node()
             break
 
