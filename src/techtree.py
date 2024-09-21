@@ -7,7 +7,7 @@ import os
 
 class DraggableRectangle:
     def __init__(self, canvas, x1, y1, x2, y2, itemid, recipes, quantities_new, icon_path, lower_id=None):
-        global recipe_spilt,selected_id
+        global recipe_spilt, selected_id
         item_id = itemid
         self.x1 = x1
         self.y1 = y1
@@ -68,6 +68,7 @@ class DraggableRectangle:
         self.y = event.y
 
     def on_drag(self, event):
+        global selected_id, selected_coord, border
         dx = event.x - self.x
         dy = event.y - self.y
         # 移动背景图片
@@ -87,6 +88,12 @@ class DraggableRectangle:
         if self.selected:
             for line in self.lines:
                 line.update_position()
+        if selected_coord != selected_id.canvas.coords(selected_id.rect):
+            canvas.delete(border)
+            border = canvas.create_rectangle(self.canvas.coords(self.rect)[0] - 2, self.canvas.coords(self.rect)[1] - 2,
+                                             self.canvas.coords(self.rect)[0] + 64,
+                                             self.canvas.coords(self.rect)[1] + 64, outline="red", width=2)
+            selected_coord = self.canvas.coords(self.rect)
 
     def select_node(self):
         global selected_nodes, connect_info, connect_num
@@ -129,15 +136,17 @@ class DraggableRectangle:
 
     def show_parameters(self, event=None):
         """在输入框中显示当前节点的参数"""
-        global selected_id,border
-        selected_id=self
+        global selected_id, border, selected_coord
+        selected_id = self
         Item_ID_var.set(selected_id.itemid)
         recipe_new.set(",".join(selected_id.recipe_spilt))
         quantities_var.set(",".join(selected_id.quantities))
-        print(selected_id)
         canvas.delete(border)
-        border = canvas.create_rectangle(self.canvas.coords(self.rect)[0] - 2, self.canvas.coords(self.rect)[1] - 2, self.canvas.coords(self.rect)[0] + 64, self.canvas.coords(self.rect)[1] + 64, outline="red", width=2)
-        print(self.canvas.coords(self.rect))
+        border = canvas.create_rectangle(self.canvas.coords(self.rect)[0] - 2, self.canvas.coords(self.rect)[1] - 2,
+                                         self.canvas.coords(self.rect)[0] + 64, self.canvas.coords(self.rect)[1] + 64,
+                                         outline="red", width=2)
+        selected_coord = self.canvas.coords(self.rect)
+
     def update_parameters(self):
         """更新节点参数"""
         self.itemid = Item_ID_var.get()
@@ -146,7 +155,6 @@ class DraggableRectangle:
         # 更新画布上的显示
         self.canvas.itemconfig(self.tag, text=self.itemid)
         self.canvas.itemconfig(self.text, text="Node")
-
 
     def delete_node(self):
         """删除节点并解绑连接线"""
@@ -254,6 +262,7 @@ alias_dict = {}
 connect_num = 0
 selected_id = ""
 border = None  # 用于存储红框的引用
+selected_coord = None
 # 布局
 window_width = 1920
 window_height = 1080
@@ -346,6 +355,8 @@ def bgp_():
 
     except Exception as e:
         print(f"Error loading image: {e}")
+
+
 def modify_node():
     """修改节点参数"""
     itemid = Item_ID_var.get()
@@ -354,13 +365,17 @@ def modify_node():
             node.update_parameters()
             break
 
+
 def delete_node():
     """删除选中的节点"""
-    global selected_id
-    for node in nodes_list:
-        if node.nodeid == selected_id:
-            node.delete_node()
+    global selected_id, node_total
+    for i in range(node_total):
+        if nodes_list[i].nodeid == selected_id:
+            del nodes_list[i]
+            node_total = node_total -1
+            print(node_total)
             break
+
 
 # 增加修改和删除按钮到界面
 modify_btn = ttk.Button(root, text="Modify Node", command=modify_node)
@@ -465,8 +480,10 @@ def generate_item_core(item_id, x, y, texture, texture_hovered, unlockable, reci
 def generate_item_var(nodes_list):
     var = []
     unlockable_list = ""
+    print(node_total)
     # 检查重复的变量
     for i in range(node_total):
+        print(nodes_list)
         unlockable_list += f"方法.更新变量值('player_has_permission_recipe.unlockable.{nodes_list[i].itemid}');\n"
         unlockable_list += f"方法.更新变量值('player_has_permission_recipe.{nodes_list[i].itemid}');\n"
     return unlockable_list
