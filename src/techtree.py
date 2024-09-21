@@ -2,11 +2,6 @@ import os
 import tkinter as tk
 from tkinter import ttk
 from PIL import Image, ImageTk
-
-from PIL import Image, ImageTk
-import os
-
-from PIL import Image, ImageTk
 import os
 
 
@@ -14,9 +9,9 @@ class DraggableRectangle:
     def __init__(self, canvas, x1, y1, x2, y2, itemid, recipes, quantities_new, icon_path, lower_id=None):
         global recipe_spilt
         item_id = itemid
-        self.x_axis = f"{x1 / 1920}*方法.取屏幕宽度"
+        self.x_axis = f"{(x1 + 623) / 1920}*方法.取屏幕宽度"
         self.y_axis = f"{y1 / 1080}*方法.取屏幕高度"
-        self.lower_id = lower_id
+        self.lower_id = ["None"]
         self.quantities = []
         self.recipe_spilt = []
         self.itemid = itemid
@@ -115,9 +110,13 @@ class DraggableRectangle:
         global selected_nodes, connect_info, connect_num
         selected_nodes[1].set_position(100, 100)  # 修改节点的位置
 
-    def set_lower_id(self):  # lower permission only
-        print(f"loweritemid={selected_nodes[1].itemid}")
-        self.lower_id = selected_nodes[1].itemid
+    def set_lower_id(self):  # store lower permission only
+        global selected_nodes
+        if selected_nodes[0].lower_id[0] == "None":
+            del selected_nodes[0].lower_id[0]
+        selected_nodes[0].lower_id.append(selected_nodes[1].itemid)
+        print(f"{selected_nodes[0].itemid}'s lower itemid={selected_nodes[0].lower_id}")
+        # selected_nodes[1].move_node_to_new_position()
 
 
 class ConnectionLine:
@@ -125,7 +124,7 @@ class ConnectionLine:
         self.canvas = canvas
         self.rect1 = rect1
         self.rect2 = rect2
-        self.line = canvas.create_line(self.get_center(self.rect1), self.get_center(self.rect2), fill="black", width=2)
+        self.line = canvas.create_line(self.get_center(self.rect1), self.get_center(self.rect2), fill="white", width=3)
 
     def get_center(self, rect):
         # 计算矩形的中心点
@@ -193,21 +192,17 @@ root.geometry(f"{window_width}x{window_height}")
 tk.Label(root, text="Item ID:").grid(row=0, column=0)
 tk.Entry(root, textvariable=Item_ID_var).grid(row=0, column=1)
 
-tk.Label(root, text="bgp path:").grid(row=0, column=2)
-tk.Entry(root, textvariable=bgp).grid(row=0, column=3)
-
 tk.Label(root, text="recipes(comma seperated):").grid(row=1, column=0)
 tk.Entry(root, textvariable=recipe_new).grid(row=1, column=1)
-
-tk.Label(root, text="icons path:").grid(row=1, column=2)
-tk.Entry(root, textvariable=icons).grid(row=1, column=3)
 
 tk.Label(root, text="quantities(comma seperated)").grid(row=2, column=0)
 tk.Entry(root, textvariable=quantities_var).grid(row=2, column=1)
 
-tk.Label(root, text=f"permission nodes(separate with comma, quantities=level):").grid(row=3, column=0)
-tk.Entry(root, textvariable=permission_nodes).grid(row=3, column=1)
-text_widget = tk.Text(root, width=40, height=10)
+tk.Label(root, text="bgp path:").grid(row=3, column=0)
+tk.Entry(root, textvariable=bgp).grid(row=3, column=1)
+
+tk.Label(root, text="icons path:").grid(row=4, column=0)
+tk.Entry(root, textvariable=icons).grid(row=4, column=1)
 
 
 def split_by_comma(input_string):
@@ -276,7 +271,7 @@ def bgp_():
         bgpimg = ImageTk.PhotoImage(bgpimg)
 
         # 将图片放在 Canvas 上作为背景
-        canvas.create_image(0, 0, anchor="nw", image=bgpimg)
+        canvas.create_image(623, 0, anchor="nw", image=bgpimg)
 
     except Exception as e:
         print(f"Error loading image: {e}")
@@ -287,121 +282,16 @@ submit_btn = ttk.Button(root, text="Create Node", command=create_node)
 submit_btn.grid(row=5, column=0)
 submit_btn = ttk.Button(root, text="Set bgp", command=bgp_)
 submit_btn.grid(row=6, column=0)
-submit_btn = ttk.Button(root, text="nodelist", command=test_nodes)
-submit_btn.grid(row=5, column=1)
-
-# 处理输入
-"""
-def prevalue():
-    global recipe_num_var, nodes, nodes_shift, bgpimg, label  # 使用 global 声明全局变量
-    # 获取输入的 x, y, level 值
-
-    # 清空之前的全局变量数组，避免累加
-    recipe_num_var.clear()
-
-    # 动态创建 IntVar 并生成 Label 和 Entry
-    for i in range(node_total):
-        recipe_num_var.append(tk.IntVar())  # 添加到全局数组中
-        recipe_num_val.append(int)  # 添加到全局数组中
-        tk.Label(root, text=f"Enter the number of recipes in rank {i}:").grid(row=i + 4, column=0)
-        tk.Entry(root, textvariable=recipe_num_var[i]).grid(row=i + 4, column=1)
-
-    nodes = split_by_comma(permission_nodes.get())
-    nodes_shift = shift_left(nodes)
-
-    submit_btn.grid(row=6 + level_var.get(), column=0)
-    recipe_btn = ttk.Button(root, text="NEXT", command=recipe_command)
-    recipe_btn.grid(row=6 + level_var.get(), column=1)
-"""
-
-"""
-def recipe_command():
-    global product, recipe, recipe_separate, recipe_num_var, recipe_num_val, quantities, quantities_separate, intstr_product
-    for i in range(node_total):
-        recipe_num_val[i] = recipe_num_var[i].get()
-        print(recipe_num_val[i])
-        # 创建 IntVar 并添加到列表中
-        # 动态创建 Label 和 Entry
-    max_val = max(recipe_num_val)
-    # 创建二维数组，使用None初始化
-    product = [[None for _ in range(max_val)] for _ in range(level)]
-    recipe = [[None for _ in range(max_val)] for _ in range(level)]
-    quantities = [[None for _ in range(max_val)] for _ in range(level)]
-    for i in range(level):
-        for j in range(recipe_num_val[i]):
-            # 显示产品条目
-            product_str = tk.StringVar()
-            recipe_str = tk.StringVar()
-            quantities_int = tk.StringVar()
-            product[i][j] = product_str  # 存储字符串变量
-            recipe[i][j] = recipe_str  # 存储字符串变量
-            quantities[i][j] = quantities_int  # 存储字符串变量
-
-            tk.Label(root, text=f"product:").grid(row=0 + i * 7, column=j + 8)
-            tk.Entry(root, textvariable=product_str).grid(row=1 + i * 7, column=j + 8)
-            tk.Label(root, text=f"recipes (separate with comma)").grid(row=2 + i * 7, column=j + 8)
-            tk.Entry(root, textvariable=recipe_str).grid(row=3 + i * 7, column=j + 8)
-            tk.Label(root, text=f"quantities (separate with comma)").grid(row=4 + i * 7, column=j + 8)
-            tk.Entry(root, textvariable=quantities_int).grid(row=5 + i * 7, column=j + 8)
-            tk.Label(root, text=f"--------------------------------------------------").grid(row=6 + i * 7, column=j + 8)
-    print(f"product:{product}")
-    submit_btn.grid(row=6 + recipe_num_val[i], column=0)
-    recipe_btn = ttk.Button(root, text="generate", command=generate)
-    recipe_btn.grid(row=6 + level_var.get(), column=1)
-
-"""
 
 
-def analysis():
-    global product, recipe, quantities
-    level = level_var.get()
-    items_info = []
-
-    for i in range(level):
-        product_row = []
-        recipe_row = []
-        quantities_row = []
-
-        for j in range(recipe_num_val[i]):
-            if product[i][j] is not None and recipe[i][j] is not None and quantities[i][j] is not None:
-                product_value = product[i][j].get().strip()
-                recipe_value = recipe[i][j].get().strip().split(',')  # 处理为数组
-                quantities_value = [int(q) for q in quantities[i][j].get().strip().split(',') if q.isdigit()]  # 处理为整数数组
-
-                product_row.append(product_value)
-                recipe_row.append(recipe_value)
-                quantities_row.append(quantities_value)
-
-        if product_row and recipe_row and quantities_row:
-            items_info.append([
-                (product_row[k], recipe_row[k], quantities_row[k])  # 按简化后的格式处理
-                for k in range(len(product_row))
-            ])
-
-    # 打印输出，用于检查生成的 items_info
-    for idx, level_items in enumerate(items_info):
-        print(f"Level {idx}:")
-        for item in level_items:
-            print(f" Item ID: {item[0]}")
-            print(f" Recipe Items: {item[1]}")
-            print(f" Quantities: {item[2]}")
-
-    print(items_info)
-    return items_info
-
-    # 启动界面
-
-
-# 根据输入生成坐标和物品ID相关的字符串
 def generate_item_core(item_id, x, y, texture, texture_hovered, unlockable, recipe_items, required_quantities,
                        width=16, height=16):
     item_key = item_id.lower().split('_')[1]  # 提取下划线后的内容并小写
-
     # 动态生成局部变量和判断逻辑
     recipe_variables = [f"局部变量.recipe{i + 1} = 0;" for i in range(len(recipe_items))]
     recipe_checks = [
         f"""
-        if(方法.取成员(方法.分割(方法.取槽位物品(方法.合并文本('container_' , 局部变量.计数文本 )),'"'), 1) == '{item}'){{
+        if(方法.取成员(方法.分割(方法.取槽位物品(方法.合并文本('container_' , 局部变量.计数文本 )),'"'), 1) == '{item.lower().replace('_', ':')}'){{
             局部变量.recipe{i + 1} = 局部变量.recipe{i + 1} + 方法.取物品数(方法.取槽位物品(方法.合并文本('container_' , 局部变量.计数文本 )));
         }};
         """ for i, item in enumerate(recipe_items)
@@ -427,7 +317,7 @@ def generate_item_core(item_id, x, y, texture, texture_hovered, unlockable, reci
     if(方法.取变量('player_has_permission_recipe.{item_key}')=="yes"){{
       return "{texture}.png";
     }};
-    if(方法.取变量('player_has_permission_recipe.{item_key}')!="yes" && 方法.取变量('player_has_permission_recipe.unlockable.{unlockable}')=="yes"){{
+    if(方法.取变量('player_has_permission_recipe.{item_key}')!="yes" && 方法.取变量('player_has_permission_recipe.unlockable.{item_id}')=="yes"){{
       return "{texture}_unlockable.png";
     }};
     return "icon/unknown_recipe.png"
@@ -435,7 +325,7 @@ def generate_item_core(item_id, x, y, texture, texture_hovered, unlockable, reci
     if(方法.取变量('player_has_permission_recipe.{item_key}')=="yes"){{
       return "{texture_hovered}.png";
     }};
-    if(方法.取变量('player_has_permission_recipe.{item_key}')!="yes" && 方法.取变量('player_has_permission_recipe.unlockable.{unlockable}')=="yes"){{
+    if(方法.取变量('player_has_permission_recipe.{item_key}')!="yes" && 方法.取变量('player_has_permission_recipe.unlockable.{item_id}')=="yes"){{
       return "{texture_hovered}_unlockable.png";
     }};
     return "icon/unknown_recipe.png";
@@ -449,7 +339,7 @@ def generate_item_core(item_id, x, y, texture, texture_hovered, unlockable, reci
     if(方法.取变量('player_has_permission_recipe.{item_key}')=="yes"){{
       return '可以合成';
     }};
-    if(方法.取变量('player_has_permission_recipe.{item_key}')!="yes" && 方法.取变量('player_has_permission_recipe.unlockable.{unlockable}')=="yes"){{
+    if(方法.取变量('player_has_permission_recipe.{item_key}')!="yes" && 方法.取变量('player_has_permission_recipe.unlockable.{item_id}')=="yes"){{
       return '单击消耗 1科技点 来解锁配方';
     }};
     return '未知的配方'; 
@@ -471,7 +361,7 @@ def generate_item_core(item_id, x, y, texture, texture_hovered, unlockable, reci
           方法.执行按键指令('{item_id}');
           方法.界面变量.{item_key}_craftable=true;
         }};
-      }} else if(方法.取变量('player_has_permission_recipe.unlockable.{unlockable}')=="yes"){{
+      }} else if(方法.取变量('player_has_permission_recipe.unlockable.{item_id}')=="yes"){{
         if(方法.取变量('player_level')>=1){{
           方法.执行按键指令('{item_id}_unlock');
         }} else {{
@@ -483,25 +373,37 @@ def generate_item_core(item_id, x, y, texture, texture_hovered, unlockable, reci
 
 def generate_item_var(nodes_list):
     var = []
+    unlockable_list = ""
     # 检查重复的变量
     for i in range(node_total):
-        var.append(f"方法.更新变量值('player_has_permission_recipe.{nodes_list[i].lower_id}');\n")
-        var.append(f"方法.更新变量值('player_has_permission_recipe.unlockable.{nodes_list[i].lower_id}');\n")
-
-    return ''.join(var)
+        unlockable_list += f"方法.更新变量值('player_has_permission_recipe.unlockable.{nodes_list[i].itemid}');\n"
+        unlockable_list += f"方法.更新变量值('player_has_permission_recipe.{nodes_list[i].itemid}');\n"
+    return unlockable_list
 
 
 def generate_item_command(item_id, unlockable, unlockable_, recipe_items, required_quantities):
     item_key = item_id.lower().split('_')[1]
+    unlockable_list = ""
+    if len(unlockable_) > 1:
+        for i in range(len(unlockable_)):
+            if unlockable_[i] == "None":
+                unlockable_list += "\n"
+            else:
+                unlockable_list += f"\\\\- \"[console]manuaddp %player_name% recipe.unlockable.{unlockable_[i]}\"\n"
+    else:
+        if unlockable_[0] == "None":
+            unlockable_list = "\n"
+        else:
+            unlockable_list = f"\\\\- \"[console]manuaddp %player_name% recipe.unlockable.{unlockable_[0]}\"\n"
     if len(required_quantities) > 1:
         quantity_check_condition = ''.join(
             [
-                f"\\\\- caonima[console]clear %player_name% {recipe_items[i]} {required_quantities[i]}caonima '\n'        "
+                f"\\\\- \"[console]clear %player_name% {recipe_items[i]} {required_quantities[i]}\" '\n'        "
                 for i in range(len(required_quantities))])
         quantity_check = f"{quantity_check_condition}"
     else:
         # 单个条件时，正常生成
-        quantity_check = f"\\\\- caonima[console]clear %player_name% {recipe_items} {required_quantities[0]}caonima"
+        quantity_check = f"\\\\- \"[console]clear %player_name% {recipe_items} {required_quantities[0]}\""
     command = [
         f"""
     {item_id}:
@@ -510,19 +412,22 @@ def generate_item_command(item_id, unlockable, unlockable_, recipe_items, requir
     {item_id}_unlock:
         \\\\- "[console]xp -1L %player_name%"
         \\\\- "[console]manuaddp %player_name% recipe.{item_key}"
-        \\\\- "[console]manuaddp %player_name% recipe.unlockable.{unlockable_}"
+        {unlockable_list}
     """
     ]
     return f"""
     {''.join(command)}
         """
+
+
 core_content = ""
 command_content = ""
 var_content = ""
 
+
 # 生成文件
 def generate_files(nodes_list):
-    global core_content,command_content,var_content
+    global core_content, command_content, var_content
     # 创建文件夹
     os.makedirs('output', exist_ok=True)
 
@@ -545,7 +450,7 @@ def generate_files(nodes_list):
                 required_quantities=nodes_list[i].quantities
             )
 
-            command_content = generate_item_command(
+            command_content += generate_item_command(
                 item_id=nodes_list[i].itemid,
                 unlockable=nodes_list[i].lower_id,
                 unlockable_=nodes_list[i].lower_id,
@@ -553,24 +458,19 @@ def generate_files(nodes_list):
                 required_quantities=nodes_list[i].quantities
             )
 
-
             var_content = generate_item_var(
                 nodes_list=nodes_list
             )
-            print(f"core_content={core_content}")
-            print(f"core_content=")
         if core_content is not None:
             core_content = core_content.replace('{{', '{').replace('}}', '}')
         if var_content is not None:
-            var_content = var_content.replace("\n        ", '')
-            var_content = var_content.replace("\n    ", '')
             var_content = var_content.replace("方法.", '    方法.')
         if command_content is not None:
             command_content = command_content.replace("['", '').replace("']", '')
-            command_content = command_content.replace("caonima", '"')
+            command_content = command_content.replace("\"", '"')
             command_content = command_content.replace("'", '')
             command_content = command_content.replace("    ", '')
-            command_content = command_content.replace("\\\\", '    ')
+            command_content = command_content.replace("\\", '  ')
         core_file.write(core_content + "\n")
         var_file.write(var_content)
         command_file.write(command_content)
