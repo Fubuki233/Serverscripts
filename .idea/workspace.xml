@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7baa1a59-7a9a-4a3c-bd2e-0c4907487005" name="更改" comment="添加gui，分离所有权限节点并可以自由放置节点，暂未测试，至少权限链接是对的">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="7baa1a59-7a9a-4a3c-bd2e-0c4907487005" name="更改" comment="完成带gui的科技树制作器，将权限与树的深度解绑，现在权限与单独的物品绑定">
       <change beforePath="$PROJECT_DIR$/src/techtree.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/techtree.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,7 +98,7 @@
       <workItem from="1726756499075" duration="4952000" />
       <workItem from="1726799007413" duration="5432000" />
       <workItem from="1726913743238" duration="4036000" />
-      <workItem from="1726921278276" duration="2189000" />
+      <workItem from="1726921278276" duration="2499000" />
     </task>
     <task id="LOCAL-00001" summary="完成了科技树添加脚本">
       <option name="closed" value="true" />
@@ -213,7 +212,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726760926438</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="完成带gui的科技树制作器，将权限与树的深度解绑，现在权限与单独的物品绑定">
+      <option name="closed" value="true" />
+      <created>1726923741297</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1726923741297</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,10 +246,11 @@
     <MESSAGE value="添加了gui，超级简化制作方式" />
     <MESSAGE value="添加gui，分离所有权限节点并可以自由放置节点，未完工" />
     <MESSAGE value="添加gui，分离所有权限节点并可以自由放置节点，暂未测试，至少权限链接是对的" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加gui，分离所有权限节点并可以自由放置节点，暂未测试，至少权限链接是对的" />
+    <MESSAGE value="完成带gui的科技树制作器，将权限与树的深度解绑，现在权限与单独的物品绑定" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成带gui的科技树制作器，将权限与树的深度解绑，现在权限与单独的物品绑定" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/$techtree.coverage" NAME="techtree 覆盖结果" MODIFIED="1726923181342" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/$techtree.coverage" NAME="techtree 覆盖结果" MODIFIED="1726923788684" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/$test.coverage" NAME="test 覆盖结果" MODIFIED="1726629976439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
   </component>
 </project>

@@ -49,6 +49,10 @@ class DraggableRectangle:
         self.canvas.tag_bind(self.rect, "<B1-Motion>", self.on_drag)
         self.canvas.tag_bind(self.text, "<ButtonPress-1>", self.on_press)
         self.canvas.tag_bind(self.text, "<B1-Motion>", self.on_drag)
+        self.canvas.tag_bind(self.rect, "<ButtonPress-1>", self.on_press)
+        self.canvas.tag_bind(self.text, "<ButtonPress-1>", self.on_press)
+        self.canvas.tag_bind(self.rect, "<Double-Button-1>", self.show_parameters)
+        self.canvas.tag_bind(self.text, "<Double-Button-1>", self.show_parameters)
 
         self.x = 0
         self.y = 0
@@ -118,6 +122,32 @@ class DraggableRectangle:
         print(f"{selected_nodes[0].itemid}'s lower itemid={selected_nodes[0].lower_id}")
         # selected_nodes[1].move_node_to_new_position()
 
+    def show_parameters(self, event=None):
+        """在输入框中显示当前节点的参数"""
+        Item_ID_var.set(self.itemid)
+        recipe_new.set(",".join(self.recipe_spilt))
+        quantities_var.set(",".join(self.quantities))
+
+    def update_parameters(self):
+        """更新节点参数"""
+        self.itemid = Item_ID_var.get()
+        self.recipe_spilt = split_by_comma(recipe_new.get())
+        self.quantities = split_by_comma(quantities_var.get())
+        # 更新画布上的显示
+        self.canvas.itemconfig(self.tag, text=self.itemid)
+        self.canvas.itemconfig(self.text, text="Node")
+
+    def delete_node(self):
+        """删除节点"""
+        # 从画布上移除节点和相关元素
+        self.canvas.delete(self.rect)
+        self.canvas.delete(self.text)
+        self.canvas.delete(self.button_window)
+        self.canvas.delete(self.tag)
+        if self.image_tk:
+            self.canvas.delete(self.image_item)
+        # 从全局节点列表中移除
+        nodes_list.remove(self)
 
 class ConnectionLine:
     def __init__(self, canvas, rect1, rect2):
@@ -275,7 +305,27 @@ def bgp_():
 
     except Exception as e:
         print(f"Error loading image: {e}")
+def modify_node():
+    """修改节点参数"""
+    itemid = Item_ID_var.get()
+    for node in nodes_list:
+        if node.itemid == itemid:
+            node.update_parameters()
+            break
 
+def delete_node():
+    """删除选中的节点"""
+    itemid = Item_ID_var.get()
+    for node in nodes_list:
+        if node.itemid == itemid:
+            node.delete_node()
+            break
+
+# 增加修改和删除按钮到界面
+modify_btn = ttk.Button(root, text="Modify Node", command=modify_node)
+modify_btn.grid(row=7, column=0)
+delete_btn = ttk.Button(root, text="Delete Node", command=delete_node)
+delete_btn.grid(row=8, column=0)
 
 # 提交按钮
 submit_btn = ttk.Button(root, text="Create Node", command=create_node)
