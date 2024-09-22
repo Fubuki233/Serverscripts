@@ -643,7 +643,7 @@ def generate_files(nodes_list):
     # 打开文件写入
     with    open('output/core.yaml', 'w', encoding='utf-8') as core_file, open('output/command.yaml', 'w',
                                                                                encoding='utf-8') as command_file, open(
-        'output/var.yaml', 'w', encoding='utf-8') as var_file, open(f'{node_file}]', 'w',
+        'output/var.yaml', 'w', encoding='utf-8') as var_file, open(f'output/node_file_{time.strftime('%Y-%m-%d %H-%M-%S', time.localtime())}.yaml', 'w',
                                                                     encoding='utf-8') as node_store:
 
         core_content = ""
