@@ -3,7 +3,7 @@ import tkinter as tk
 from tkinter import ttk
 from PIL import Image, ImageTk
 import os
-
+import time
 
 class DraggableRectangle:
     def __init__(self, canvas, x1, y1, x2, y2, itemid, recipes, quantities_new, icon_path, lower_id=None):
@@ -281,6 +281,7 @@ unlockable_import = []
 recipe_items_import = []
 required_quantities_import = []
 node_total_import = 0
+node_file=tk.StringVar(value="")
 # 布局
 window_width = 1920
 window_height = 1080
@@ -314,8 +315,8 @@ def process_node_data():
     unlockable_import = []
     recipe_items_import = []
     required_quantities_import = []
-    if os.path.exists('output/node_store.yaml'):
-        with open('output/node_store.yaml', 'r', encoding='utf-8') as file:
+    if os.path.exists(node_file.get().replace("\"","")):
+        with open(node_file.get().replace("\"",""), 'r', encoding='utf-8') as file:
             lines1 = file.readlines()
             node_total_import = len(lines1)  # 总节点数
             print(node_total_import)
@@ -358,7 +359,7 @@ def process_node_data():
                                           float(x_import[i]) + 64, float(y_import[i]) + 64,
                                           item_id_import[i], recipe_items_import[i],
                                           required_quantities_import[i],
-                                          icons.get())
+                                          icons.get().replace("\"",""))
                 nodes_list[i] = node  # 将节点和别名存储在字典中
 
             node_total = node_total_import
@@ -374,8 +375,9 @@ def process_node_data():
 # 示例调用函数
 
 delete_btn = ttk.Button(root, text="读取节点数据", command=process_node_data)
-delete_btn.grid(row=5, column=2)
-
+delete_btn.grid(row=9, column=0)
+tk.Label(root, text="节点文件:").grid(row=7, column=0)
+tk.Entry(root, textvariable=node_file).grid(row=7, column=1)
 
 def split_by_comma(input_string):
     result_array = [item.strip() for item in input_string.split(",")]
@@ -399,7 +401,7 @@ def node_paramater(alias, new_x, new_y):
 
 
 def parachange():
-    itemid = Item_ID_var.get()
+    itemid = Item_ID_var.get().replace("\"","")
     new_x = 100
     new_y = 200
     node_paramater(itemid, new_x, new_y)
@@ -411,8 +413,8 @@ def create_node():
     x = 200
     y = 600
     flag = 0
-    node = DraggableRectangle(canvas, x, y, x + 64, y + 64, Item_ID_var.get(), recipe_new.get(), quantities_var.get(),
-                              icons.get())
+    node = DraggableRectangle(canvas, x, y, x + 64, y + 64, Item_ID_var.get().replace("\"",""), recipe_new.get().replace("\"",""), quantities_var.get().replace("\"",""),
+                              icons.get().replace("\"",""))
     if node_total_import != 0 and flag == 0:
         flag = 1
 
@@ -434,7 +436,7 @@ def bgp_():
     try:
         # print("112")
         # 打开并调整图片大小
-        bgpimg = Image.open(bgp.get())
+        bgpimg = Image.open(bgp.get().replace("\"","").replace("\"",""))
         # 将图片转换为 Tkinter 兼容格式
         bgpimg = ImageTk.PhotoImage(bgpimg)
 
@@ -641,7 +643,7 @@ def generate_files(nodes_list):
     # 打开文件写入
     with    open('output/core.yaml', 'w', encoding='utf-8') as core_file, open('output/command.yaml', 'w',
                                                                                encoding='utf-8') as command_file, open(
-        'output/var.yaml', 'w', encoding='utf-8') as var_file, open('output/node_store.yaml', 'w',
+        'output/var.yaml', 'w', encoding='utf-8') as var_file, open(f'{node_file}]', 'w',
                                                                     encoding='utf-8') as node_store:
 
         core_content = ""
