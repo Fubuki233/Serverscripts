@@ -9,13 +9,14 @@ class DraggableRectangle:
     def __init__(self, canvas, x1, y1, x2, y2, itemid, recipes, quantities_new, icon_path, lower_id=None):
         global recipe_spilt, selected_id
         item_id = itemid
-        self.x1 = x1
-        self.y1 = y1
-        self.x_axis = f"{(x1 + 623) / 1920}*方法.取屏幕宽度"
+        self.x = x1
+        self.y = y1
+        self.x_axis = f"{x1 / 1920}*方法.取屏幕宽度"
         self.y_axis = f"{y1 / 1080}*方法.取屏幕高度"
         self.lower_id = ["None"]
         self.quantities = []
         self.recipe_spilt = []
+        self.recipe_nospilt = recipes
         self.lines = []  # 存储与此节点相关的连接线
         self.itemid = itemid
         self.nodeid = self
@@ -28,6 +29,7 @@ class DraggableRectangle:
         ##print(f"icon_path={self.icon_path}")
         self.recipe_spilt = split_by_comma(recipes)
         self.quantities = split_by_comma(quantities_new)
+        self.quantities_nospilt = quantities_new
         ##print(f"recipe_spilt={self.recipe_spilt}")
         ##print(f"quantities={self.quantities}")
         # 创建组件背景
@@ -58,14 +60,11 @@ class DraggableRectangle:
         self.canvas.tag_bind(self.text, "<ButtonPress-1>", self.on_press)
         self.canvas.tag_bind(self.rect, "<Double-Button-1>", self.show_parameters)
         self.canvas.tag_bind(self.text, "<Double-Button-1>", self.show_parameters)
-
-        self.x = 0
-        self.y = 0
         self.selected = False
 
     def on_press(self, event):
-        self.x = event.x
-        self.y = event.y
+        self.x = self.x
+        self.y = self.y
 
     def on_drag(self, event):
         global selected_id, selected_coord, border
@@ -79,8 +78,8 @@ class DraggableRectangle:
         self.canvas.move(self.text, dx, dy)
         self.canvas.move(self.button_window, dx, dy)
         self.canvas.move(self.tag, dx, dy)
-        self.x = event.x
-        self.y = event.y
+        self.x += dx
+        self.y += dy
         self.x_axis = f"{self.x / 1920}*方法.取屏幕宽度"
         self.y_axis = f"{self.y / 1080}*方法.取屏幕高度+界面变量.滚动值*6"
         self.selected = True
@@ -103,12 +102,12 @@ class DraggableRectangle:
             connect_info[connect_num][0] = selected_nodes[0]
             if len(selected_nodes) == 2:
                 connect_info[connect_num][1] = selected_nodes[1]
-                #print(f"connect_num={connect_num}")
-                #print(f"selected_nodes={selected_nodes}")
-                #print(f"cinfo0={connect_info[connect_num][0]}")
-                #print(f"cinfo1={connect_info[connect_num][1]}")
+                # print(f"connect_num={connect_num}")
+                # print(f"selected_nodes={selected_nodes}")
+                # print(f"cinfo0={connect_info[connect_num][0]}")
+                # print(f"cinfo1={connect_info[connect_num][1]}")
                 self.set_lower_id()
-                #print(f"lower:{self.lower_id}")
+                # print(f"lower:{self.lower_id}")
                 create_line()
 
     def set_position(self, new_x, new_y):
@@ -132,7 +131,7 @@ class DraggableRectangle:
         if selected_nodes[0].lower_id[0] == "None":
             del selected_nodes[0].lower_id[0]
         selected_nodes[0].lower_id.append(selected_nodes[1].itemid)
-        #print(f"{selected_nodes[0].itemid}'s lower itemid={selected_nodes[0].lower_id}")
+        # print(f"{selected_nodes[0].itemid}'s lower itemid={selected_nodes[0].lower_id}")
         # selected_nodes[1].move_node_to_new_position()
 
     def show_parameters(self, event=None):
@@ -150,7 +149,9 @@ class DraggableRectangle:
         info_text = (f"-----调试信息-----\n"
                      f"node id    = {self}\n"
                      f"x              = {self.x_axis}\n"
+                     f"x_ori              = {self.x}\n"
                      f"y              = {self.y_axis}\n"
+                     f"y_ori              = {self.y}\n"
                      f"itemid       = {self.itemid}\n"
                      f"recipes     = {self.recipe_spilt}\n"
                      f"quantities = {self.quantities}\n"
@@ -272,6 +273,14 @@ connect_num = 0
 selected_id = ""
 border = None  # 用于存储红框的引用
 selected_coord = None
+node_num = 0
+item_id_import = []
+x_import = []
+y_import = []
+unlockable_import = []
+recipe_items_import = []
+required_quantities_import = []
+node_total_import = 0
 # 布局
 window_width = 1920
 window_height = 1080
@@ -292,6 +301,80 @@ tk.Entry(root, textvariable=bgp).grid(row=3, column=1)
 
 tk.Label(root, text="物品图标路径:").grid(row=4, column=0)
 tk.Entry(root, textvariable=icons).grid(row=4, column=1)
+
+
+def process_node_data():
+    # 定义全局变量
+    global node_total_import, item_id_import, x_import, y_import, unlockable_import, recipe_items_import, required_quantities_import, node_total
+
+    # 初始化变量
+    item_id_import = []
+    x_import = []
+    y_import = []
+    unlockable_import = []
+    recipe_items_import = []
+    required_quantities_import = []
+    if os.path.exists('output/node_store.yaml'):
+        with open('output/node_store.yaml', 'r', encoding='utf-8') as file:
+            lines1 = file.readlines()
+            node_total_import = len(lines1)  # 总节点数
+            print(node_total_import)
+            for line in lines1:
+                # 跳过空行
+                if not line.strip():
+                    continue
+                if node_total != 0:
+                    print("编辑器内存在节点，请清除之后再导入节点")
+                    print(node_total)
+                    break
+                # 解析每个节点的字段
+                # print(line)
+                start = line.find("item_id=") + len("item_id=")
+                end = line.find(";", start)
+                # 提取 item_id= 和 ; 之间的内容
+                item_id_import.append(line[start:end])
+                start = line.find("x=") + len("x=")
+                end = line.find(";", start)
+                # 提取 item_id= 和 ; 之间的内容
+                x_import.append(line[start:end])
+                start = line.find("y=") + len("y=")
+                end = line.find(";", start)
+                # 提取 item_id= 和 ; 之间的内容
+                y_import.append(line[start:end])
+                start = line.find("unlockable=[") + len("unlockable=[")
+                end = line.find("]", start)
+                # 提取 item_id= 和 ; 之间的内容
+                unlockable_import.append(line[start:end])
+                start = line.find("recipe_items=") + len("recipe_items=")
+                end = line.find(";", start)
+                # 提取 item_id= 和 ; 之间的内容
+                recipe_items_import.append(line[start:end])
+                start = line.find("required_quantities=[") + len("required_quantities=[")
+                end = line.find("]", start)
+                # 提取 item_id= 和 ; 之间的内容
+                required_quantities_import.append(line[start:end])
+            for i in range(node_total_import):
+                node = DraggableRectangle(canvas, float(x_import[i]), float(y_import[i]),
+                                          float(x_import[i]) + 64, float(y_import[i]) + 64,
+                                          item_id_import[i], recipe_items_import[i],
+                                          required_quantities_import[i],
+                                          icons.get())
+                nodes_list[i] = node  # 将节点和别名存储在字典中
+
+            node_total = node_total_import
+        print(node_total)
+        print(item_id_import)
+        print(x_import)
+        print(y_import)
+        print(unlockable_import)
+        print(recipe_items_import)
+        print(required_quantities_import)
+
+
+# 示例调用函数
+
+delete_btn = ttk.Button(root, text="读取节点数据", command=process_node_data)
+delete_btn.grid(row=5, column=2)
 
 
 def split_by_comma(input_string):
@@ -324,26 +407,32 @@ def parachange():
 
 # 创建节点
 def create_node():
-    global node_total
-    x = 800
-    y = 200
+    global node_total, node_total_import
+    x = 200
+    y = 600
+    flag = 0
     node = DraggableRectangle(canvas, x, y, x + 64, y + 64, Item_ID_var.get(), recipe_new.get(), quantities_var.get(),
                               icons.get())
-    nodes_list[node_total] = node  # 将节点和别名存储在字典中
-    node_total += 1
-    #print(f"nodes_list={nodes_list[0]}")
-    #print(f"node_total={node_total}")
+    if node_total_import != 0 and flag == 0:
+        flag = 1
 
-
+        nodes_list[node_total] = node  # 将节点和别名存储在字典中
+        node_total += 1
+        print(nodes_list)
+    if node_total_import == 0:
+        nodes_list[node_total] = node
+        node_total += 1
+    # print(f"nodes_list={nodes_list[0]}")
+    # print(f"node_total={node_total}")
 
 
 def bgp_():
     global bgpimg
 
     # 加载并显示图片
-    #print("11")
+    # print("11")
     try:
-        #print("112")
+        # print("112")
         # 打开并调整图片大小
         bgpimg = Image.open(bgp.get())
         # 将图片转换为 Tkinter 兼容格式
@@ -356,18 +445,17 @@ def bgp_():
         print(f"Error loading image: {e}")
 
 
-
-
 def delete_node():
     """删除选中的节点"""
     global selected_id, node_total
+    print(node_total)
     for i in range(node_total):
         if nodes_list[i].nodeid == selected_id:
             nodes_list[i].delete_node()
             del nodes_list[i]
             node_total = node_total - 1
-            #print(node_total)
-            #print(nodes_list)
+            print(node_total)
+            # print(nodes_list)
             break
 
 
@@ -475,10 +563,10 @@ def generate_item_core(item_id, x, y, texture, texture_hovered, unlockable, reci
 def generate_item_var(nodes_list):
     var = []
     unlockable_list = ""
-    #print(node_total)
+    # print(node_total)
     # 检查重复的变量
     for i in range(node_total):
-        #print(nodes_list)
+        # print(nodes_list)
         unlockable_list += f"方法.更新变量值('player_has_permission_recipe.unlockable.{nodes_list[i].itemid}');\n"
         unlockable_list += f"方法.更新变量值('player_has_permission_recipe.{nodes_list[i].itemid}');\n"
     return unlockable_list
@@ -523,14 +611,28 @@ def generate_item_command(item_id, unlockable, unlockable_, recipe_items, requir
         """
 
 
+def generate_node_list(nodes_list):
+    global node_num
+    item_id = nodes_list.itemid
+    x = nodes_list.x
+    y = nodes_list.y
+    unlockable = nodes_list.lower_id
+    recipe_items = nodes_list.recipe_nospilt
+    required_quantities = nodes_list.quantities
+    node_para = f"nodenum={node_num}; item_id={item_id}; x={x}; y={y}; unlockable={unlockable}; recipe_items={recipe_items}; required_quantities={required_quantities}\n"
+    return node_para
+
+
 core_content = ""
 command_content = ""
 var_content = ""
+node_content = ""
 
 
 # 生成文件
 def generate_files(nodes_list):
-    global core_content, command_content, var_content
+    global core_content, command_content, var_content, node_content, node_total, node_num
+
     # 创建文件夹
     os.makedirs('output', exist_ok=True)
 
@@ -539,8 +641,15 @@ def generate_files(nodes_list):
     # 打开文件写入
     with    open('output/core.yaml', 'w', encoding='utf-8') as core_file, open('output/command.yaml', 'w',
                                                                                encoding='utf-8') as command_file, open(
-        'output/var.yaml', 'w', encoding='utf-8') as var_file:
+        'output/var.yaml', 'w', encoding='utf-8') as var_file, open('output/node_store.yaml', 'w',
+                                                                    encoding='utf-8') as node_store:
+
+        core_content = ""
+        command_content = ""
+        var_content = ""
+        node_content = ""
         for i in range(node_total):
+            node_num = i
             core_content += generate_item_core(
                 item_id=nodes_list[i].itemid,
                 x=nodes_list[i].x_axis,
@@ -564,10 +673,15 @@ def generate_files(nodes_list):
             var_content = generate_item_var(
                 nodes_list=nodes_list
             )
+            node_content += generate_node_list(
+                nodes_list=nodes_list[i]
+            )
         if core_content is not None:
             core_content = core_content.replace('{{', '{').replace('}}', '}')
         if var_content is not None:
             var_content = var_content.replace("方法.", '    方法.')
+        if node_content is not None:
+            node_content = node_content.replace("'", '')
         if command_content is not None:
             command_content = command_content.replace("['", '').replace("']", '')
             command_content = command_content.replace("\"", '"')
@@ -577,6 +691,7 @@ def generate_files(nodes_list):
         core_file.write(core_content + "\n")
         var_file.write(var_content)
         command_file.write(command_content)
+        node_store.write(node_content)
 
 
 # 示例输入
