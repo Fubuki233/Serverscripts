@@ -82,7 +82,7 @@ class DraggableRectangle:
             if abs(event.y - i) < 32 and i % 64 == 0:
                 self.y = i
                 break
-        # 移动背景图片
+        # 移动背景图
         dx = prex - self.x
         dy = prey - self.y
         if self.image_tk:
