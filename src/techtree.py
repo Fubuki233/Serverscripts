@@ -1,4 +1,3 @@
-import os
 import tkinter as tk
 from tkinter import ttk
 from PIL import Image, ImageTk
@@ -6,19 +5,21 @@ import os
 import time
 import sys
 
-def get_resource_path(relative_path):
+
+def get_resource_path(relative_path):  # 获取temp中的绝对路径，打包图片用
     if hasattr(sys, '_MEIPASS'):
         return os.path.join(sys._MEIPASS, relative_path)
     return os.path.join(os.path.abspath("."), relative_path)
 
+
 class DraggableRectangle:
-    def __init__(self, canvas, x1, y1, x2, y2, itemid, recipes, quantities_new, icon_path, lower_id=None):
+    def __init__(self, canvas, x1, y1, x2, y2, itemid, recipes, quantities_new, icon_path, lower_id=None):  # 初始化类
         global recipe_spilt, selected_id
         item_id = itemid
         self.x = x1
         self.y = y1
-        self.x_axis = f"{x1 / 1920}*方法.取屏幕宽度"
-        self.y_axis = f"{y1 / 1080}*方法.取屏幕高度+界面变量.滚动值*12"
+        self.x_axis = f"{((x1-474)*2+474) / 1920}*方法.取屏幕宽度"
+        self.y_axis = f"{(y1 * 2) / 1080}*方法.取屏幕高度+界面变量.滚动值*12"
         self.lower_id = ["None"]
         self.lower_id_id = ["None"]
         self.quantities = []
@@ -32,15 +33,15 @@ class DraggableRectangle:
         self.canvas = canvas
         selected_id = self
         self.icon_path = icon_path
-        ##print(self.quantities)
+        # print(self.quantities)
         # 处理 itemid 获取下划线后的部分，并设置图标路径
         self.icon_path = os.path.join(icon_path, itemid.split(":")[-1] + ".png") if itemid else None
         ##print(f"icon_path={self.icon_path}")
         self.recipe_spilt = split_by_comma(recipes)
         self.quantities = split_by_comma(quantities_new)
         self.quantities_nospilt = quantities_new
-        ##print(f"recipe_spilt={self.recipe_spilt}")
-        ##print(f"quantities={self.quantities}")
+        # print(f"recipe_spilt={self.recipe_spilt}")
+        # print(f"quantities={self.quantities}")
         # 创建组件背景
         self.image_tk = None
         if self.icon_path and os.path.exists(self.icon_path):
@@ -57,8 +58,8 @@ class DraggableRectangle:
         self.tag = canvas.create_text(x1 - 20, (y1 + y2) // 2, text="", anchor="e")
 
         # 创建按钮
-        self.button = tk.Button(canvas, text="连接节点", width=6, height=1, command=self.select_node)
-        self.button_window = canvas.create_window((x1 + x2) // 2, y1 - 8, window=self.button)
+        self.button = tk.Button(canvas, text="•", width=1, height=1, command=self.select_node)
+        self.button_window = canvas.create_window((x1 + x2) // 2, y1 - 4, window=self.button)
 
         # 绑定拖动事件到透明的矩形
         self.canvas.tag_bind(self.rect, "<ButtonPress-1>", self.on_press)
@@ -75,25 +76,24 @@ class DraggableRectangle:
         self.x = self.x
         self.y = self.y
 
-    def on_drag(self, event):
+    def on_drag(self, event):  # 拖拽吸附到网格上
         global selected_id, selected_coord, border
-        prex = self.x
-        prey = self.y
-        for i in range(0, 1920, 64):
-            if abs(event.x - i) < 32 and i % 64 == 0:
+        for i in range(0, 1920, 32):
+            if abs(event.x - i) < 16 and i % 32 == 0:
                 self.x = i
+                self.x_axis = f"{((event.x - 474) * 2 + 474) / 1920}*方法.取屏幕宽度"
                 break
-        for i in range(0, 1920, 64):
-            if abs(event.y - i) < 32 and i % 64 == 0:
+        for i in range(0, 1920, 32):
+            if abs(event.y - i) < 16 and i % 32 == 0:
                 self.y = i
+                self.y_axis = f"{(event.y * 2) / 1080}*方法.取屏幕高度+界面变量.滚动值*12"
                 break
         # 移动背景图
-        dx = prex - self.x
-        dy = prey - self.y
+
         if self.image_tk:
             self.canvas.coords(self.image_item, self.x, self.y)
         # 移动透明矩形和其他组件
-        self.canvas.coords(self.rect, self.x, self.y, self.x+64, self.y+64)
+        self.canvas.coords(self.rect, self.x, self.y, self.x + 32, self.y + 32)
         self.canvas.coords(self.text, self.x, self.y)
         self.canvas.coords(self.button_window, self.x, self.y)
         self.canvas.coords(self.tag, self.x, self.y)
@@ -102,11 +102,11 @@ class DraggableRectangle:
         if self.selected:
             for line in self.lines:
                 line.update_position()
-        if selected_coord != selected_id.canvas.coords(selected_id.rect):
+        if selected_coord != selected_id.canvas.coords(selected_id.rect):  # 更新选中框位置
             canvas.delete(border)
             border = canvas.create_rectangle(self.canvas.coords(self.rect)[0] - 2, self.canvas.coords(self.rect)[1] - 2,
-                                             self.canvas.coords(self.rect)[0] + 64,
-                                             self.canvas.coords(self.rect)[1] + 64, outline="red", width=2)
+                                             self.canvas.coords(self.rect)[0] + 32,
+                                             self.canvas.coords(self.rect)[1] + 32, outline="red", width=1)
             selected_coord = self.canvas.coords(self.rect)
 
     def select_node(self):
@@ -115,7 +115,7 @@ class DraggableRectangle:
             selected_nodes.append(self)
 
             connect_info[connect_num][0] = selected_nodes[0]
-            if len(selected_nodes) == 2 and selected_nodes[0] != selected_nodes[1]:
+            if len(selected_nodes) == 2 and selected_nodes[0] != selected_nodes[1]:  # 节点连线
                 connect_info[connect_num][1] = selected_nodes[1]
                 # print(f"connect_num={connect_num}")
                 # print(f"selected_nodes={selected_nodes}")
@@ -124,10 +124,10 @@ class DraggableRectangle:
                 self.set_lower_id()
                 # print(f"lower:{self.lower_id}")
                 create_line()
-            if len(selected_nodes) == 2 and selected_nodes[0] == selected_nodes[1]:
+            if len(selected_nodes) == 2 and selected_nodes[0] == selected_nodes[1]:  # 判断是否两次都选择了自身，是则重置选择
                 selected_nodes = []
 
-    def set_position(self, new_x, new_y):
+    def set_position(self, new_x, new_y):  # 没用
         dx = new_x - self.x
         dy = new_y - self.y
         if self.image_tk:
@@ -153,7 +153,7 @@ class DraggableRectangle:
         # print(f"{selected_nodes[0].itemid}'s lower itemid={selected_nodes[0].lower_id}")
         # selected_nodes[1].move_node_to_new_position()
 
-    def show_parameters(self, event=None):
+    def show_parameters(self, event=None):  # gui中显示参数
         """在输入框中显示当前节点的参数"""
         global selected_id, border, selected_coord
         selected_id = self
@@ -165,8 +165,8 @@ class DraggableRectangle:
         iteminfo.set("".join(selected_id.iteminfo))
         canvas.delete(border)
         border = canvas.create_rectangle(self.canvas.coords(self.rect)[0] - 2, self.canvas.coords(self.rect)[1] - 2,
-                                         self.canvas.coords(self.rect)[0] + 64, self.canvas.coords(self.rect)[1] + 64,
-                                         outline="red", width=2)
+                                         self.canvas.coords(self.rect)[0] + 32, self.canvas.coords(self.rect)[1] + 32,
+                                         outline="red", width=1)
         selected_coord = self.canvas.coords(self.rect)
         info_text = (f"-----调试信息-----\n"
                      f"node id    = {self}\n"
@@ -181,11 +181,6 @@ class DraggableRectangle:
                      f"itemname   = {self.itemname}\n"
                      f"iteminfo   = {self.iteminfo}\n")
         info_label.config(text=info_text)
-
-    def update_parameters(self):
-        """更新节点参数"""
-        global recipe_spilt, selected_id
-
 
     def delete_node(self):
         """删除节点并解绑连接线"""
@@ -213,7 +208,7 @@ class ConnectionLine:
         self.canvas = canvas
         self.rect1 = rect1
         self.rect2 = rect2
-        self.line = canvas.create_line(self.get_center(self.rect1), self.get_center(self.rect2), fill="white", width=3)
+        self.line = canvas.create_line(self.get_center(self.rect1), self.get_center(self.rect2), fill="white", width=1)
 
         # 将连接线对象添加到相关节点的线列表中
         rect1.lines.append(self)
@@ -331,7 +326,7 @@ tk.Label(root, text="物品图标路径:").grid(row=5, column=0)
 tk.Entry(root, textvariable=icons).grid(row=5, column=1)
 
 
-def process_node_data():
+def process_node_data():  # 解析节点信息文件
     # 定义全局变量
     global node_total_import, item_id_import, x_import, y_import, unlockable_import, recipe_items_import, required_quantities_import, node_total
 
@@ -342,6 +337,8 @@ def process_node_data():
     unlockable_import = []
     recipe_items_import = []
     required_quantities_import = []
+    itemname_import = []
+    iteminfo_import = []
     if os.path.exists(node_file.get().strip().replace("\"", "")):
         with open(node_file.get().strip().replace("\"", ""), 'r', encoding='utf-8') as file:
             lines1 = file.readlines()
@@ -373,20 +370,34 @@ def process_node_data():
                 end = line.find("]", start)
                 # 提取 item_id= 和 ; 之间的内容
                 unlockable_import.append(line[start:end])
+
                 start = line.find("recipe_items=") + len("recipe_items=")
                 end = line.find(";", start)
                 # 提取 item_id= 和 ; 之间的内容
                 recipe_items_import.append(line[start:end])
+
                 start = line.find("required_quantities=[") + len("required_quantities=[")
                 end = line.find("]", start)
-                # 提取 item_id= 和 ; 之间的内容
                 required_quantities_import.append(line[start:end])
+
+                start = line.find("itemname=") + len("itemname=")
+                end = line.find(";", start)
+                itemname_import.append(line[start:end])
+
+                start = line.find("iteminfo=") + len("iteminfo=")
+                end = line.find(";", start)
+                iteminfo_import.append(line[start:end])
+                # 提取 item_id= 和 ; 之间的内容
+
             for i in range(node_total_import):
                 node = DraggableRectangle(canvas, float(x_import[i]), float(y_import[i]),
-                                          float(x_import[i]) + 64, float(y_import[i]) + 64,
+                                          float(x_import[i]) + 32, float(y_import[i]) + 32,
                                           item_id_import[i], recipe_items_import[i],
                                           required_quantities_import[i],
                                           icons.get().strip().replace("\"", ""))
+                itemname.set(itemname_import[i])
+                print(itemname_import[i])
+                iteminfo.set(iteminfo_import[i])
                 nodes_list.append(node)  # 将节点和别名存储在字典中
 
             node_total = node_total_import
@@ -402,7 +413,7 @@ def process_node_data():
 # 示例调用函数
 
 delete_btn = ttk.Button(root, text="读取节点数据", command=process_node_data)
-delete_btn.grid(row=11, column=0)
+delete_btn.grid(row=13, column=0)
 tk.Label(root, text="节点文件:").grid(row=6, column=0)
 tk.Entry(root, textvariable=node_file).grid(row=6, column=1)
 
@@ -438,10 +449,10 @@ def parachange():
 # 创建节点
 def create_node():
     global node_total, node_total_import
-    x = 200
-    y = 600
+    x = 500
+    y = 50
     flag = 0
-    node = DraggableRectangle(canvas, x, y, x + 64, y + 64, Item_ID_var.get().strip().replace("\"", ""),
+    node = DraggableRectangle(canvas, x, y, x + 32, y + 32, Item_ID_var.get().strip().replace("\"", ""),
                               recipe_new.get().strip().replace("\"", ""),
                               quantities_var.get().strip().replace("\"", ""),
                               icons.get().strip().replace("\"", ""))
@@ -457,10 +468,12 @@ def create_node():
         print(nodes_list)
     # print(f"nodes_list={nodes_list[0]}")
     # print(f"node_total={node_total}")
-def create_node_update(x,y):
+
+
+def create_node_update(x, y):
     global node_total, node_total_import
     flag = 0
-    node = DraggableRectangle(canvas, x, y, x + 64, y + 64, Item_ID_var.get().strip().replace("\"", ""),
+    node = DraggableRectangle(canvas, x, y, x + 32, y + 32, Item_ID_var.get().strip().replace("\"", ""),
                               recipe_new.get().strip().replace("\"", ""),
                               quantities_var.get().strip().replace("\"", ""),
                               icons.get().strip().replace("\"", ""))
@@ -476,6 +489,7 @@ def create_node_update(x,y):
         print(nodes_list)
     # print(f"nodes_list={nodes_list[0]}")
     # print(f"node_total={node_total}")
+
 
 def bgp_():
     global bgpimg
@@ -495,20 +509,20 @@ def bgp_():
     except Exception as e:
         print(f"Error loading image: {e}")
 
+
 bgp_()
 
+
 def update_node():
-    global selected_id, node_total, nodes_list, x_sel,y_sel
+    global selected_id, node_total, nodes_list, x_sel, y_sel
     print(f"update_node_total={node_total}")
     print(f"updata_node_list={nodes_list}")
     delete_node()
-    create_node_update(x_sel,y_sel)
-
-
+    create_node_update(x_sel, y_sel)
 
 
 delete_btn = ttk.Button(root, text="更新节点", command=update_node)
-delete_btn.grid(row=11, column=1)
+delete_btn.grid(row=11, column=0)
 
 
 def delete_node():
@@ -518,8 +532,8 @@ def delete_node():
     print(nodes_list)
     for i in range(node_total):
         if nodes_list[i].nodeid == selected_id:
-            x_sel=nodes_list[i].x
-            y_sel=nodes_list[i].y
+            x_sel = nodes_list[i].x
+            y_sel = nodes_list[i].y
             nodes_list[i].delete_node()
             del nodes_list[i]
             node_total = node_total - 1
@@ -535,11 +549,9 @@ delete_btn.grid(row=9, column=1)
 # 提交按钮
 submit_btn = ttk.Button(root, text="创建节点", command=create_node)
 submit_btn.grid(row=9, column=0)
-submit_btn = ttk.Button(root, text="设置背景", command=bgp_)
-submit_btn.grid(row=10, column=0)
 # 在创建主界面部分添加
 info_label = tk.Label(root, text="双击节点后信息在这里显示", justify="left", anchor="w", padx=10)
-info_label.place(x=0, y=800)
+info_label.place(x=0, y=500)
 
 
 def generate_item_core(item_id, x, y, texture, texture_hovered, unlockable, recipe_items, required_quantities,
@@ -725,7 +737,9 @@ def generate_node_list(nodes_list):
     unlockable = nodes_list.lower_id
     recipe_items = nodes_list.recipe_nospilt
     required_quantities = nodes_list.quantities
-    node_para = f"nodenum={node_num}; item_id={item_id}; x={x}; y={y}; unlockable={unlockable}; recipe_items={recipe_items}; required_quantities={required_quantities}\n"
+    itemname = nodes_list.itemname
+    iteminfo = nodes_list.iteminfo
+    node_para = f"nodenum={node_num}; item_id={item_id}; x={x}; y={y}; unlockable={unlockable}; recipe_items={recipe_items}; required_quantities={required_quantities}; itemname={itemname}; iteminfo={iteminfo};\n"
     return node_para
 
 
@@ -745,7 +759,7 @@ def generate_files(nodes_list):
     # 存储已经生成的变量，以避免重复
 
     # 打开文件写入
-    with    open('output/core.yaml', 'w', encoding='utf-8') as core_file, open('output/command.yaml', 'w',
+    with open('output/core.yaml', 'w', encoding='utf-8') as core_file, open('output/command.yaml', 'w',
                                                                                encoding='utf-8') as command_file, open(
         'output/var.yaml', 'w', encoding='utf-8') as var_file, open(
         f'output/node_file_{time.strftime('%Y-%m-%d %H-%M-%S', time.localtime())}.yaml', 'w',
@@ -812,5 +826,5 @@ def generate():
 
 
 submit_btn = ttk.Button(root, text="生成文件", command=generate)
-submit_btn.grid(row=10, column=1)
+submit_btn.grid(row=13, column=1)
 root.mainloop()
