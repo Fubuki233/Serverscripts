@@ -4,7 +4,12 @@ from tkinter import ttk
 from PIL import Image, ImageTk
 import os
 import time
+import sys
 
+def get_resource_path(relative_path):
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath("."), relative_path)
 
 class DraggableRectangle:
     def __init__(self, canvas, x1, y1, x2, y2, itemid, recipes, quantities_new, icon_path, lower_id=None):
@@ -152,6 +157,7 @@ class DraggableRectangle:
         """在输入框中显示当前节点的参数"""
         global selected_id, border, selected_coord
         selected_id = self
+        print(f"current selected_id={selected_id}")
         Item_ID_var.set(selected_id.itemid)
         recipe_new.set(",".join(selected_id.recipe_spilt))
         quantities_var.set(",".join(selected_id.quantities))
@@ -178,12 +184,8 @@ class DraggableRectangle:
 
     def update_parameters(self):
         """更新节点参数"""
-        self.itemid = Item_ID_var.get().strip()
-        self.recipe_spilt = split_by_comma(recipe_new.get().strip())
-        self.quantities = split_by_comma(quantities_var.get().strip())
-        # 更新画布上的显示
-        self.canvas.itemconfig(self.tag, text=self.itemid)
-        self.canvas.itemconfig(self.text, text="")
+        global recipe_spilt, selected_id
+
 
     def delete_node(self):
         """删除节点并解绑连接线"""
@@ -257,7 +259,7 @@ id = 0
 Item_ID_var = tk.StringVar()
 tag = tk.StringVar()
 quantities_var = tk.StringVar()
-bgp = tk.StringVar(value=r'F:\0美术素材\craftscection.png')
+bgp = tk.StringVar(value=r'images/craftscection.png')
 icons = tk.StringVar(value=r"F:\0客户端\.minecraft\resourcepacks\DragonCore\icon")
 y_var = tk.StringVar()
 level_var = tk.IntVar()
@@ -289,6 +291,8 @@ connect_info = [[None for _ in range(2)] for _ in range(100)]
 lines = []
 alias_dict = {}
 connect_num = 0
+x_sel = 0
+y_sel = 0
 selected_id = ""
 border = None  # 用于存储红框的引用
 selected_coord = None
@@ -323,11 +327,8 @@ tk.Entry(root, textvariable=iteminfo).grid(row=4, column=1)
 tk.Label(root, text="数量(多个数量用 , 分割，必须与配方数相符)").grid(row=2, column=0)
 tk.Entry(root, textvariable=quantities_var).grid(row=2, column=1)
 
-tk.Label(root, text="背景图路径:").grid(row=5, column=0)
-tk.Entry(root, textvariable=bgp).grid(row=5, column=1)
-
-tk.Label(root, text="物品图标路径:").grid(row=6, column=0)
-tk.Entry(root, textvariable=icons).grid(row=6, column=1)
+tk.Label(root, text="物品图标路径:").grid(row=5, column=0)
+tk.Entry(root, textvariable=icons).grid(row=5, column=1)
 
 
 def process_node_data():
@@ -402,8 +403,8 @@ def process_node_data():
 
 delete_btn = ttk.Button(root, text="读取节点数据", command=process_node_data)
 delete_btn.grid(row=11, column=0)
-tk.Label(root, text="节点文件:").grid(row=7, column=0)
-tk.Entry(root, textvariable=node_file).grid(row=7, column=1)
+tk.Label(root, text="节点文件:").grid(row=6, column=0)
+tk.Entry(root, textvariable=node_file).grid(row=6, column=1)
 
 
 def split_by_comma(input_string):
@@ -456,7 +457,25 @@ def create_node():
         print(nodes_list)
     # print(f"nodes_list={nodes_list[0]}")
     # print(f"node_total={node_total}")
+def create_node_update(x,y):
+    global node_total, node_total_import
+    flag = 0
+    node = DraggableRectangle(canvas, x, y, x + 64, y + 64, Item_ID_var.get().strip().replace("\"", ""),
+                              recipe_new.get().strip().replace("\"", ""),
+                              quantities_var.get().strip().replace("\"", ""),
+                              icons.get().strip().replace("\"", ""))
+    if node_total_import != 0 and flag == 0:
+        flag = 1
 
+        nodes_list.append(node)  # 将节点和别名存储在字典中
+        node_total += 1
+        print(nodes_list)
+    if node_total_import == 0:
+        nodes_list.append(node)
+        node_total += 1
+        print(nodes_list)
+    # print(f"nodes_list={nodes_list[0]}")
+    # print(f"node_total={node_total}")
 
 def bgp_():
     global bgpimg
@@ -465,8 +484,8 @@ def bgp_():
     # print("11")
     try:
         # print("112")
-        # 打开并调整图片大小
-        bgpimg = Image.open(bgp.get().strip().replace("\"", "").replace("\"", ""))
+        # 打开并调整图片大小get_resource_path('images/ship.bmp')
+        bgpimg = Image.open(get_resource_path(bgp.get().strip().replace("\"", "").replace("\"", "")))
         # 将图片转换为 Tkinter 兼容格式
         bgpimg = ImageTk.PhotoImage(bgpimg)
 
@@ -476,22 +495,16 @@ def bgp_():
     except Exception as e:
         print(f"Error loading image: {e}")
 
+bgp_()
 
 def update_node():
-    """删除选中的节点"""
-    global selected_id, node_total, nodes_list
-    print(node_total)
-    print(nodes_list)
-    for i in range(node_total):
-        if nodes_list[i].nodeid == selected_id:
-            nodes_list[i].itemid = Item_ID_var.get().strip().replace("\"", "")
-            nodes_list[i].recipe_nospilt = recipe_new.get().strip().replace("\"", "")
-            nodes_list[i].recipe_spilt = split_by_comma(recipe_new.get().strip().replace("\"", ""))
-            nodes_list[i].quantities = split_by_comma(quantities_var.get().strip().replace("\"", ""))
-            nodes_list[i].quantities_nospilt = quantities_var.get().strip().replace("\"", "")
-            nodes_list[i].itemname = itemname.get()
-            nodes_list[i].iteminfo = iteminfo.get()
-            break
+    global selected_id, node_total, nodes_list, x_sel,y_sel
+    print(f"update_node_total={node_total}")
+    print(f"updata_node_list={nodes_list}")
+    delete_node()
+    create_node_update(x_sel,y_sel)
+
+
 
 
 delete_btn = ttk.Button(root, text="更新节点", command=update_node)
@@ -500,11 +513,13 @@ delete_btn.grid(row=11, column=1)
 
 def delete_node():
     """删除选中的节点"""
-    global selected_id, node_total, nodes_list
+    global selected_id, node_total, nodes_list, x_sel, y_sel
     print(node_total)
     print(nodes_list)
     for i in range(node_total):
         if nodes_list[i].nodeid == selected_id:
+            x_sel=nodes_list[i].x
+            y_sel=nodes_list[i].y
             nodes_list[i].delete_node()
             del nodes_list[i]
             node_total = node_total - 1
