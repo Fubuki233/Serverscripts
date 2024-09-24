@@ -1,0 +1,17 @@
+nodenum=0; item_id=MINERUSTADDONS:ROCK; x=1007.0; y=161.0; unlockable=[None]; recipe_items=MINERUSTADDONS:PIECESTONE; required_quantities=[2]; itemname=暂无; iteminfo=暂无
+nodenum=1; item_id=MINERUSTADDONS:BONEKNIFE; x=783.0; y=267.0; unlockable=[None]; recipe_items=MINERUSTADDONS:RESBONE; required_quantities=[3]; itemname=暂无; iteminfo=暂无
+nodenum=2; item_id=MINERUSTADDONS:MACHETE; x=783.0; y=481.0; unlockable=[None]; recipe_items=MINERUSTADDONS:PIECESSTONE; required_quantities=[4]; itemname=暂无; iteminfo=暂无
+nodenum=3; item_id=MINERUSTADDONS:WOODENSWORD; x=782.0; y=383.0; unlockable=[None]; recipe_items=MINERUSTADDONS:PIECEWOOD; required_quantities=[4]; itemname=暂无; iteminfo=暂无
+nodenum=4; item_id=MINERUSTADDONS:WOODENSPEAR; x=1008.0; y=273.0; unlockable=[None]; recipe_items=MINERUSTADDONS:PIECEWOOD; required_quantities=[3]; itemname=暂无; iteminfo=暂无
+nodenum=5; item_id=MINERUSTADDONS:STONESPEAR; x=1009.0; y=380.0; unlockable=[None]; recipe_items=MINERUSTADDONS:PIECESTONE,MINERUSTADDONS:PIECEWOOD; required_quantities=[3, 2]; itemname=暂无; iteminfo=暂无
+nodenum=6; item_id=MINERUSTADDONS:TACTICALBOW; x=935.0; y=478.0; unlockable=[None]; recipe_items=MINERUSTADDONS:NAILS,MINERUSTADDONS:IMPROVEDSEWINGKIT,MINERUSTADDONS:METALFRAGMENTS,MINERUSTADDONS:MHQ; required_quantities=[4, 2, 2, 2]; itemname=暂无; iteminfo=暂无
+nodenum=7; item_id=MINERUSTADDONS:CROSSBOW; x=1088.0; y=482.0; unlockable=[None]; recipe_items=MINERUSTADDONS:NAILS,MINERUSTADDONS:PIECEWOOD,MINERUSTADDONS:ROPE; required_quantities=[2, 2, 2]; itemname=暂无; iteminfo=暂无
+nodenum=8; item_id=MINERUSTADDONS:LONGSWORD; x=782.0; y=589.0; unlockable=[None]; recipe_items=MINERUSTADDONS:METALFRAGMENTS,MINERUSTADDONS:PIECEWOOD; required_quantities=[3, 2]; itemname=暂无; iteminfo=暂无
+nodenum=9; item_id=MINERUSTADDONS:METALSWORD; x=782.0; y=691.0; unlockable=[None]; recipe_items=MINERUSTADDONS:METALFRAGMENTS,MINERUSTADDONS:NAILS,MINERUSTADDONS:STICKITEM; required_quantities=[4, 2, 1]; itemname=暂无; iteminfo=暂无
+nodenum=10; item_id=MINERUSTADDONS:MACE; x=679.0; y=695.0; unlockable=[None]; recipe_items=MINERUSTADDONS:METALFRAGMENTS,MINERUSTADDONS:NAILS,MINERUSTADDONS:STICKITEM; required_quantities=[4, 8, 1]; itemname=暂无; iteminfo=暂无
+nodenum=11; item_id=MINERUSTADDONS:WARHAMMER; x=877.0; y=693.0; unlockable=[None]; recipe_items=MINERUSTADDONS:METALFRAGMENTS,MINERUSTADDONS:NAILS,MINERUSTADDONS:STICKITEM; required_quantities=[8, 4, 1]; itemname=暂无; iteminfo=暂无
+nodenum=12; item_id=MINERUSTADDONS:BONETOOL; x=1318.0; y=279.0; unlockable=[None]; recipe_items=MINERUSTADDONS:RESBONE; required_quantities=[3]; itemname=暂无; iteminfo=暂无
+nodenum=13; item_id=MINERUSTADDONS:STONEAXE; x=1414.0; y=380.0; unlockable=[None]; recipe_items=MINERUSTADDONS:PIECESTONE,MINERUSTADDONS:PIECEWOOD; required_quantities=[3, 2]; itemname=暂无; iteminfo=暂无
+nodenum=14; item_id=MINERUSTADDONS:STONEPICKAXE; x=1228.0; y=378.0; unlockable=[None]; recipe_items=MINERUSTADDONS:PIECESTONE,MINERUSTADDONS:PIECEWOOD; required_quantities=[3, 2]; itemname=暂无; iteminfo=暂无
+nodenum=15; item_id=MINERUSTADDONS:METALAXE; x=1414.0; y=494.0; unlockable=[None]; recipe_items=MINERUSTADDONS:METALFRAGMENTS,MINERUSTADDONS:PIECEWOOD; required_quantities=[3, 2]; itemname=暂无; iteminfo=暂无
+nodenum=16; item_id=MINERUSTADDONS:HATCHET; x=1414.0; y=588.0; unlockable=[None]; recipe_items=MINERUSTADDONS:MHQ,MINERUSTADDONS:PIECEWOOD; required_quantities=[3, 2]; itemname=暂无; iteminfo=暂无
