@@ -18,8 +18,12 @@ class DraggableRectangle:
         item_id = itemid
         self.x = x1
         self.y = y1
-        self.x_axis = f"{((x1-474)*2+474) / 1920}*方法.取屏幕宽度"
-        self.y_axis = f"{(y1 * 2) / 1080}*方法.取屏幕高度+界面变量.滚动值*12"
+        if self.x > 977:
+            self.x_axis = f"{((x1-474)*2+474) / 1920}*方法.取屏幕宽度-{977 / 1920}*方法.取屏幕宽度"
+            self.y_axis = f"{(y1 * 2) / 1080}*方法.取屏幕高度+界面变量.滚动值*24+方法.取屏幕高度"
+        else:
+            self.x_axis = f"{((x1 - 474) * 2 + 474) / 1920}*方法.取屏幕宽度"
+            self.y_axis = f"{(y1 * 2) / 1080}*方法.取屏幕高度+界面变量.滚动值*24"
         self.lower_id = ["None"]
         self.lower_id_id = ["None"]
         self.quantities = []
@@ -81,12 +85,18 @@ class DraggableRectangle:
         for i in range(0, 1920, 32):
             if abs(event.x - i) < 16 and i % 32 == 0:
                 self.x = i
-                self.x_axis = f"{((event.x - 474) * 2 + 474) / 1920}*方法.取屏幕宽度"
+                if self.x > 977:
+                    self.x_axis = f"{((self.x - 474) * 2 + 474) / 1920}*方法.取屏幕宽度-{977 / 1920}*方法.取屏幕宽度"
+                else:
+                    self.x_axis = f"{((self.x - 474) * 2 + 474) / 1920}*方法.取屏幕宽度"
                 break
         for i in range(0, 1920, 32):
             if abs(event.y - i) < 16 and i % 32 == 0:
                 self.y = i
-                self.y_axis = f"{(event.y * 2) / 1080}*方法.取屏幕高度+界面变量.滚动值*12"
+                if self.x > 977:
+                    self.y_axis = f"{(self.y * 2) / 1080 }*方法.取屏幕高度+界面变量.滚动值*24+方法.取屏幕高度"
+                else:
+                    self.y_axis = f"{(self.y * 2) / 1080 }*方法.取屏幕高度+界面变量.滚动值*24"
                 break
         # 移动背景图
 
@@ -262,8 +272,8 @@ recipe_var = tk.StringVar()
 recipe_items_var = tk.StringVar()
 required_quantities_var = tk.StringVar()
 permission_nodes = tk.StringVar()
-itemname = tk.StringVar(value="暂无")
-iteminfo = tk.StringVar(value="暂无")
+itemname = tk.StringVar()
+iteminfo = tk.StringVar()
 recipe_new = tk.StringVar()
 recipe_num_val = []
 recipe_num_var = []
@@ -298,11 +308,13 @@ y_import = []
 unlockable_import = []
 recipe_items_import = []
 required_quantities_import = []
+iteminfo_import = []
+itemname_import = []
 recipe_variables = [""]
 node_total_import = 0
 node_file = tk.StringVar(value="")
 # 布局
-window_width = 1920
+window_width = 1486
 window_height = 1080
 canvas = tk.Canvas(root, width=window_width, height=window_height)
 canvas.grid(row=0, column=0, rowspan=50, columnspan=50)  # 覆盖整个窗口
@@ -328,7 +340,7 @@ tk.Entry(root, textvariable=icons).grid(row=5, column=1)
 
 def process_node_data():  # 解析节点信息文件
     # 定义全局变量
-    global node_total_import, item_id_import, x_import, y_import, unlockable_import, recipe_items_import, required_quantities_import, node_total
+    global node_total_import, item_id_import, x_import, y_import, unlockable_import, recipe_items_import, required_quantities_import, node_total,itemname_import,iteminfo_import
 
     # 初始化变量
     item_id_import = []
@@ -380,12 +392,12 @@ def process_node_data():  # 解析节点信息文件
                 end = line.find("]", start)
                 required_quantities_import.append(line[start:end])
 
-                start = line.find("itemname=") + len("itemname=")
-                end = line.find(";", start)
+                start = line.find("itemname|=") + len("itemname|=")
+                end = line.find("|;", start)
                 itemname_import.append(line[start:end])
 
-                start = line.find("iteminfo=") + len("iteminfo=")
-                end = line.find(";", start)
+                start = line.find("iteminfo|=") + len("iteminfo|=")
+                end = line.find("|;", start)
                 iteminfo_import.append(line[start:end])
                 # 提取 item_id= 和 ; 之间的内容
 
@@ -399,7 +411,8 @@ def process_node_data():  # 解析节点信息文件
                 print(itemname_import[i])
                 iteminfo.set(iteminfo_import[i])
                 nodes_list.append(node)  # 将节点和别名存储在字典中
-
+                node.itemname = itemname_import[i]
+                node.iteminfo = iteminfo_import[i]
             node_total = node_total_import
         print(node_total)
         print(item_id_import)
@@ -449,8 +462,8 @@ def parachange():
 # 创建节点
 def create_node():
     global node_total, node_total_import
-    x = 500
-    y = 50
+    x = 330
+    y = 380
     flag = 0
     node = DraggableRectangle(canvas, x, y, x + 32, y + 32, Item_ID_var.get().strip().replace("\"", ""),
                               recipe_new.get().strip().replace("\"", ""),
@@ -504,7 +517,7 @@ def bgp_():
         bgpimg = ImageTk.PhotoImage(bgpimg)
 
         # 将图片放在 Canvas 上作为背景
-        canvas.create_image(474, 0, anchor="nw", image=bgpimg)
+        canvas.create_image(0, 0, anchor="nw", image=bgpimg)
 
     except Exception as e:
         print(f"Error loading image: {e}")
@@ -560,6 +573,14 @@ def generate_item_core(item_id, x, y, texture, texture_hovered, unlockable, reci
     print(f"itemid={item_id}")
     item_key = item_id.lower().split(":")[1]  # 提取下划线后的内容并小写
     print(f"lowerid={lower_id}")
+    var=[f'''
+      界面变量.recipe{i}='{recipe_items[i].lower().split(":")[1]}';
+      界面变量.recipe{i}num='{required_quantities[i]}';
+    '''for i in range(len(recipe_items))]
+    var+=[f'''
+      界面变量.recipe{i}='None';
+      界面变量.recipe{i}num='0';
+    '''for i in range(len(recipe_items),4)]
     # 动态生成局部变量和判断逻辑
     if lower_id[0] != "None":
         recipe_variables = [
@@ -573,7 +594,7 @@ def generate_item_core(item_id, x, y, texture, texture_hovered, unlockable, reci
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 9999
+  limitHeight: 267
   texture: 'icon/pixel.png'  
         """]
     if lower_id[0] != "None":
@@ -588,7 +609,7 @@ def generate_item_core(item_id, x, y, texture, texture_hovered, unlockable, reci
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 9999
+  limitHeight: 267
   texture: 'icon/pixel.png'  
 """]
     if lower_id[0] != "None":
@@ -626,7 +647,7 @@ def generate_item_core(item_id, x, y, texture, texture_hovered, unlockable, reci
 
     # 最终的内容生成
     return f"""  
-{''.join([f'{recipe_variables[i]}' for i in range(len(recipe_variables))]).replace("+界面变量.滚动值*12", "").replace("+界面变量.滚动值*6", "").replace("+界面变量.滚动值*13", "+界面变量.滚动值*12")}   
+{''.join([f'{recipe_variables[i]}' for i in range(len(recipe_variables))]).replace("+界面变量.滚动值*24", "").replace("+界面变量.滚动值*6", "").replace("+界面变量.滚动值*13", "+界面变量.滚动值*24")}   
 {item_id.replace(":", "_")}_texture:
   x: "{x}"
   y: "{y}"
@@ -636,7 +657,7 @@ def generate_item_core(item_id, x, y, texture, texture_hovered, unlockable, reci
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 9999
+  limitHeight: 267
   actions:
     click: |-
       界面变量.itemid = '{item_id.replace(":", "_")}';
@@ -646,6 +667,7 @@ def generate_item_core(item_id, x, y, texture, texture_hovered, unlockable, reci
       界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
       界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
       界面变量.unlockcmd=界面变量.itemid&'_unlock';
+      {''.join([f'{var[i]}' for i in range(len(var))])}
       
 {item_id.replace(":", "_")}_locked_texture:
   x: "{x}"
@@ -662,9 +684,9 @@ def generate_item_core(item_id, x, y, texture, texture_hovered, unlockable, reci
     }};
     return '16';
   limitX: 0
-  limitY: 方法.取屏幕高度*0.2
+  limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 200
+  limitHeight: 267
   actions:
     click: |-
       界面变量.itemid = '{item_id.replace(":", "_")}';
@@ -674,7 +696,7 @@ def generate_item_core(item_id, x, y, texture, texture_hovered, unlockable, reci
       界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
       界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
       界面变量.unlockcmd=界面变量.itemid&'_unlock';
-
+      {''.join([f'{var[i]}' for i in range(len(var))])}
 """
 
 
@@ -739,7 +761,8 @@ def generate_node_list(nodes_list):
     required_quantities = nodes_list.quantities
     itemname = nodes_list.itemname
     iteminfo = nodes_list.iteminfo
-    node_para = f"nodenum={node_num}; item_id={item_id}; x={x}; y={y}; unlockable={unlockable}; recipe_items={recipe_items}; required_quantities={required_quantities}; itemname={itemname}; iteminfo={iteminfo};\n"
+    node_para = f"nodenum={node_num}; item_id={item_id}; x={x}; y={y}; unlockable={unlockable}; recipe_items={recipe_items}; required_quantities={required_quantities}; itemname|={itemname}|; iteminfo|={iteminfo}|;\n"
+    print(node_para)
     return node_para
 
 

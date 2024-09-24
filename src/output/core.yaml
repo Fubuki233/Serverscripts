@@ -1,1619 +1,913 @@
   
 
-MINERUSTADDONS:ROCK_ori_texture:
+THE_LAST_DAY:BANDGECIVIL_ori_texture:
   type: texture
   width: "1"
-  height: "(方法.abs(0.14907407407407408*方法.取屏幕高度+16-0.24722222222222223*方法.取屏幕高度))/1.5"
-  x: "0.5244791666666667*方法.取屏幕宽度+8"
-  y: "0.14907407407407408*方法.取屏幕高度+16+界面变量.滚动值*12"
+  height: "(方法.abs(0.2962962962962963*方法.取屏幕高度+16-0.4148148148148148*方法.取屏幕高度))/1.5"
+  x: "0.31979166666666664*方法.取屏幕宽度+8"
+  y: "0.2962962962962963*方法.取屏幕高度+16+界面变量.滚动值*24"
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 9999
+  limitHeight: 267
   texture: 'icon/pixel.png'  
           
-MINERUSTADDONS:ROCK_ori1_texture:
+THE_LAST_DAY:BANDGECIVIL_ori1_texture:
   type: texture
-  width: "方法.abs(0.4078125*方法.取屏幕宽度-0.6864583333333333*方法.取屏幕宽度)"
+  width: "方法.abs(0.31979166666666664*方法.取屏幕宽度-0.31979166666666664*方法.取屏幕宽度)"
   height: "1"
-  x: "0.4078125*方法.取屏幕宽度+8"
-  y: "0.14907407407407408*方法.取屏幕高度+16+(方法.abs(0.14907407407407408*方法.取屏幕高度+16-0.24722222222222223*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
+  x: "0.31979166666666664*方法.取屏幕宽度+8"
+  y: "0.2962962962962963*方法.取屏幕高度+16+(方法.abs(0.2962962962962963*方法.取屏幕高度+16-0.4148148148148148*方法.取屏幕高度))/1.5+界面变量.滚动值*24"
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 9999
+  limitHeight: 267
   texture: 'icon/pixel.png'  
 
-MINERUSTADDONS:ROCK_0_texture:
+THE_LAST_DAY:BANDGECIVIL_0_texture:
   type: texture
   width: "1"
-  height: "方法.abs(0.24722222222222223*方法.取屏幕高度-(0.14907407407407408*方法.取屏幕高度+16+(方法.abs(0.14907407407407408*方法.取屏幕高度+16-0.24722222222222223*方法.取屏幕高度))/1.5))"
-  x: "0.4078125*方法.取屏幕宽度+8"
-  y: "0.14907407407407408*方法.取屏幕高度+16+(方法.abs(0.14907407407407408*方法.取屏幕高度+16-0.24722222222222223*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-
-MINERUSTADDONS:ROCK_1_texture:
-  type: texture
-  width: "1"
-  height: "方法.abs(0.25277777777777777*方法.取屏幕高度-(0.14907407407407408*方法.取屏幕高度+16+(方法.abs(0.14907407407407408*方法.取屏幕高度+16-0.25277777777777777*方法.取屏幕高度))/1.5))"
-  x: "0.525*方法.取屏幕宽度+8"
-  y: "0.14907407407407408*方法.取屏幕高度+16+(方法.abs(0.14907407407407408*方法.取屏幕高度+16-0.25277777777777777*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-
-MINERUSTADDONS:ROCK_2_texture:
-  type: texture
-  width: "1"
-  height: "方法.abs(0.25833333333333336*方法.取屏幕高度-(0.14907407407407408*方法.取屏幕高度+16+(方法.abs(0.14907407407407408*方法.取屏幕高度+16-0.25833333333333336*方法.取屏幕高度))/1.5))"
-  x: "0.6864583333333333*方法.取屏幕宽度+8"
-  y: "0.14907407407407408*方法.取屏幕高度+16+(方法.abs(0.14907407407407408*方法.取屏幕高度+16-0.25833333333333336*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
+  height: "方法.abs(0.4148148148148148*方法.取屏幕高度-(0.2962962962962963*方法.取屏幕高度+16+(方法.abs(0.2962962962962963*方法.取屏幕高度+16-0.4148148148148148*方法.取屏幕高度))/1.5))"
+  x: "0.31979166666666664*方法.取屏幕宽度+8"
+  y: "0.2962962962962963*方法.取屏幕高度+16+(方法.abs(0.2962962962962963*方法.取屏幕高度+16-0.4148148148148148*方法.取屏幕高度))/1.5+界面变量.滚动值*24"
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
   limitHeight: 9999
   texture: 'icon/pixel.png'  
    
-MINERUSTADDONS_ROCK_texture:
-  x: "0.5244791666666667*方法.取屏幕宽度"
-  y: "0.14907407407407408*方法.取屏幕高度+界面变量.滚动值*12"
-  texture: 'icon/rock.png'
+THE_LAST_DAY_BANDGECIVIL_texture:
+  x: "0.31979166666666664*方法.取屏幕宽度"
+  y: "0.2962962962962963*方法.取屏幕高度+界面变量.滚动值*24"
+  texture: 'icon/bandgecivil.png'
   width: 16
   height: 16
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 9999
+  limitHeight: 267
   actions:
     click: |-
-      界面变量.itemid = 'MINERUSTADDONS_ROCK';
-      界面变量.itemid_ = 'ROCK';
-      界面变量.itemname = '暂无';
-      界面变量.iteminfo = '暂无';
+      界面变量.itemid = 'THE_LAST_DAY_BANDGECIVIL';
+      界面变量.itemid_ = 'LAST';
+      界面变量.itemname = '民用绷带';
+      界面变量.iteminfo = '家中常备的急救品。';
       界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
       界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
       界面变量.unlockcmd=界面变量.itemid&'_unlock';
       
-MINERUSTADDONS_ROCK_locked_texture:
-  x: "0.5244791666666667*方法.取屏幕宽度"
-  y: "0.14907407407407408*方法.取屏幕高度+界面变量.滚动值*12"
+      界面变量.recipe0='cloth';
+      界面变量.recipe0num='4';
+    
+      界面变量.recipe1='None';
+      界面变量.recipe1num='0';
+    
+      界面变量.recipe2='None';
+      界面变量.recipe2num='0';
+    
+      界面变量.recipe3='None';
+      界面变量.recipe3num='0';
+    
+      
+THE_LAST_DAY_BANDGECIVIL_locked_texture:
+  x: "0.31979166666666664*方法.取屏幕宽度"
+  y: "0.2962962962962963*方法.取屏幕高度+界面变量.滚动值*24"
   texture: "icon/lock_icon.png"
   width: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_ROCK')=="yes"){
+    if(方法.取变量('player_has_permission_recipe.THE_LAST_DAY_BANDGECIVIL')=="yes"){
       return '0' ;
     };
     return '16';
   height: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_ROCK')=="yes"){
+    if(方法.取变量('player_has_permission_recipe.THE_LAST_DAY_BANDGECIVIL')=="yes"){
       return '0' ;
     };
     return '16';
   limitX: 0
-  limitY: 方法.取屏幕高度*0.2
+  limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 200
+  limitHeight: 267
   actions:
     click: |-
-      界面变量.itemid = 'MINERUSTADDONS_ROCK';
-      界面变量.itemid_ = 'ROCK';
-      界面变量.itemname = '暂无';
-      界面变量.iteminfo = '暂无';
+      界面变量.itemid = 'THE_LAST_DAY_BANDGECIVIL';
+      界面变量.itemid_ = 'LAST';
+      界面变量.itemname = '民用绷带';
+      界面变量.iteminfo = '家中常备的急救品。';
       界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
       界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
       界面变量.unlockcmd=界面变量.itemid&'_unlock';
-
+      
+      界面变量.recipe0='cloth';
+      界面变量.recipe0num='4';
+    
+      界面变量.recipe1='None';
+      界面变量.recipe1num='0';
+    
+      界面变量.recipe2='None';
+      界面变量.recipe2num='0';
+    
+      界面变量.recipe3='None';
+      界面变量.recipe3num='0';
+    
   
 
-MINERUSTADDONS:MACHETE_ori_texture:
+THE_LAST_DAY:HONGZHUAN_ori_texture:
   type: texture
   width: "1"
-  height: "(方法.abs(0.44537037037037036*方法.取屏幕高度+16-0.5453703703703704*方法.取屏幕高度))/1.5"
-  x: "0.4078125*方法.取屏幕宽度+8"
-  y: "0.44537037037037036*方法.取屏幕高度+16+界面变量.滚动值*12"
+  height: "(方法.abs(0.2962962962962963*方法.取屏幕高度+16-0.4148148148148148*方法.取屏幕高度))/1.5"
+  x: "0.453125*方法.取屏幕宽度+8"
+  y: "0.2962962962962963*方法.取屏幕高度+16+界面变量.滚动值*24"
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 9999
+  limitHeight: 267
   texture: 'icon/pixel.png'  
           
-MINERUSTADDONS:MACHETE_ori1_texture:
+THE_LAST_DAY:HONGZHUAN_ori1_texture:
   type: texture
-  width: "方法.abs(0.40729166666666666*方法.取屏幕宽度-0.40729166666666666*方法.取屏幕宽度)"
+  width: "方法.abs(0.453125*方法.取屏幕宽度-0.453125*方法.取屏幕宽度)"
   height: "1"
-  x: "0.40729166666666666*方法.取屏幕宽度+8"
-  y: "0.44537037037037036*方法.取屏幕高度+16+(方法.abs(0.44537037037037036*方法.取屏幕高度+16-0.5453703703703704*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
+  x: "0.453125*方法.取屏幕宽度+8"
+  y: "0.2962962962962963*方法.取屏幕高度+16+(方法.abs(0.2962962962962963*方法.取屏幕高度+16-0.4148148148148148*方法.取屏幕高度))/1.5+界面变量.滚动值*24"
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 9999
+  limitHeight: 267
   texture: 'icon/pixel.png'  
 
-MINERUSTADDONS:MACHETE_0_texture:
+THE_LAST_DAY:HONGZHUAN_0_texture:
   type: texture
   width: "1"
-  height: "方法.abs(0.5453703703703704*方法.取屏幕高度-(0.44537037037037036*方法.取屏幕高度+16+(方法.abs(0.44537037037037036*方法.取屏幕高度+16-0.5453703703703704*方法.取屏幕高度))/1.5))"
-  x: "0.40729166666666666*方法.取屏幕宽度+8"
-  y: "0.44537037037037036*方法.取屏幕高度+16+(方法.abs(0.44537037037037036*方法.取屏幕高度+16-0.5453703703703704*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
+  height: "方法.abs(0.4148148148148148*方法.取屏幕高度-(0.2962962962962963*方法.取屏幕高度+16+(方法.abs(0.2962962962962963*方法.取屏幕高度+16-0.4148148148148148*方法.取屏幕高度))/1.5))"
+  x: "0.453125*方法.取屏幕宽度+8"
+  y: "0.2962962962962963*方法.取屏幕高度+16+(方法.abs(0.2962962962962963*方法.取屏幕高度+16-0.4148148148148148*方法.取屏幕高度))/1.5+界面变量.滚动值*24"
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
   limitHeight: 9999
   texture: 'icon/pixel.png'  
    
-MINERUSTADDONS_MACHETE_texture:
-  x: "0.4078125*方法.取屏幕宽度"
-  y: "0.44537037037037036*方法.取屏幕高度+界面变量.滚动值*12"
-  texture: 'icon/machete.png'
+THE_LAST_DAY_HONGZHUAN_texture:
+  x: "0.453125*方法.取屏幕宽度"
+  y: "0.2962962962962963*方法.取屏幕高度+界面变量.滚动值*24"
+  texture: 'icon/hongzhuan.png'
   width: 16
   height: 16
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 9999
+  limitHeight: 267
   actions:
     click: |-
-      界面变量.itemid = 'MINERUSTADDONS_MACHETE';
-      界面变量.itemid_ = 'MACHETE';
-      界面变量.itemname = '1';
-      界面变量.iteminfo = '1';
+      界面变量.itemid = 'THE_LAST_DAY_HONGZHUAN';
+      界面变量.itemid_ = 'LAST';
+      界面变量.itemname = 'Salewa药包';
+      界面变量.iteminfo = '功能齐全的药包。';
       界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
       界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
       界面变量.unlockcmd=界面变量.itemid&'_unlock';
       
-MINERUSTADDONS_MACHETE_locked_texture:
-  x: "0.4078125*方法.取屏幕宽度"
-  y: "0.44537037037037036*方法.取屏幕高度+界面变量.滚动值*12"
+      界面变量.recipe0='bandge';
+      界面变量.recipe0num='1';
+    
+      界面变量.recipe1='blood';
+      界面变量.recipe1num='1';
+    
+      界面变量.recipe2='None';
+      界面变量.recipe2num='0';
+    
+      界面变量.recipe3='None';
+      界面变量.recipe3num='0';
+    
+      
+THE_LAST_DAY_HONGZHUAN_locked_texture:
+  x: "0.453125*方法.取屏幕宽度"
+  y: "0.2962962962962963*方法.取屏幕高度+界面变量.滚动值*24"
   texture: "icon/lock_icon.png"
   width: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_MACHETE')=="yes"){
+    if(方法.取变量('player_has_permission_recipe.THE_LAST_DAY_HONGZHUAN')=="yes"){
       return '0' ;
     };
     return '16';
   height: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_MACHETE')=="yes"){
+    if(方法.取变量('player_has_permission_recipe.THE_LAST_DAY_HONGZHUAN')=="yes"){
       return '0' ;
     };
     return '16';
   limitX: 0
-  limitY: 方法.取屏幕高度*0.2
+  limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 200
+  limitHeight: 267
   actions:
     click: |-
-      界面变量.itemid = 'MINERUSTADDONS_MACHETE';
-      界面变量.itemid_ = 'MACHETE';
-      界面变量.itemname = '1';
-      界面变量.iteminfo = '1';
+      界面变量.itemid = 'THE_LAST_DAY_HONGZHUAN';
+      界面变量.itemid_ = 'LAST';
+      界面变量.itemname = 'Salewa药包';
+      界面变量.iteminfo = '功能齐全的药包。';
       界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
       界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
       界面变量.unlockcmd=界面变量.itemid&'_unlock';
-
+      
+      界面变量.recipe0='bandge';
+      界面变量.recipe0num='1';
+    
+      界面变量.recipe1='blood';
+      界面变量.recipe1num='1';
+    
+      界面变量.recipe2='None';
+      界面变量.recipe2num='0';
+    
+      界面变量.recipe3='None';
+      界面变量.recipe3num='0';
+    
   
 
-MINERUSTADDONS:WOODENSPEAR_ori_texture:
+THE_LAST_DAY:HONGZHUAN_ori_texture:
   type: texture
   width: "1"
-  height: "(方法.abs(0.25277777777777777*方法.取屏幕高度+16-0.35185185185185186*方法.取屏幕高度))/1.5"
-  x: "0.525*方法.取屏幕宽度+8"
-  y: "0.25277777777777777*方法.取屏幕高度+16+界面变量.滚动值*12"
+  height: "(方法.abs(0.2962962962962963*方法.取屏幕高度+16-0.4148148148148148*方法.取屏幕高度))/1.5"
+  x: "0.453125*方法.取屏幕宽度+8"
+  y: "0.2962962962962963*方法.取屏幕高度+16+界面变量.滚动值*24"
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 9999
+  limitHeight: 267
   texture: 'icon/pixel.png'  
           
-MINERUSTADDONS:WOODENSPEAR_ori1_texture:
+THE_LAST_DAY:HONGZHUAN_ori1_texture:
   type: texture
-  width: "方法.abs(0.5255208333333333*方法.取屏幕宽度-0.5255208333333333*方法.取屏幕宽度)"
+  width: "方法.abs(0.453125*方法.取屏幕宽度-0.453125*方法.取屏幕宽度)"
   height: "1"
-  x: "0.5255208333333333*方法.取屏幕宽度+8"
-  y: "0.25277777777777777*方法.取屏幕高度+16+(方法.abs(0.25277777777777777*方法.取屏幕高度+16-0.35185185185185186*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
+  x: "0.453125*方法.取屏幕宽度+8"
+  y: "0.2962962962962963*方法.取屏幕高度+16+(方法.abs(0.2962962962962963*方法.取屏幕高度+16-0.4148148148148148*方法.取屏幕高度))/1.5+界面变量.滚动值*24"
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 9999
+  limitHeight: 267
   texture: 'icon/pixel.png'  
 
-MINERUSTADDONS:WOODENSPEAR_0_texture:
+THE_LAST_DAY:HONGZHUAN_0_texture:
   type: texture
   width: "1"
-  height: "方法.abs(0.35185185185185186*方法.取屏幕高度-(0.25277777777777777*方法.取屏幕高度+16+(方法.abs(0.25277777777777777*方法.取屏幕高度+16-0.35185185185185186*方法.取屏幕高度))/1.5))"
-  x: "0.5255208333333333*方法.取屏幕宽度+8"
-  y: "0.25277777777777777*方法.取屏幕高度+16+(方法.abs(0.25277777777777777*方法.取屏幕高度+16-0.35185185185185186*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
+  height: "方法.abs(0.4148148148148148*方法.取屏幕高度-(0.2962962962962963*方法.取屏幕高度+16+(方法.abs(0.2962962962962963*方法.取屏幕高度+16-0.4148148148148148*方法.取屏幕高度))/1.5))"
+  x: "0.453125*方法.取屏幕宽度+8"
+  y: "0.2962962962962963*方法.取屏幕高度+16+(方法.abs(0.2962962962962963*方法.取屏幕高度+16-0.4148148148148148*方法.取屏幕高度))/1.5+界面变量.滚动值*24"
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
   limitHeight: 9999
   texture: 'icon/pixel.png'  
    
-MINERUSTADDONS_WOODENSPEAR_texture:
-  x: "0.525*方法.取屏幕宽度"
-  y: "0.25277777777777777*方法.取屏幕高度+界面变量.滚动值*12"
-  texture: 'icon/woodenspear.png'
+THE_LAST_DAY_HUIXIONGBAO_texture:
+  x: "0.453125*方法.取屏幕宽度"
+  y: "0.4148148148148148*方法.取屏幕高度+界面变量.滚动值*24"
+  texture: 'icon/huixiongbao.png'
   width: 16
   height: 16
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 9999
+  limitHeight: 267
   actions:
     click: |-
-      界面变量.itemid = 'MINERUSTADDONS_WOODENSPEAR';
-      界面变量.itemid_ = 'WOODENSPEAR';
-      界面变量.itemname = '3';
-      界面变量.iteminfo = '3';
+      界面变量.itemid = 'THE_LAST_DAY_HUIXIONGBAO';
+      界面变量.itemid_ = 'LAST';
+      界面变量.itemname = 'Grizzly急救包';
+      界面变量.iteminfo = '量大管饱。';
       界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
       界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
       界面变量.unlockcmd=界面变量.itemid&'_unlock';
       
-MINERUSTADDONS_WOODENSPEAR_locked_texture:
-  x: "0.525*方法.取屏幕宽度"
-  y: "0.25277777777777777*方法.取屏幕高度+界面变量.滚动值*12"
+      界面变量.recipe0='hongzhuan';
+      界面变量.recipe0num='2';
+    
+      界面变量.recipe1='None';
+      界面变量.recipe1num='0';
+    
+      界面变量.recipe2='None';
+      界面变量.recipe2num='0';
+    
+      界面变量.recipe3='None';
+      界面变量.recipe3num='0';
+    
+      
+THE_LAST_DAY_HUIXIONGBAO_locked_texture:
+  x: "0.453125*方法.取屏幕宽度"
+  y: "0.4148148148148148*方法.取屏幕高度+界面变量.滚动值*24"
   texture: "icon/lock_icon.png"
   width: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_WOODENSPEAR')=="yes"){
+    if(方法.取变量('player_has_permission_recipe.THE_LAST_DAY_HUIXIONGBAO')=="yes"){
       return '0' ;
     };
     return '16';
   height: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_WOODENSPEAR')=="yes"){
+    if(方法.取变量('player_has_permission_recipe.THE_LAST_DAY_HUIXIONGBAO')=="yes"){
       return '0' ;
     };
     return '16';
   limitX: 0
-  limitY: 方法.取屏幕高度*0.2
+  limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 200
+  limitHeight: 267
   actions:
     click: |-
-      界面变量.itemid = 'MINERUSTADDONS_WOODENSPEAR';
-      界面变量.itemid_ = 'WOODENSPEAR';
-      界面变量.itemname = '3';
-      界面变量.iteminfo = '3';
+      界面变量.itemid = 'THE_LAST_DAY_HUIXIONGBAO';
+      界面变量.itemid_ = 'LAST';
+      界面变量.itemname = 'Grizzly急救包';
+      界面变量.iteminfo = '量大管饱。';
       界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
       界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
       界面变量.unlockcmd=界面变量.itemid&'_unlock';
-
+      
+      界面变量.recipe0='hongzhuan';
+      界面变量.recipe0num='2';
+    
+      界面变量.recipe1='None';
+      界面变量.recipe1num='0';
+    
+      界面变量.recipe2='None';
+      界面变量.recipe2num='0';
+    
+      界面变量.recipe3='None';
+      界面变量.recipe3num='0';
+    
   
 
-MINERUSTADDONS:STONESPEAR_ori_texture:
+THE_LAST_DAY:PAINKILLERCIVIL_ori_texture:
   type: texture
   width: "1"
-  height: "(方法.abs(0.35185185185185186*方法.取屏幕高度+16-0.4425925925925926*方法.取屏幕高度))/1.5"
-  x: "0.5255208333333333*方法.取屏幕宽度+8"
-  y: "0.35185185185185186*方法.取屏幕高度+16+界面变量.滚动值*12"
+  height: "(方法.abs(0.4148148148148148*方法.取屏幕高度+16-0.5333333333333333*方法.取屏幕高度))/1.5"
+  x: "0.38645833333333335*方法.取屏幕宽度+8"
+  y: "0.4148148148148148*方法.取屏幕高度+16+界面变量.滚动值*24"
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 9999
+  limitHeight: 267
   texture: 'icon/pixel.png'  
           
-MINERUSTADDONS:STONESPEAR_ori1_texture:
+THE_LAST_DAY:PAINKILLERCIVIL_ori1_texture:
   type: texture
-  width: "方法.abs(0.4869791666666667*方法.取屏幕宽度-0.5666666666666667*方法.取屏幕宽度)"
+  width: "方法.abs(0.38645833333333335*方法.取屏幕宽度-0.38645833333333335*方法.取屏幕宽度)"
   height: "1"
-  x: "0.4869791666666667*方法.取屏幕宽度+8"
-  y: "0.35185185185185186*方法.取屏幕高度+16+(方法.abs(0.35185185185185186*方法.取屏幕高度+16-0.4425925925925926*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
+  x: "0.38645833333333335*方法.取屏幕宽度+8"
+  y: "0.4148148148148148*方法.取屏幕高度+16+(方法.abs(0.4148148148148148*方法.取屏幕高度+16-0.5333333333333333*方法.取屏幕高度))/1.5+界面变量.滚动值*24"
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 9999
+  limitHeight: 267
   texture: 'icon/pixel.png'  
 
-MINERUSTADDONS:STONESPEAR_0_texture:
+THE_LAST_DAY:PAINKILLERCIVIL_0_texture:
   type: texture
   width: "1"
-  height: "方法.abs(0.4425925925925926*方法.取屏幕高度-(0.35185185185185186*方法.取屏幕高度+16+(方法.abs(0.35185185185185186*方法.取屏幕高度+16-0.4425925925925926*方法.取屏幕高度))/1.5))"
-  x: "0.4869791666666667*方法.取屏幕宽度+8"
-  y: "0.35185185185185186*方法.取屏幕高度+16+(方法.abs(0.35185185185185186*方法.取屏幕高度+16-0.4425925925925926*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-
-MINERUSTADDONS:STONESPEAR_1_texture:
-  type: texture
-  width: "1"
-  height: "方法.abs(0.4462962962962963*方法.取屏幕高度-(0.35185185185185186*方法.取屏幕高度+16+(方法.abs(0.35185185185185186*方法.取屏幕高度+16-0.4462962962962963*方法.取屏幕高度))/1.5))"
-  x: "0.5666666666666667*方法.取屏幕宽度+8"
-  y: "0.35185185185185186*方法.取屏幕高度+16+(方法.abs(0.35185185185185186*方法.取屏幕高度+16-0.4462962962962963*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
+  height: "方法.abs(0.5333333333333333*方法.取屏幕高度-(0.4148148148148148*方法.取屏幕高度+16+(方法.abs(0.4148148148148148*方法.取屏幕高度+16-0.5333333333333333*方法.取屏幕高度))/1.5))"
+  x: "0.38645833333333335*方法.取屏幕宽度+8"
+  y: "0.4148148148148148*方法.取屏幕高度+16+(方法.abs(0.4148148148148148*方法.取屏幕高度+16-0.5333333333333333*方法.取屏幕高度))/1.5+界面变量.滚动值*24"
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
   limitHeight: 9999
   texture: 'icon/pixel.png'  
    
-MINERUSTADDONS_STONESPEAR_texture:
-  x: "0.5255208333333333*方法.取屏幕宽度"
-  y: "0.35185185185185186*方法.取屏幕高度+界面变量.滚动值*12"
-  texture: 'icon/stonespear.png'
+THE_LAST_DAY_PAINKILLERCIVIL_texture:
+  x: "0.38645833333333335*方法.取屏幕宽度"
+  y: "0.4148148148148148*方法.取屏幕高度+界面变量.滚动值*24"
+  texture: 'icon/painkillercivil.png'
   width: 16
   height: 16
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 9999
+  limitHeight: 267
   actions:
     click: |-
-      界面变量.itemid = 'MINERUSTADDONS_STONESPEAR';
-      界面变量.itemid_ = 'STONESPEAR';
-      界面变量.itemname = '4';
-      界面变量.iteminfo = '4';
+      界面变量.itemid = 'THE_LAST_DAY_PAINKILLERCIVIL';
+      界面变量.itemid_ = 'LAST';
+      界面变量.itemname = '民用止痛药';
+      界面变量.iteminfo = '减弱痛觉，可能有副作用。';
       界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
       界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
       界面变量.unlockcmd=界面变量.itemid&'_unlock';
       
-MINERUSTADDONS_STONESPEAR_locked_texture:
-  x: "0.5255208333333333*方法.取屏幕宽度"
-  y: "0.35185185185185186*方法.取屏幕高度+界面变量.滚动值*12"
+      界面变量.recipe0='ysdb';
+      界面变量.recipe0num='1';
+    
+      界面变量.recipe1='zhi_tong_yao';
+      界面变量.recipe1num='1';
+    
+      界面变量.recipe2='None';
+      界面变量.recipe2num='0';
+    
+      界面变量.recipe3='None';
+      界面变量.recipe3num='0';
+    
+      
+THE_LAST_DAY_PAINKILLERCIVIL_locked_texture:
+  x: "0.38645833333333335*方法.取屏幕宽度"
+  y: "0.4148148148148148*方法.取屏幕高度+界面变量.滚动值*24"
   texture: "icon/lock_icon.png"
   width: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_STONESPEAR')=="yes"){
+    if(方法.取变量('player_has_permission_recipe.THE_LAST_DAY_PAINKILLERCIVIL')=="yes"){
       return '0' ;
     };
     return '16';
   height: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_STONESPEAR')=="yes"){
+    if(方法.取变量('player_has_permission_recipe.THE_LAST_DAY_PAINKILLERCIVIL')=="yes"){
       return '0' ;
     };
     return '16';
   limitX: 0
-  limitY: 方法.取屏幕高度*0.2
+  limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 200
+  limitHeight: 267
   actions:
     click: |-
-      界面变量.itemid = 'MINERUSTADDONS_STONESPEAR';
-      界面变量.itemid_ = 'STONESPEAR';
-      界面变量.itemname = '4';
-      界面变量.iteminfo = '4';
+      界面变量.itemid = 'THE_LAST_DAY_PAINKILLERCIVIL';
+      界面变量.itemid_ = 'LAST';
+      界面变量.itemname = '民用止痛药';
+      界面变量.iteminfo = '减弱痛觉，可能有副作用。';
       界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
       界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
       界面变量.unlockcmd=界面变量.itemid&'_unlock';
-
+      
+      界面变量.recipe0='ysdb';
+      界面变量.recipe0num='1';
+    
+      界面变量.recipe1='zhi_tong_yao';
+      界面变量.recipe1num='1';
+    
+      界面变量.recipe2='None';
+      界面变量.recipe2num='0';
+    
+      界面变量.recipe3='None';
+      界面变量.recipe3num='0';
+    
   
 
-MINERUSTADDONS:STONESPEAR_ori_texture:
+THE_LAST_DAY:PAINKILLERCIVIL_ori_texture:
   type: texture
   width: "1"
-  height: "(方法.abs(0.35185185185185186*方法.取屏幕高度+16-0.4425925925925926*方法.取屏幕高度))/1.5"
-  x: "0.5255208333333333*方法.取屏幕宽度+8"
-  y: "0.35185185185185186*方法.取屏幕高度+16+界面变量.滚动值*12"
+  height: "(方法.abs(0.4148148148148148*方法.取屏幕高度+16-0.5333333333333333*方法.取屏幕高度))/1.5"
+  x: "0.38645833333333335*方法.取屏幕宽度+8"
+  y: "0.4148148148148148*方法.取屏幕高度+16+界面变量.滚动值*24"
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 9999
+  limitHeight: 267
   texture: 'icon/pixel.png'  
           
-MINERUSTADDONS:STONESPEAR_ori1_texture:
+THE_LAST_DAY:PAINKILLERCIVIL_ori1_texture:
   type: texture
-  width: "方法.abs(0.4869791666666667*方法.取屏幕宽度-0.5666666666666667*方法.取屏幕宽度)"
+  width: "方法.abs(0.38645833333333335*方法.取屏幕宽度-0.38645833333333335*方法.取屏幕宽度)"
   height: "1"
-  x: "0.4869791666666667*方法.取屏幕宽度+8"
-  y: "0.35185185185185186*方法.取屏幕高度+16+(方法.abs(0.35185185185185186*方法.取屏幕高度+16-0.4425925925925926*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
+  x: "0.38645833333333335*方法.取屏幕宽度+8"
+  y: "0.4148148148148148*方法.取屏幕高度+16+(方法.abs(0.4148148148148148*方法.取屏幕高度+16-0.5333333333333333*方法.取屏幕高度))/1.5+界面变量.滚动值*24"
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 9999
+  limitHeight: 267
   texture: 'icon/pixel.png'  
 
-MINERUSTADDONS:STONESPEAR_0_texture:
+THE_LAST_DAY:PAINKILLERCIVIL_0_texture:
   type: texture
   width: "1"
-  height: "方法.abs(0.4425925925925926*方法.取屏幕高度-(0.35185185185185186*方法.取屏幕高度+16+(方法.abs(0.35185185185185186*方法.取屏幕高度+16-0.4425925925925926*方法.取屏幕高度))/1.5))"
-  x: "0.4869791666666667*方法.取屏幕宽度+8"
-  y: "0.35185185185185186*方法.取屏幕高度+16+(方法.abs(0.35185185185185186*方法.取屏幕高度+16-0.4425925925925926*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-
-MINERUSTADDONS:STONESPEAR_1_texture:
-  type: texture
-  width: "1"
-  height: "方法.abs(0.4462962962962963*方法.取屏幕高度-(0.35185185185185186*方法.取屏幕高度+16+(方法.abs(0.35185185185185186*方法.取屏幕高度+16-0.4462962962962963*方法.取屏幕高度))/1.5))"
-  x: "0.5666666666666667*方法.取屏幕宽度+8"
-  y: "0.35185185185185186*方法.取屏幕高度+16+(方法.abs(0.35185185185185186*方法.取屏幕高度+16-0.4462962962962963*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
+  height: "方法.abs(0.5333333333333333*方法.取屏幕高度-(0.4148148148148148*方法.取屏幕高度+16+(方法.abs(0.4148148148148148*方法.取屏幕高度+16-0.5333333333333333*方法.取屏幕高度))/1.5))"
+  x: "0.38645833333333335*方法.取屏幕宽度+8"
+  y: "0.4148148148148148*方法.取屏幕高度+16+(方法.abs(0.4148148148148148*方法.取屏幕高度+16-0.5333333333333333*方法.取屏幕高度))/1.5+界面变量.滚动值*24"
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
   limitHeight: 9999
   texture: 'icon/pixel.png'  
    
-MINERUSTADDONS_TACTICALBOW_texture:
-  x: "0.4869791666666667*方法.取屏幕宽度"
-  y: "0.4425925925925926*方法.取屏幕高度+界面变量.滚动值*12"
-  texture: 'icon/tacticalbow.png'
+THE_LAST_DAY_BU_LUO_FEN_texture:
+  x: "0.38645833333333335*方法.取屏幕宽度"
+  y: "0.5333333333333333*方法.取屏幕高度+界面变量.滚动值*24"
+  texture: 'icon/bu_luo_fen.png'
   width: 16
   height: 16
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 9999
+  limitHeight: 267
   actions:
     click: |-
-      界面变量.itemid = 'MINERUSTADDONS_TACTICALBOW';
-      界面变量.itemid_ = 'TACTICALBOW';
-      界面变量.itemname = '5';
-      界面变量.iteminfo = '5';
+      界面变量.itemid = 'THE_LAST_DAY_BU_LUO_FEN';
+      界面变量.itemid_ = 'LAST';
+      界面变量.itemname = '布洛芬止痛药';
+      界面变量.iteminfo = '强效止痛，有一定副作用。';
       界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
       界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
       界面变量.unlockcmd=界面变量.itemid&'_unlock';
       
-MINERUSTADDONS_TACTICALBOW_locked_texture:
-  x: "0.4869791666666667*方法.取屏幕宽度"
-  y: "0.4425925925925926*方法.取屏幕高度+界面变量.滚动值*12"
+      界面变量.recipe0='bu_luo_fen';
+      界面变量.recipe0num='1';
+    
+      界面变量.recipe1='zhi_tong_yao';
+      界面变量.recipe1num='1';
+    
+      界面变量.recipe2='None';
+      界面变量.recipe2num='0';
+    
+      界面变量.recipe3='None';
+      界面变量.recipe3num='0';
+    
+      
+THE_LAST_DAY_BU_LUO_FEN_locked_texture:
+  x: "0.38645833333333335*方法.取屏幕宽度"
+  y: "0.5333333333333333*方法.取屏幕高度+界面变量.滚动值*24"
   texture: "icon/lock_icon.png"
   width: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_TACTICALBOW')=="yes"){
+    if(方法.取变量('player_has_permission_recipe.THE_LAST_DAY_BU_LUO_FEN')=="yes"){
       return '0' ;
     };
     return '16';
   height: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_TACTICALBOW')=="yes"){
+    if(方法.取变量('player_has_permission_recipe.THE_LAST_DAY_BU_LUO_FEN')=="yes"){
       return '0' ;
     };
     return '16';
   limitX: 0
-  limitY: 方法.取屏幕高度*0.2
+  limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 200
+  limitHeight: 267
   actions:
     click: |-
-      界面变量.itemid = 'MINERUSTADDONS_TACTICALBOW';
-      界面变量.itemid_ = 'TACTICALBOW';
-      界面变量.itemname = '5';
-      界面变量.iteminfo = '5';
+      界面变量.itemid = 'THE_LAST_DAY_BU_LUO_FEN';
+      界面变量.itemid_ = 'LAST';
+      界面变量.itemname = '布洛芬止痛药';
+      界面变量.iteminfo = '强效止痛，有一定副作用。';
       界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
       界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
       界面变量.unlockcmd=界面变量.itemid&'_unlock';
-
+      
+      界面变量.recipe0='bu_luo_fen';
+      界面变量.recipe0num='1';
+    
+      界面变量.recipe1='zhi_tong_yao';
+      界面变量.recipe1num='1';
+    
+      界面变量.recipe2='None';
+      界面变量.recipe2num='0';
+    
+      界面变量.recipe3='None';
+      界面变量.recipe3num='0';
+    
   
 
-MINERUSTADDONS:STONESPEAR_ori_texture:
+THE_LAST_DAY:PAINKILLERCIVIL_ori_texture:
   type: texture
   width: "1"
-  height: "(方法.abs(0.35185185185185186*方法.取屏幕高度+16-0.4425925925925926*方法.取屏幕高度))/1.5"
-  x: "0.5255208333333333*方法.取屏幕宽度+8"
-  y: "0.35185185185185186*方法.取屏幕高度+16+界面变量.滚动值*12"
+  height: "(方法.abs(0.4148148148148148*方法.取屏幕高度+16-0.5333333333333333*方法.取屏幕高度))/1.5"
+  x: "0.38645833333333335*方法.取屏幕宽度+8"
+  y: "0.4148148148148148*方法.取屏幕高度+16+界面变量.滚动值*24"
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 9999
+  limitHeight: 267
   texture: 'icon/pixel.png'  
           
-MINERUSTADDONS:STONESPEAR_ori1_texture:
+THE_LAST_DAY:PAINKILLERCIVIL_ori1_texture:
   type: texture
-  width: "方法.abs(0.4869791666666667*方法.取屏幕宽度-0.5666666666666667*方法.取屏幕宽度)"
+  width: "方法.abs(0.38645833333333335*方法.取屏幕宽度-0.38645833333333335*方法.取屏幕宽度)"
   height: "1"
-  x: "0.4869791666666667*方法.取屏幕宽度+8"
-  y: "0.35185185185185186*方法.取屏幕高度+16+(方法.abs(0.35185185185185186*方法.取屏幕高度+16-0.4425925925925926*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
+  x: "0.38645833333333335*方法.取屏幕宽度+8"
+  y: "0.4148148148148148*方法.取屏幕高度+16+(方法.abs(0.4148148148148148*方法.取屏幕高度+16-0.5333333333333333*方法.取屏幕高度))/1.5+界面变量.滚动值*24"
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 9999
+  limitHeight: 267
   texture: 'icon/pixel.png'  
 
-MINERUSTADDONS:STONESPEAR_0_texture:
+THE_LAST_DAY:PAINKILLERCIVIL_0_texture:
   type: texture
   width: "1"
-  height: "方法.abs(0.4425925925925926*方法.取屏幕高度-(0.35185185185185186*方法.取屏幕高度+16+(方法.abs(0.35185185185185186*方法.取屏幕高度+16-0.4425925925925926*方法.取屏幕高度))/1.5))"
-  x: "0.4869791666666667*方法.取屏幕宽度+8"
-  y: "0.35185185185185186*方法.取屏幕高度+16+(方法.abs(0.35185185185185186*方法.取屏幕高度+16-0.4425925925925926*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-
-MINERUSTADDONS:STONESPEAR_1_texture:
-  type: texture
-  width: "1"
-  height: "方法.abs(0.4462962962962963*方法.取屏幕高度-(0.35185185185185186*方法.取屏幕高度+16+(方法.abs(0.35185185185185186*方法.取屏幕高度+16-0.4462962962962963*方法.取屏幕高度))/1.5))"
-  x: "0.5666666666666667*方法.取屏幕宽度+8"
-  y: "0.35185185185185186*方法.取屏幕高度+16+(方法.abs(0.35185185185185186*方法.取屏幕高度+16-0.4462962962962963*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
+  height: "方法.abs(0.5333333333333333*方法.取屏幕高度-(0.4148148148148148*方法.取屏幕高度+16+(方法.abs(0.4148148148148148*方法.取屏幕高度+16-0.5333333333333333*方法.取屏幕高度))/1.5))"
+  x: "0.38645833333333335*方法.取屏幕宽度+8"
+  y: "0.4148148148148148*方法.取屏幕高度+16+(方法.abs(0.4148148148148148*方法.取屏幕高度+16-0.5333333333333333*方法.取屏幕高度))/1.5+界面变量.滚动值*24"
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
   limitHeight: 9999
   texture: 'icon/pixel.png'  
    
-MINERUSTADDONS_CROSSBOW_texture:
-  x: "0.5666666666666667*方法.取屏幕宽度"
-  y: "0.4462962962962963*方法.取屏幕高度+界面变量.滚动值*12"
-  texture: 'icon/crossbow.png'
+THE_LAST_DAY_BANDGE_texture:
+  x: "0.31979166666666664*方法.取屏幕宽度"
+  y: "0.4148148148148148*方法.取屏幕高度+界面变量.滚动值*24"
+  texture: 'icon/bandge.png'
   width: 16
   height: 16
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 9999
+  limitHeight: 267
   actions:
     click: |-
-      界面变量.itemid = 'MINERUSTADDONS_CROSSBOW';
-      界面变量.itemid_ = 'CROSSBOW';
-      界面变量.itemname = '6';
-      界面变量.iteminfo = '6';
+      界面变量.itemid = 'THE_LAST_DAY_BANDGE';
+      界面变量.itemid_ = 'LAST';
+      界面变量.itemname = '军用绷带';
+      界面变量.iteminfo = '质量更好的绷带。';
       界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
       界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
       界面变量.unlockcmd=界面变量.itemid&'_unlock';
       
-MINERUSTADDONS_CROSSBOW_locked_texture:
-  x: "0.5666666666666667*方法.取屏幕宽度"
-  y: "0.4462962962962963*方法.取屏幕高度+界面变量.滚动值*12"
+      界面变量.recipe0='wrappedcloth';
+      界面变量.recipe0num='4';
+    
+      界面变量.recipe1='None';
+      界面变量.recipe1num='0';
+    
+      界面变量.recipe2='None';
+      界面变量.recipe2num='0';
+    
+      界面变量.recipe3='None';
+      界面变量.recipe3num='0';
+    
+      
+THE_LAST_DAY_BANDGE_locked_texture:
+  x: "0.31979166666666664*方法.取屏幕宽度"
+  y: "0.4148148148148148*方法.取屏幕高度+界面变量.滚动值*24"
   texture: "icon/lock_icon.png"
   width: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_CROSSBOW')=="yes"){
+    if(方法.取变量('player_has_permission_recipe.THE_LAST_DAY_BANDGE')=="yes"){
       return '0' ;
     };
     return '16';
   height: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_CROSSBOW')=="yes"){
+    if(方法.取变量('player_has_permission_recipe.THE_LAST_DAY_BANDGE')=="yes"){
       return '0' ;
     };
     return '16';
   limitX: 0
-  limitY: 方法.取屏幕高度*0.2
+  limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 200
+  limitHeight: 267
   actions:
     click: |-
-      界面变量.itemid = 'MINERUSTADDONS_CROSSBOW';
-      界面变量.itemid_ = 'CROSSBOW';
-      界面变量.itemname = '6';
-      界面变量.iteminfo = '6';
+      界面变量.itemid = 'THE_LAST_DAY_BANDGE';
+      界面变量.itemid_ = 'LAST';
+      界面变量.itemname = '军用绷带';
+      界面变量.iteminfo = '质量更好的绷带。';
       界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
       界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
       界面变量.unlockcmd=界面变量.itemid&'_unlock';
-
+      
+      界面变量.recipe0='wrappedcloth';
+      界面变量.recipe0num='4';
+    
+      界面变量.recipe1='None';
+      界面变量.recipe1num='0';
+    
+      界面变量.recipe2='None';
+      界面变量.recipe2num='0';
+    
+      界面变量.recipe3='None';
+      界面变量.recipe3num='0';
+    
   
 
-MINERUSTADDONS:LONGSWORD_ori_texture:
+THE_LAST_DAYP:YSDW_ori_texture:
   type: texture
   width: "1"
-  height: "(方法.abs(0.5453703703703704*方法.取屏幕高度+16-0.6435185185185185*方法.取屏幕高度))/1.5"
-  x: "0.40729166666666666*方法.取屏幕宽度+8"
-  y: "0.5453703703703704*方法.取屏幕高度+16+界面变量.滚动值*12"
+  height: "(方法.abs(0.2962962962962963*方法.取屏幕高度+16-0.4148148148148148*方法.取屏幕高度))/1.5"
+  x: "0.38645833333333335*方法.取屏幕宽度+8"
+  y: "0.2962962962962963*方法.取屏幕高度+16+界面变量.滚动值*24"
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 9999
+  limitHeight: 267
   texture: 'icon/pixel.png'  
           
-MINERUSTADDONS:LONGSWORD_ori1_texture:
+THE_LAST_DAYP:YSDW_ori1_texture:
   type: texture
-  width: "方法.abs(0.3536458333333333*方法.取屏幕宽度-0.45677083333333335*方法.取屏幕宽度)"
+  width: "方法.abs(0.38645833333333335*方法.取屏幕宽度-0.38645833333333335*方法.取屏幕宽度)"
   height: "1"
-  x: "0.3536458333333333*方法.取屏幕宽度+8"
-  y: "0.5453703703703704*方法.取屏幕高度+16+(方法.abs(0.5453703703703704*方法.取屏幕高度+16-0.6435185185185185*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
+  x: "0.38645833333333335*方法.取屏幕宽度+8"
+  y: "0.2962962962962963*方法.取屏幕高度+16+(方法.abs(0.2962962962962963*方法.取屏幕高度+16-0.4148148148148148*方法.取屏幕高度))/1.5+界面变量.滚动值*24"
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 9999
+  limitHeight: 267
   texture: 'icon/pixel.png'  
 
-MINERUSTADDONS:LONGSWORD_0_texture:
+THE_LAST_DAYP:YSDW_0_texture:
   type: texture
   width: "1"
-  height: "方法.abs(0.6435185185185185*方法.取屏幕高度-(0.5453703703703704*方法.取屏幕高度+16+(方法.abs(0.5453703703703704*方法.取屏幕高度+16-0.6435185185185185*方法.取屏幕高度))/1.5))"
-  x: "0.3536458333333333*方法.取屏幕宽度+8"
-  y: "0.5453703703703704*方法.取屏幕高度+16+(方法.abs(0.5453703703703704*方法.取屏幕高度+16-0.6435185185185185*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-
-MINERUSTADDONS:LONGSWORD_1_texture:
-  type: texture
-  width: "1"
-  height: "方法.abs(0.6398148148148148*方法.取屏幕高度-(0.5453703703703704*方法.取屏幕高度+16+(方法.abs(0.5453703703703704*方法.取屏幕高度+16-0.6398148148148148*方法.取屏幕高度))/1.5))"
-  x: "0.40729166666666666*方法.取屏幕宽度+8"
-  y: "0.5453703703703704*方法.取屏幕高度+16+(方法.abs(0.5453703703703704*方法.取屏幕高度+16-0.6398148148148148*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-
-MINERUSTADDONS:LONGSWORD_2_texture:
-  type: texture
-  width: "1"
-  height: "方法.abs(0.6416666666666667*方法.取屏幕高度-(0.5453703703703704*方法.取屏幕高度+16+(方法.abs(0.5453703703703704*方法.取屏幕高度+16-0.6416666666666667*方法.取屏幕高度))/1.5))"
-  x: "0.45677083333333335*方法.取屏幕宽度+8"
-  y: "0.5453703703703704*方法.取屏幕高度+16+(方法.abs(0.5453703703703704*方法.取屏幕高度+16-0.6416666666666667*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
+  height: "方法.abs(0.4148148148148148*方法.取屏幕高度-(0.2962962962962963*方法.取屏幕高度+16+(方法.abs(0.2962962962962963*方法.取屏幕高度+16-0.4148148148148148*方法.取屏幕高度))/1.5))"
+  x: "0.38645833333333335*方法.取屏幕宽度+8"
+  y: "0.2962962962962963*方法.取屏幕高度+16+(方法.abs(0.2962962962962963*方法.取屏幕高度+16-0.4148148148148148*方法.取屏幕高度))/1.5+界面变量.滚动值*24"
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
   limitHeight: 9999
   texture: 'icon/pixel.png'  
    
-MINERUSTADDONS_LONGSWORD_texture:
-  x: "0.40729166666666666*方法.取屏幕宽度"
-  y: "0.5453703703703704*方法.取屏幕高度+界面变量.滚动值*12"
-  texture: 'icon/longsword.png'
+THE_LAST_DAYP_YSDW_texture:
+  x: "0.38645833333333335*方法.取屏幕宽度"
+  y: "0.2962962962962963*方法.取屏幕高度+界面变量.滚动值*24"
+  texture: 'icon/ysdw.png'
   width: 16
   height: 16
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 9999
+  limitHeight: 267
   actions:
     click: |-
-      界面变量.itemid = 'MINERUSTADDONS_LONGSWORD';
-      界面变量.itemid_ = 'LONGSWORD';
-      界面变量.itemname = '7';
-      界面变量.iteminfo = '7';
+      界面变量.itemid = 'THE_LAST_DAYP_YSDW';
+      界面变量.itemid_ = 'LAST';
+      界面变量.itemname = '盐水袋';
+      界面变量.iteminfo = '能补充一些体力。';
       界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
       界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
       界面变量.unlockcmd=界面变量.itemid&'_unlock';
       
-MINERUSTADDONS_LONGSWORD_locked_texture:
-  x: "0.40729166666666666*方法.取屏幕宽度"
-  y: "0.5453703703703704*方法.取屏幕高度+界面变量.滚动值*12"
+      界面变量.recipe0='ysdb';
+      界面变量.recipe0num='1';
+    
+      界面变量.recipe1='syringe';
+      界面变量.recipe1num='1';
+    
+      界面变量.recipe2='None';
+      界面变量.recipe2num='0';
+    
+      界面变量.recipe3='None';
+      界面变量.recipe3num='0';
+    
+      
+THE_LAST_DAYP_YSDW_locked_texture:
+  x: "0.38645833333333335*方法.取屏幕宽度"
+  y: "0.2962962962962963*方法.取屏幕高度+界面变量.滚动值*24"
   texture: "icon/lock_icon.png"
   width: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_LONGSWORD')=="yes"){
+    if(方法.取变量('player_has_permission_recipe.THE_LAST_DAYP_YSDW')=="yes"){
       return '0' ;
     };
     return '16';
   height: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_LONGSWORD')=="yes"){
+    if(方法.取变量('player_has_permission_recipe.THE_LAST_DAYP_YSDW')=="yes"){
       return '0' ;
     };
     return '16';
   limitX: 0
-  limitY: 方法.取屏幕高度*0.2
+  limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 200
+  limitHeight: 267
   actions:
     click: |-
-      界面变量.itemid = 'MINERUSTADDONS_LONGSWORD';
-      界面变量.itemid_ = 'LONGSWORD';
-      界面变量.itemname = '7';
-      界面变量.iteminfo = '7';
+      界面变量.itemid = 'THE_LAST_DAYP_YSDW';
+      界面变量.itemid_ = 'LAST';
+      界面变量.itemname = '盐水袋';
+      界面变量.iteminfo = '能补充一些体力。';
       界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
       界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
       界面变量.unlockcmd=界面变量.itemid&'_unlock';
-
+      
+      界面变量.recipe0='ysdb';
+      界面变量.recipe0num='1';
+    
+      界面变量.recipe1='syringe';
+      界面变量.recipe1num='1';
+    
+      界面变量.recipe2='None';
+      界面变量.recipe2num='0';
+    
+      界面变量.recipe3='None';
+      界面变量.recipe3num='0';
+    
   
 
-MINERUSTADDONS:LONGSWORD_ori_texture:
+MINERUSTADDONS:WRAPPEDCLOTH_ori_texture:
   type: texture
   width: "1"
-  height: "(方法.abs(0.5453703703703704*方法.取屏幕高度+16-0.6435185185185185*方法.取屏幕高度))/1.5"
-  x: "0.40729166666666666*方法.取屏幕宽度+8"
-  y: "0.5453703703703704*方法.取屏幕高度+16+界面变量.滚动值*12"
+  height: "(方法.abs(0.17777777777777778*方法.取屏幕高度+16-0.2962962962962963*方法.取屏幕高度))/1.5"
+  x: "0.38645833333333335*方法.取屏幕宽度+8"
+  y: "0.17777777777777778*方法.取屏幕高度+16+界面变量.滚动值*24"
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 9999
+  limitHeight: 267
   texture: 'icon/pixel.png'  
           
-MINERUSTADDONS:LONGSWORD_ori1_texture:
+MINERUSTADDONS:WRAPPEDCLOTH_ori1_texture:
   type: texture
-  width: "方法.abs(0.3536458333333333*方法.取屏幕宽度-0.45677083333333335*方法.取屏幕宽度)"
+  width: "方法.abs(0.31979166666666664*方法.取屏幕宽度-0.453125*方法.取屏幕宽度)"
   height: "1"
-  x: "0.3536458333333333*方法.取屏幕宽度+8"
-  y: "0.5453703703703704*方法.取屏幕高度+16+(方法.abs(0.5453703703703704*方法.取屏幕高度+16-0.6435185185185185*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
+  x: "0.31979166666666664*方法.取屏幕宽度+8"
+  y: "0.17777777777777778*方法.取屏幕高度+16+(方法.abs(0.17777777777777778*方法.取屏幕高度+16-0.2962962962962963*方法.取屏幕高度))/1.5+界面变量.滚动值*24"
+  limitX: 0
+  limitY: 方法.取屏幕高度*0.15
+  limitWidth: 9999
+  limitHeight: 267
+  texture: 'icon/pixel.png'  
+
+MINERUSTADDONS:WRAPPEDCLOTH_0_texture:
+  type: texture
+  width: "1"
+  height: "方法.abs(0.2962962962962963*方法.取屏幕高度-(0.17777777777777778*方法.取屏幕高度+16+(方法.abs(0.17777777777777778*方法.取屏幕高度+16-0.2962962962962963*方法.取屏幕高度))/1.5))"
+  x: "0.31979166666666664*方法.取屏幕宽度+8"
+  y: "0.17777777777777778*方法.取屏幕高度+16+(方法.abs(0.17777777777777778*方法.取屏幕高度+16-0.2962962962962963*方法.取屏幕高度))/1.5+界面变量.滚动值*24"
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
   limitHeight: 9999
   texture: 'icon/pixel.png'  
 
-MINERUSTADDONS:LONGSWORD_0_texture:
+MINERUSTADDONS:WRAPPEDCLOTH_1_texture:
   type: texture
   width: "1"
-  height: "方法.abs(0.6435185185185185*方法.取屏幕高度-(0.5453703703703704*方法.取屏幕高度+16+(方法.abs(0.5453703703703704*方法.取屏幕高度+16-0.6435185185185185*方法.取屏幕高度))/1.5))"
-  x: "0.3536458333333333*方法.取屏幕宽度+8"
-  y: "0.5453703703703704*方法.取屏幕高度+16+(方法.abs(0.5453703703703704*方法.取屏幕高度+16-0.6435185185185185*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
+  height: "方法.abs(0.2962962962962963*方法.取屏幕高度-(0.17777777777777778*方法.取屏幕高度+16+(方法.abs(0.17777777777777778*方法.取屏幕高度+16-0.2962962962962963*方法.取屏幕高度))/1.5))"
+  x: "0.38645833333333335*方法.取屏幕宽度+8"
+  y: "0.17777777777777778*方法.取屏幕高度+16+(方法.abs(0.17777777777777778*方法.取屏幕高度+16-0.2962962962962963*方法.取屏幕高度))/1.5+界面变量.滚动值*24"
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
   limitHeight: 9999
   texture: 'icon/pixel.png'  
 
-MINERUSTADDONS:LONGSWORD_1_texture:
+MINERUSTADDONS:WRAPPEDCLOTH_2_texture:
   type: texture
   width: "1"
-  height: "方法.abs(0.6398148148148148*方法.取屏幕高度-(0.5453703703703704*方法.取屏幕高度+16+(方法.abs(0.5453703703703704*方法.取屏幕高度+16-0.6398148148148148*方法.取屏幕高度))/1.5))"
-  x: "0.40729166666666666*方法.取屏幕宽度+8"
-  y: "0.5453703703703704*方法.取屏幕高度+16+(方法.abs(0.5453703703703704*方法.取屏幕高度+16-0.6398148148148148*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-
-MINERUSTADDONS:LONGSWORD_2_texture:
-  type: texture
-  width: "1"
-  height: "方法.abs(0.6416666666666667*方法.取屏幕高度-(0.5453703703703704*方法.取屏幕高度+16+(方法.abs(0.5453703703703704*方法.取屏幕高度+16-0.6416666666666667*方法.取屏幕高度))/1.5))"
-  x: "0.45677083333333335*方法.取屏幕宽度+8"
-  y: "0.5453703703703704*方法.取屏幕高度+16+(方法.abs(0.5453703703703704*方法.取屏幕高度+16-0.6416666666666667*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
+  height: "方法.abs(0.2962962962962963*方法.取屏幕高度-(0.17777777777777778*方法.取屏幕高度+16+(方法.abs(0.17777777777777778*方法.取屏幕高度+16-0.2962962962962963*方法.取屏幕高度))/1.5))"
+  x: "0.453125*方法.取屏幕宽度+8"
+  y: "0.17777777777777778*方法.取屏幕高度+16+(方法.abs(0.17777777777777778*方法.取屏幕高度+16-0.2962962962962963*方法.取屏幕高度))/1.5+界面变量.滚动值*24"
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
   limitHeight: 9999
   texture: 'icon/pixel.png'  
    
-MINERUSTADDONS_METALSWORD_texture:
-  x: "0.40729166666666666*方法.取屏幕宽度"
-  y: "0.6398148148148148*方法.取屏幕高度+界面变量.滚动值*12"
-  texture: 'icon/metalsword.png'
+MINERUSTADDONS_WRAPPEDCLOTH_texture:
+  x: "0.38645833333333335*方法.取屏幕宽度"
+  y: "0.17777777777777778*方法.取屏幕高度+界面变量.滚动值*24"
+  texture: 'icon/wrappedcloth.png'
   width: 16
   height: 16
   limitX: 0
   limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 9999
+  limitHeight: 267
   actions:
     click: |-
-      界面变量.itemid = 'MINERUSTADDONS_METALSWORD';
-      界面变量.itemid_ = 'METALSWORD';
-      界面变量.itemname = '8';
-      界面变量.iteminfo = '8';
+      界面变量.itemid = 'MINERUSTADDONS_WRAPPEDCLOTH';
+      界面变量.itemid_ = 'WRAPPEDCLOTH';
+      界面变量.itemname = '布卷';
+      界面变量.iteminfo = '没有消毒的布卷，适合制作药物';
       界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
       界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
       界面变量.unlockcmd=界面变量.itemid&'_unlock';
       
-MINERUSTADDONS_METALSWORD_locked_texture:
-  x: "0.40729166666666666*方法.取屏幕宽度"
-  y: "0.6398148148148148*方法.取屏幕高度+界面变量.滚动值*12"
+      界面变量.recipe0='cloth';
+      界面变量.recipe0num='4';
+    
+      界面变量.recipe1='None';
+      界面变量.recipe1num='0';
+    
+      界面变量.recipe2='None';
+      界面变量.recipe2num='0';
+    
+      界面变量.recipe3='None';
+      界面变量.recipe3num='0';
+    
+      
+MINERUSTADDONS_WRAPPEDCLOTH_locked_texture:
+  x: "0.38645833333333335*方法.取屏幕宽度"
+  y: "0.17777777777777778*方法.取屏幕高度+界面变量.滚动值*24"
   texture: "icon/lock_icon.png"
   width: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_METALSWORD')=="yes"){
+    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_WRAPPEDCLOTH')=="yes"){
       return '0' ;
     };
     return '16';
   height: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_METALSWORD')=="yes"){
+    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_WRAPPEDCLOTH')=="yes"){
       return '0' ;
     };
     return '16';
   limitX: 0
-  limitY: 方法.取屏幕高度*0.2
+  limitY: 方法.取屏幕高度*0.15
   limitWidth: 9999
-  limitHeight: 200
+  limitHeight: 267
   actions:
     click: |-
-      界面变量.itemid = 'MINERUSTADDONS_METALSWORD';
-      界面变量.itemid_ = 'METALSWORD';
-      界面变量.itemname = '8';
-      界面变量.iteminfo = '8';
-      界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
-      界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
-      界面变量.unlockcmd=界面变量.itemid&'_unlock';
-
-  
-
-MINERUSTADDONS:LONGSWORD_ori_texture:
-  type: texture
-  width: "1"
-  height: "(方法.abs(0.5453703703703704*方法.取屏幕高度+16-0.6435185185185185*方法.取屏幕高度))/1.5"
-  x: "0.40729166666666666*方法.取屏幕宽度+8"
-  y: "0.5453703703703704*方法.取屏幕高度+16+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-          
-MINERUSTADDONS:LONGSWORD_ori1_texture:
-  type: texture
-  width: "方法.abs(0.3536458333333333*方法.取屏幕宽度-0.45677083333333335*方法.取屏幕宽度)"
-  height: "1"
-  x: "0.3536458333333333*方法.取屏幕宽度+8"
-  y: "0.5453703703703704*方法.取屏幕高度+16+(方法.abs(0.5453703703703704*方法.取屏幕高度+16-0.6435185185185185*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-
-MINERUSTADDONS:LONGSWORD_0_texture:
-  type: texture
-  width: "1"
-  height: "方法.abs(0.6435185185185185*方法.取屏幕高度-(0.5453703703703704*方法.取屏幕高度+16+(方法.abs(0.5453703703703704*方法.取屏幕高度+16-0.6435185185185185*方法.取屏幕高度))/1.5))"
-  x: "0.3536458333333333*方法.取屏幕宽度+8"
-  y: "0.5453703703703704*方法.取屏幕高度+16+(方法.abs(0.5453703703703704*方法.取屏幕高度+16-0.6435185185185185*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-
-MINERUSTADDONS:LONGSWORD_1_texture:
-  type: texture
-  width: "1"
-  height: "方法.abs(0.6398148148148148*方法.取屏幕高度-(0.5453703703703704*方法.取屏幕高度+16+(方法.abs(0.5453703703703704*方法.取屏幕高度+16-0.6398148148148148*方法.取屏幕高度))/1.5))"
-  x: "0.40729166666666666*方法.取屏幕宽度+8"
-  y: "0.5453703703703704*方法.取屏幕高度+16+(方法.abs(0.5453703703703704*方法.取屏幕高度+16-0.6398148148148148*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-
-MINERUSTADDONS:LONGSWORD_2_texture:
-  type: texture
-  width: "1"
-  height: "方法.abs(0.6416666666666667*方法.取屏幕高度-(0.5453703703703704*方法.取屏幕高度+16+(方法.abs(0.5453703703703704*方法.取屏幕高度+16-0.6416666666666667*方法.取屏幕高度))/1.5))"
-  x: "0.45677083333333335*方法.取屏幕宽度+8"
-  y: "0.5453703703703704*方法.取屏幕高度+16+(方法.abs(0.5453703703703704*方法.取屏幕高度+16-0.6416666666666667*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-   
-MINERUSTADDONS_MACE_texture:
-  x: "0.3536458333333333*方法.取屏幕宽度"
-  y: "0.6435185185185185*方法.取屏幕高度+界面变量.滚动值*12"
-  texture: 'icon/mace.png'
-  width: 16
-  height: 16
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  actions:
-    click: |-
-      界面变量.itemid = 'MINERUSTADDONS_MACE';
-      界面变量.itemid_ = 'MACE';
-      界面变量.itemname = '9';
-      界面变量.iteminfo = '9';
+      界面变量.itemid = 'MINERUSTADDONS_WRAPPEDCLOTH';
+      界面变量.itemid_ = 'WRAPPEDCLOTH';
+      界面变量.itemname = '布卷';
+      界面变量.iteminfo = '没有消毒的布卷，适合制作药物';
       界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
       界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
       界面变量.unlockcmd=界面变量.itemid&'_unlock';
       
-MINERUSTADDONS_MACE_locked_texture:
-  x: "0.3536458333333333*方法.取屏幕宽度"
-  y: "0.6435185185185185*方法.取屏幕高度+界面变量.滚动值*12"
-  texture: "icon/lock_icon.png"
-  width: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_MACE')=="yes"){
-      return '0' ;
-    };
-    return '16';
-  height: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_MACE')=="yes"){
-      return '0' ;
-    };
-    return '16';
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.2
-  limitWidth: 9999
-  limitHeight: 200
-  actions:
-    click: |-
-      界面变量.itemid = 'MINERUSTADDONS_MACE';
-      界面变量.itemid_ = 'MACE';
-      界面变量.itemname = '9';
-      界面变量.iteminfo = '9';
-      界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
-      界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
-      界面变量.unlockcmd=界面变量.itemid&'_unlock';
-
-  
-
-MINERUSTADDONS:LONGSWORD_ori_texture:
-  type: texture
-  width: "1"
-  height: "(方法.abs(0.5453703703703704*方法.取屏幕高度+16-0.6435185185185185*方法.取屏幕高度))/1.5"
-  x: "0.40729166666666666*方法.取屏幕宽度+8"
-  y: "0.5453703703703704*方法.取屏幕高度+16+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-          
-MINERUSTADDONS:LONGSWORD_ori1_texture:
-  type: texture
-  width: "方法.abs(0.3536458333333333*方法.取屏幕宽度-0.45677083333333335*方法.取屏幕宽度)"
-  height: "1"
-  x: "0.3536458333333333*方法.取屏幕宽度+8"
-  y: "0.5453703703703704*方法.取屏幕高度+16+(方法.abs(0.5453703703703704*方法.取屏幕高度+16-0.6435185185185185*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-
-MINERUSTADDONS:LONGSWORD_0_texture:
-  type: texture
-  width: "1"
-  height: "方法.abs(0.6435185185185185*方法.取屏幕高度-(0.5453703703703704*方法.取屏幕高度+16+(方法.abs(0.5453703703703704*方法.取屏幕高度+16-0.6435185185185185*方法.取屏幕高度))/1.5))"
-  x: "0.3536458333333333*方法.取屏幕宽度+8"
-  y: "0.5453703703703704*方法.取屏幕高度+16+(方法.abs(0.5453703703703704*方法.取屏幕高度+16-0.6435185185185185*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-
-MINERUSTADDONS:LONGSWORD_1_texture:
-  type: texture
-  width: "1"
-  height: "方法.abs(0.6398148148148148*方法.取屏幕高度-(0.5453703703703704*方法.取屏幕高度+16+(方法.abs(0.5453703703703704*方法.取屏幕高度+16-0.6398148148148148*方法.取屏幕高度))/1.5))"
-  x: "0.40729166666666666*方法.取屏幕宽度+8"
-  y: "0.5453703703703704*方法.取屏幕高度+16+(方法.abs(0.5453703703703704*方法.取屏幕高度+16-0.6398148148148148*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-
-MINERUSTADDONS:LONGSWORD_2_texture:
-  type: texture
-  width: "1"
-  height: "方法.abs(0.6416666666666667*方法.取屏幕高度-(0.5453703703703704*方法.取屏幕高度+16+(方法.abs(0.5453703703703704*方法.取屏幕高度+16-0.6416666666666667*方法.取屏幕高度))/1.5))"
-  x: "0.45677083333333335*方法.取屏幕宽度+8"
-  y: "0.5453703703703704*方法.取屏幕高度+16+(方法.abs(0.5453703703703704*方法.取屏幕高度+16-0.6416666666666667*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-   
-MINERUSTADDONS_WARHAMMER_texture:
-  x: "0.45677083333333335*方法.取屏幕宽度"
-  y: "0.6416666666666667*方法.取屏幕高度+界面变量.滚动值*12"
-  texture: 'icon/warhammer.png'
-  width: 16
-  height: 16
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  actions:
-    click: |-
-      界面变量.itemid = 'MINERUSTADDONS_WARHAMMER';
-      界面变量.itemid_ = 'WARHAMMER';
-      界面变量.itemname = '10';
-      界面变量.iteminfo = '10';
-      界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
-      界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
-      界面变量.unlockcmd=界面变量.itemid&'_unlock';
-      
-MINERUSTADDONS_WARHAMMER_locked_texture:
-  x: "0.45677083333333335*方法.取屏幕宽度"
-  y: "0.6416666666666667*方法.取屏幕高度+界面变量.滚动值*12"
-  texture: "icon/lock_icon.png"
-  width: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_WARHAMMER')=="yes"){
-      return '0' ;
-    };
-    return '16';
-  height: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_WARHAMMER')=="yes"){
-      return '0' ;
-    };
-    return '16';
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.2
-  limitWidth: 9999
-  limitHeight: 200
-  actions:
-    click: |-
-      界面变量.itemid = 'MINERUSTADDONS_WARHAMMER';
-      界面变量.itemid_ = 'WARHAMMER';
-      界面变量.itemname = '10';
-      界面变量.iteminfo = '10';
-      界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
-      界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
-      界面变量.unlockcmd=界面变量.itemid&'_unlock';
-
-  
-
-MINERUSTADDONS:BONETOOL_ori_texture:
-  type: texture
-  width: "1"
-  height: "(方法.abs(0.25833333333333336*方法.取屏幕高度+16-0.35*方法.取屏幕高度))/1.5"
-  x: "0.6864583333333333*方法.取屏幕宽度+8"
-  y: "0.25833333333333336*方法.取屏幕高度+16+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-          
-MINERUSTADDONS:BONETOOL_ori1_texture:
-  type: texture
-  width: "方法.abs(0.6395833333333333*方法.取屏幕宽度-0.6395833333333333*方法.取屏幕宽度)"
-  height: "1"
-  x: "0.6395833333333333*方法.取屏幕宽度+8"
-  y: "0.25833333333333336*方法.取屏幕高度+16+(方法.abs(0.25833333333333336*方法.取屏幕高度+16-0.35*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-
-MINERUSTADDONS:BONETOOL_0_texture:
-  type: texture
-  width: "1"
-  height: "方法.abs(0.35*方法.取屏幕高度-(0.25833333333333336*方法.取屏幕高度+16+(方法.abs(0.25833333333333336*方法.取屏幕高度+16-0.35*方法.取屏幕高度))/1.5))"
-  x: "0.6395833333333333*方法.取屏幕宽度+8"
-  y: "0.25833333333333336*方法.取屏幕高度+16+(方法.abs(0.25833333333333336*方法.取屏幕高度+16-0.35*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-   
-MINERUSTADDONS_BONETOOL_texture:
-  x: "0.6864583333333333*方法.取屏幕宽度"
-  y: "0.25833333333333336*方法.取屏幕高度+界面变量.滚动值*12"
-  texture: 'icon/bonetool.png'
-  width: 16
-  height: 16
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  actions:
-    click: |-
-      界面变量.itemid = 'MINERUSTADDONS_BONETOOL';
-      界面变量.itemid_ = 'BONETOOL';
-      界面变量.itemname = '11';
-      界面变量.iteminfo = '11';
-      界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
-      界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
-      界面变量.unlockcmd=界面变量.itemid&'_unlock';
-      
-MINERUSTADDONS_BONETOOL_locked_texture:
-  x: "0.6864583333333333*方法.取屏幕宽度"
-  y: "0.25833333333333336*方法.取屏幕高度+界面变量.滚动值*12"
-  texture: "icon/lock_icon.png"
-  width: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_BONETOOL')=="yes"){
-      return '0' ;
-    };
-    return '16';
-  height: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_BONETOOL')=="yes"){
-      return '0' ;
-    };
-    return '16';
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.2
-  limitWidth: 9999
-  limitHeight: 200
-  actions:
-    click: |-
-      界面变量.itemid = 'MINERUSTADDONS_BONETOOL';
-      界面变量.itemid_ = 'BONETOOL';
-      界面变量.itemname = '11';
-      界面变量.iteminfo = '11';
-      界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
-      界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
-      界面变量.unlockcmd=界面变量.itemid&'_unlock';
-
-  
-
-MINERUSTADDONS:BONETOOL_ori_texture:
-  type: texture
-  width: "1"
-  height: "(方法.abs(0.25833333333333336*方法.取屏幕高度+16-0.35*方法.取屏幕高度))/1.5"
-  x: "0.6864583333333333*方法.取屏幕宽度+8"
-  y: "0.25833333333333336*方法.取屏幕高度+16+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-          
-MINERUSTADDONS:BONETOOL_ori1_texture:
-  type: texture
-  width: "方法.abs(0.6395833333333333*方法.取屏幕宽度-0.6395833333333333*方法.取屏幕宽度)"
-  height: "1"
-  x: "0.6395833333333333*方法.取屏幕宽度+8"
-  y: "0.25833333333333336*方法.取屏幕高度+16+(方法.abs(0.25833333333333336*方法.取屏幕高度+16-0.35*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-
-MINERUSTADDONS:BONETOOL_0_texture:
-  type: texture
-  width: "1"
-  height: "方法.abs(0.35*方法.取屏幕高度-(0.25833333333333336*方法.取屏幕高度+16+(方法.abs(0.25833333333333336*方法.取屏幕高度+16-0.35*方法.取屏幕高度))/1.5))"
-  x: "0.6395833333333333*方法.取屏幕宽度+8"
-  y: "0.25833333333333336*方法.取屏幕高度+16+(方法.abs(0.25833333333333336*方法.取屏幕高度+16-0.35*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-   
-MINERUSTADDONS_STONEAXE_texture:
-  x: "0.7364583333333333*方法.取屏幕宽度"
-  y: "0.35185185185185186*方法.取屏幕高度+界面变量.滚动值*12"
-  texture: 'icon/stoneaxe.png'
-  width: 16
-  height: 16
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  actions:
-    click: |-
-      界面变量.itemid = 'MINERUSTADDONS_STONEAXE';
-      界面变量.itemid_ = 'STONEAXE';
-      界面变量.itemname = '12';
-      界面变量.iteminfo = '12';
-      界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
-      界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
-      界面变量.unlockcmd=界面变量.itemid&'_unlock';
-      
-MINERUSTADDONS_STONEAXE_locked_texture:
-  x: "0.7364583333333333*方法.取屏幕宽度"
-  y: "0.35185185185185186*方法.取屏幕高度+界面变量.滚动值*12"
-  texture: "icon/lock_icon.png"
-  width: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_STONEAXE')=="yes"){
-      return '0' ;
-    };
-    return '16';
-  height: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_STONEAXE')=="yes"){
-      return '0' ;
-    };
-    return '16';
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.2
-  limitWidth: 9999
-  limitHeight: 200
-  actions:
-    click: |-
-      界面变量.itemid = 'MINERUSTADDONS_STONEAXE';
-      界面变量.itemid_ = 'STONEAXE';
-      界面变量.itemname = '12';
-      界面变量.iteminfo = '12';
-      界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
-      界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
-      界面变量.unlockcmd=界面变量.itemid&'_unlock';
-
-  
-
-MINERUSTADDONS:BONETOOL_ori_texture:
-  type: texture
-  width: "1"
-  height: "(方法.abs(0.25833333333333336*方法.取屏幕高度+16-0.35*方法.取屏幕高度))/1.5"
-  x: "0.6864583333333333*方法.取屏幕宽度+8"
-  y: "0.25833333333333336*方法.取屏幕高度+16+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-          
-MINERUSTADDONS:BONETOOL_ori1_texture:
-  type: texture
-  width: "方法.abs(0.6395833333333333*方法.取屏幕宽度-0.6395833333333333*方法.取屏幕宽度)"
-  height: "1"
-  x: "0.6395833333333333*方法.取屏幕宽度+8"
-  y: "0.25833333333333336*方法.取屏幕高度+16+(方法.abs(0.25833333333333336*方法.取屏幕高度+16-0.35*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-
-MINERUSTADDONS:BONETOOL_0_texture:
-  type: texture
-  width: "1"
-  height: "方法.abs(0.35*方法.取屏幕高度-(0.25833333333333336*方法.取屏幕高度+16+(方法.abs(0.25833333333333336*方法.取屏幕高度+16-0.35*方法.取屏幕高度))/1.5))"
-  x: "0.6395833333333333*方法.取屏幕宽度+8"
-  y: "0.25833333333333336*方法.取屏幕高度+16+(方法.abs(0.25833333333333336*方法.取屏幕高度+16-0.35*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-   
-MINERUSTADDONS_STONEPICKAXE_texture:
-  x: "0.6395833333333333*方法.取屏幕宽度"
-  y: "0.35*方法.取屏幕高度+界面变量.滚动值*12"
-  texture: 'icon/stonepickaxe.png'
-  width: 16
-  height: 16
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  actions:
-    click: |-
-      界面变量.itemid = 'MINERUSTADDONS_STONEPICKAXE';
-      界面变量.itemid_ = 'STONEPICKAXE';
-      界面变量.itemname = '13';
-      界面变量.iteminfo = '13';
-      界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
-      界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
-      界面变量.unlockcmd=界面变量.itemid&'_unlock';
-      
-MINERUSTADDONS_STONEPICKAXE_locked_texture:
-  x: "0.6395833333333333*方法.取屏幕宽度"
-  y: "0.35*方法.取屏幕高度+界面变量.滚动值*12"
-  texture: "icon/lock_icon.png"
-  width: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_STONEPICKAXE')=="yes"){
-      return '0' ;
-    };
-    return '16';
-  height: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_STONEPICKAXE')=="yes"){
-      return '0' ;
-    };
-    return '16';
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.2
-  limitWidth: 9999
-  limitHeight: 200
-  actions:
-    click: |-
-      界面变量.itemid = 'MINERUSTADDONS_STONEPICKAXE';
-      界面变量.itemid_ = 'STONEPICKAXE';
-      界面变量.itemname = '13';
-      界面变量.iteminfo = '13';
-      界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
-      界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
-      界面变量.unlockcmd=界面变量.itemid&'_unlock';
-
-  
-
-MINERUSTADDONS:BONETOOL_ori_texture:
-  type: texture
-  width: "1"
-  height: "(方法.abs(0.25833333333333336*方法.取屏幕高度+16-0.35*方法.取屏幕高度))/1.5"
-  x: "0.6864583333333333*方法.取屏幕宽度+8"
-  y: "0.25833333333333336*方法.取屏幕高度+16+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-          
-MINERUSTADDONS:BONETOOL_ori1_texture:
-  type: texture
-  width: "方法.abs(0.6395833333333333*方法.取屏幕宽度-0.6395833333333333*方法.取屏幕宽度)"
-  height: "1"
-  x: "0.6395833333333333*方法.取屏幕宽度+8"
-  y: "0.25833333333333336*方法.取屏幕高度+16+(方法.abs(0.25833333333333336*方法.取屏幕高度+16-0.35*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-
-MINERUSTADDONS:BONETOOL_0_texture:
-  type: texture
-  width: "1"
-  height: "方法.abs(0.35*方法.取屏幕高度-(0.25833333333333336*方法.取屏幕高度+16+(方法.abs(0.25833333333333336*方法.取屏幕高度+16-0.35*方法.取屏幕高度))/1.5))"
-  x: "0.6395833333333333*方法.取屏幕宽度+8"
-  y: "0.25833333333333336*方法.取屏幕高度+16+(方法.abs(0.25833333333333336*方法.取屏幕高度+16-0.35*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-   
-MINERUSTADDONS_METALAXE_texture:
-  x: "0.7364583333333333*方法.取屏幕宽度"
-  y: "0.45740740740740743*方法.取屏幕高度+界面变量.滚动值*12"
-  texture: 'icon/metalaxe.png'
-  width: 16
-  height: 16
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  actions:
-    click: |-
-      界面变量.itemid = 'MINERUSTADDONS_METALAXE';
-      界面变量.itemid_ = 'METALAXE';
-      界面变量.itemname = '14';
-      界面变量.iteminfo = '14';
-      界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
-      界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
-      界面变量.unlockcmd=界面变量.itemid&'_unlock';
-      
-MINERUSTADDONS_METALAXE_locked_texture:
-  x: "0.7364583333333333*方法.取屏幕宽度"
-  y: "0.45740740740740743*方法.取屏幕高度+界面变量.滚动值*12"
-  texture: "icon/lock_icon.png"
-  width: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_METALAXE')=="yes"){
-      return '0' ;
-    };
-    return '16';
-  height: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_METALAXE')=="yes"){
-      return '0' ;
-    };
-    return '16';
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.2
-  limitWidth: 9999
-  limitHeight: 200
-  actions:
-    click: |-
-      界面变量.itemid = 'MINERUSTADDONS_METALAXE';
-      界面变量.itemid_ = 'METALAXE';
-      界面变量.itemname = '14';
-      界面变量.iteminfo = '14';
-      界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
-      界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
-      界面变量.unlockcmd=界面变量.itemid&'_unlock';
-
-  
-
-MINERUSTADDONS:BONETOOL_ori_texture:
-  type: texture
-  width: "1"
-  height: "(方法.abs(0.25833333333333336*方法.取屏幕高度+16-0.35*方法.取屏幕高度))/1.5"
-  x: "0.6864583333333333*方法.取屏幕宽度+8"
-  y: "0.25833333333333336*方法.取屏幕高度+16+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-          
-MINERUSTADDONS:BONETOOL_ori1_texture:
-  type: texture
-  width: "方法.abs(0.6395833333333333*方法.取屏幕宽度-0.6395833333333333*方法.取屏幕宽度)"
-  height: "1"
-  x: "0.6395833333333333*方法.取屏幕宽度+8"
-  y: "0.25833333333333336*方法.取屏幕高度+16+(方法.abs(0.25833333333333336*方法.取屏幕高度+16-0.35*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-
-MINERUSTADDONS:BONETOOL_0_texture:
-  type: texture
-  width: "1"
-  height: "方法.abs(0.35*方法.取屏幕高度-(0.25833333333333336*方法.取屏幕高度+16+(方法.abs(0.25833333333333336*方法.取屏幕高度+16-0.35*方法.取屏幕高度))/1.5))"
-  x: "0.6395833333333333*方法.取屏幕宽度+8"
-  y: "0.25833333333333336*方法.取屏幕高度+16+(方法.abs(0.25833333333333336*方法.取屏幕高度+16-0.35*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-   
-MINERUSTADDONS_HATCHET_texture:
-  x: "0.7364583333333333*方法.取屏幕宽度"
-  y: "0.5444444444444444*方法.取屏幕高度+界面变量.滚动值*12"
-  texture: 'icon/hatchet.png'
-  width: 16
-  height: 16
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  actions:
-    click: |-
-      界面变量.itemid = 'MINERUSTADDONS_HATCHET';
-      界面变量.itemid_ = 'HATCHET';
-      界面变量.itemname = '15';
-      界面变量.iteminfo = '15';
-      界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
-      界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
-      界面变量.unlockcmd=界面变量.itemid&'_unlock';
-      
-MINERUSTADDONS_HATCHET_locked_texture:
-  x: "0.7364583333333333*方法.取屏幕宽度"
-  y: "0.5444444444444444*方法.取屏幕高度+界面变量.滚动值*12"
-  texture: "icon/lock_icon.png"
-  width: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_HATCHET')=="yes"){
-      return '0' ;
-    };
-    return '16';
-  height: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_HATCHET')=="yes"){
-      return '0' ;
-    };
-    return '16';
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.2
-  limitWidth: 9999
-  limitHeight: 200
-  actions:
-    click: |-
-      界面变量.itemid = 'MINERUSTADDONS_HATCHET';
-      界面变量.itemid_ = 'HATCHET';
-      界面变量.itemname = '15';
-      界面变量.iteminfo = '15';
-      界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
-      界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
-      界面变量.unlockcmd=界面变量.itemid&'_unlock';
-
-  
-
-MINERUSTADDONS:PIECEWOOD_ori_texture:
-  type: texture
-  width: "1"
-  height: "(方法.abs(0.24722222222222223*方法.取屏幕高度+16-0.35462962962962963*方法.取屏幕高度))/1.5"
-  x: "0.4078125*方法.取屏幕宽度+8"
-  y: "0.24722222222222223*方法.取屏幕高度+16+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-          
-MINERUSTADDONS:PIECEWOOD_ori1_texture:
-  type: texture
-  width: "方法.abs(0.40729166666666666*方法.取屏幕宽度-0.40729166666666666*方法.取屏幕宽度)"
-  height: "1"
-  x: "0.40729166666666666*方法.取屏幕宽度+8"
-  y: "0.24722222222222223*方法.取屏幕高度+16+(方法.abs(0.24722222222222223*方法.取屏幕高度+16-0.35462962962962963*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-
-MINERUSTADDONS:PIECEWOOD_0_texture:
-  type: texture
-  width: "1"
-  height: "方法.abs(0.35462962962962963*方法.取屏幕高度-(0.24722222222222223*方法.取屏幕高度+16+(方法.abs(0.24722222222222223*方法.取屏幕高度+16-0.35462962962962963*方法.取屏幕高度))/1.5))"
-  x: "0.40729166666666666*方法.取屏幕宽度+8"
-  y: "0.24722222222222223*方法.取屏幕高度+16+(方法.abs(0.24722222222222223*方法.取屏幕高度+16-0.35462962962962963*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-   
-MINERUSTADDONS_PIECEWOOD_texture:
-  x: "0.4078125*方法.取屏幕宽度"
-  y: "0.24722222222222223*方法.取屏幕高度+界面变量.滚动值*12"
-  texture: 'icon/piecewood.png'
-  width: 16
-  height: 16
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  actions:
-    click: |-
-      界面变量.itemid = 'MINERUSTADDONS_PIECEWOOD';
-      界面变量.itemid_ = 'PIECEWOOD';
-      界面变量.itemname = '0';
-      界面变量.iteminfo = '0';
-      界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
-      界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
-      界面变量.unlockcmd=界面变量.itemid&'_unlock';
-      
-MINERUSTADDONS_PIECEWOOD_locked_texture:
-  x: "0.4078125*方法.取屏幕宽度"
-  y: "0.24722222222222223*方法.取屏幕高度+界面变量.滚动值*12"
-  texture: "icon/lock_icon.png"
-  width: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_PIECEWOOD')=="yes"){
-      return '0' ;
-    };
-    return '16';
-  height: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_PIECEWOOD')=="yes"){
-      return '0' ;
-    };
-    return '16';
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.2
-  limitWidth: 9999
-  limitHeight: 200
-  actions:
-    click: |-
-      界面变量.itemid = 'MINERUSTADDONS_PIECEWOOD';
-      界面变量.itemid_ = 'PIECEWOOD';
-      界面变量.itemname = '0';
-      界面变量.iteminfo = '0';
-      界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
-      界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
-      界面变量.unlockcmd=界面变量.itemid&'_unlock';
-
-  
-
-MINERUSTADDONS:WOODENSWORD_ori_texture:
-  type: texture
-  width: "1"
-  height: "(方法.abs(0.35462962962962963*方法.取屏幕高度+16-0.44537037037037036*方法.取屏幕高度))/1.5"
-  x: "0.40729166666666666*方法.取屏幕宽度+8"
-  y: "0.35462962962962963*方法.取屏幕高度+16+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-          
-MINERUSTADDONS:WOODENSWORD_ori1_texture:
-  type: texture
-  width: "方法.abs(0.4078125*方法.取屏幕宽度-0.4078125*方法.取屏幕宽度)"
-  height: "1"
-  x: "0.4078125*方法.取屏幕宽度+8"
-  y: "0.35462962962962963*方法.取屏幕高度+16+(方法.abs(0.35462962962962963*方法.取屏幕高度+16-0.44537037037037036*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-
-MINERUSTADDONS:WOODENSWORD_0_texture:
-  type: texture
-  width: "1"
-  height: "方法.abs(0.44537037037037036*方法.取屏幕高度-(0.35462962962962963*方法.取屏幕高度+16+(方法.abs(0.35462962962962963*方法.取屏幕高度+16-0.44537037037037036*方法.取屏幕高度))/1.5))"
-  x: "0.4078125*方法.取屏幕宽度+8"
-  y: "0.35462962962962963*方法.取屏幕高度+16+(方法.abs(0.35462962962962963*方法.取屏幕高度+16-0.44537037037037036*方法.取屏幕高度))/1.5+界面变量.滚动值*12"
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  texture: 'icon/pixel.png'  
-   
-MINERUSTADDONS_WOODENSWORD_texture:
-  x: "0.40729166666666666*方法.取屏幕宽度"
-  y: "0.35462962962962963*方法.取屏幕高度+界面变量.滚动值*12"
-  texture: 'icon/woodensword.png'
-  width: 16
-  height: 16
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.15
-  limitWidth: 9999
-  limitHeight: 9999
-  actions:
-    click: |-
-      界面变量.itemid = 'MINERUSTADDONS_WOODENSWORD';
-      界面变量.itemid_ = 'WOODENSWORD';
-      界面变量.itemname = '2';
-      界面变量.iteminfo = '2';
-      界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
-      界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
-      界面变量.unlockcmd=界面变量.itemid&'_unlock';
-      
-MINERUSTADDONS_WOODENSWORD_locked_texture:
-  x: "0.40729166666666666*方法.取屏幕宽度"
-  y: "0.35462962962962963*方法.取屏幕高度+界面变量.滚动值*12"
-  texture: "icon/lock_icon.png"
-  width: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_WOODENSWORD')=="yes"){
-      return '0' ;
-    };
-    return '16';
-  height: |-
-    if(方法.取变量('player_has_permission_recipe.MINERUSTADDONS_WOODENSWORD')=="yes"){
-      return '0' ;
-    };
-    return '16';
-  limitX: 0
-  limitY: 方法.取屏幕高度*0.2
-  limitWidth: 9999
-  limitHeight: 200
-  actions:
-    click: |-
-      界面变量.itemid = 'MINERUSTADDONS_WOODENSWORD';
-      界面变量.itemid_ = 'WOODENSWORD';
-      界面变量.itemname = '2';
-      界面变量.iteminfo = '2';
-      界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
-      界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
-      界面变量.unlockcmd=界面变量.itemid&'_unlock';
-
+      界面变量.recipe0='cloth';
+      界面变量.recipe0num='4';
+    
+      界面变量.recipe1='None';
+      界面变量.recipe1num='0';
+    
+      界面变量.recipe2='None';
+      界面变量.recipe2num='0';
+    
+      界面变量.recipe3='None';
+      界面变量.recipe3num='0';
+    
 

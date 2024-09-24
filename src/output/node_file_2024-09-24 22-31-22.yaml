@@ -1,0 +1,9 @@
+nodenum=0; item_id=MINERUSTADDONS:PLANKITEM; x=576.0; y=96.0; unlockable=[MINERUSTADDONS:STICKITEM]; recipe_items=MINERUSTADDONS:PIECEWOOD; required_quantities=[1]; itemname|=木板|; iteminfo|=锯木头得到的基础建材。|;
+nodenum=1; item_id=MINERUSTADDONS:ROPE; x=640.0; y=96.0; unlockable=[MINERUSTADDONS:STRONGROPE]; recipe_items=MINERUSTADDONS:CLOTH; required_quantities=[2]; itemname|=绳子|; iteminfo|=手搓出的亚麻绳子。|;
+nodenum=2; item_id=MINERUSTADDONS:STICKITEM; x=576.0; y=160.0; unlockable=[None]; recipe_items=MINERUSTADDONS:PLANKITEM; required_quantities=[2]; itemname|=木柄|; iteminfo|=光滑圆润，适合当什么东西的手柄。|;
+nodenum=3; item_id=MINERUSTADDONS:STRONGROPE; x=640.0; y=160.0; unlockable=[None]; recipe_items=MINERUSTADDONS:ROPE; required_quantities=[2]; itemname|=粗绳|; iteminfo|=把两条绳子加工成一条粗绳，强度更高了。|;
+nodenum=4; item_id=MINERUSTADDONS:BOLTS; x=768.0; y=96.0; unlockable=[None]; recipe_items=MINERUSTADDONS:MHQ; required_quantities=[1]; itemname|=螺栓|; iteminfo|=可以加固许多东西。|;
+nodenum=5; item_id=MINERUSTADDONS:METALSPRING; x=832.0; y=96.0; unlockable=[None]; recipe_items=MINERUSTADDONS:METALFRAGMENTS; required_quantities=[1]; itemname|=弹簧|; iteminfo|=可能能用来做更精密的设备。|;
+nodenum=6; item_id=MINERUSTADDONS:IMPROVEDSEWINGKIT; x=704.0; y=224.0; unlockable=[None]; recipe_items=MINERUSTADDONS:SEWINGKIT,MINERUSTADDONS:BLOTS,MINERUSTADDONS:METALSPRING; required_quantities=[1, 1, 1]; itemname|=高级缝纫包|; iteminfo|=有点奢侈了。|;
+nodenum=7; item_id=MINERUSTADDONS:NAILS; x=704.0; y=96.0; unlockable=[None]; recipe_items=MINERUSTADDONS:MHQ; required_quantities=[1]; itemname|=钉子|; iteminfo|=建筑的基础材料。|;
+nodenum=8; item_id=MINERUSTADDONS:SEWINGKIT; x=704; y=160; unlockable=[None]; recipe_items=MINERUSTADDONS:ROPE,MINERUSTADDONS:PLANKITEM,MINERUSTADDONS:NAILS; required_quantities=[1, 1, 1]; itemname|=缝纫包|; iteminfo|=能用来缝缝补补，有时包括你的伤口。|;

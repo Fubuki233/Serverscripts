@@ -1,220 +1,98 @@
 
 
-MINERUSTADDONS_ROCK:
-    - "[console]clear %player_name% MINERUSTADDONS_PIECESTONE 2"
-    - "[console]give %player_name% MINERUSTADDONS_ROCK 1"
-MINERUSTADDONS_ROCK_unlock:
+THE_LAST_DAY_BANDGECIVIL:
+    - "[console]clear %player_name% MINERUSTADDONS_CLOTH 4"
+    - "[console]give %player_name% THE_LAST_DAY_BANDGECIVIL 1"
+THE_LAST_DAY_BANDGECIVIL_unlock:
     - "[console]xp -1L %player_name%"
-    - "[console]manuaddp %player_name% recipe.MINERUSTADDONS_ROCK"
-    - "[console]manuaddp %player_name% recipe.unlockable.MINERUSTADDONS_PIECEWOOD"
-    - "[console]manuaddp %player_name% recipe.unlockable.MINERUSTADDONS_WOODENSPEAR"
-    - "[console]manuaddp %player_name% recipe.unlockable.MINERUSTADDONS_BONETOOL"
+    - "[console]manuaddp %player_name% recipe.THE_LAST_DAY_BANDGECIVIL"
+    - "[console]manuaddp %player_name% recipe.unlockable.THE_LAST_DAY_BANDGE"
 
 
 
 
-MINERUSTADDONS_MACHETE:
-    - "[console]clear %player_name% MINERUSTADDONS_PIECESSTONE 4"
-    - "[console]give %player_name% MINERUSTADDONS_MACHETE 1"
-MINERUSTADDONS_MACHETE_unlock:
+THE_LAST_DAY_HONGZHUAN:
+    - "[console]clear %player_name% THE_LAST_DAY_BANDGE 1" 
+    - "[console]clear %player_name% MINERUSTADDONS_BLOOD 1" 
+
+    - "[console]give %player_name% THE_LAST_DAY_HONGZHUAN 1"
+THE_LAST_DAY_HONGZHUAN_unlock:
     - "[console]xp -1L %player_name%"
-    - "[console]manuaddp %player_name% recipe.MINERUSTADDONS_MACHETE"
-    - "[console]manuaddp %player_name% recipe.unlockable.MINERUSTADDONS_LONGSWORD"
+    - "[console]manuaddp %player_name% recipe.THE_LAST_DAY_HONGZHUAN"
+    - "[console]manuaddp %player_name% recipe.unlockable.THE_LAST_DAY_HUIXIONGBAO"
 
 
 
 
-MINERUSTADDONS_WOODENSPEAR:
-    - "[console]clear %player_name% MINERUSTADDONS_PIECEWOOD 3"
-    - "[console]give %player_name% MINERUSTADDONS_WOODENSPEAR 1"
-MINERUSTADDONS_WOODENSPEAR_unlock:
+THE_LAST_DAY_HUIXIONGBAO:
+    - "[console]clear %player_name% THE_LAST_DAY_HONGZHUAN 2"
+    - "[console]give %player_name% THE_LAST_DAY_HUIXIONGBAO 1"
+THE_LAST_DAY_HUIXIONGBAO_unlock:
     - "[console]xp -1L %player_name%"
-    - "[console]manuaddp %player_name% recipe.MINERUSTADDONS_WOODENSPEAR"
-    - "[console]manuaddp %player_name% recipe.unlockable.MINERUSTADDONS_STONESPEAR"
+    - "[console]manuaddp %player_name% recipe.THE_LAST_DAY_HUIXIONGBAO"
 
 
 
 
-MINERUSTADDONS_STONESPEAR:
-    - "[console]clear %player_name% MINERUSTADDONS_PIECESTONE 3" 
-    - "[console]clear %player_name% MINERUSTADDONS_PIECEWOOD 2" 
 
-    - "[console]give %player_name% MINERUSTADDONS_STONESPEAR 1"
-MINERUSTADDONS_STONESPEAR_unlock:
+THE_LAST_DAY_PAINKILLERCIVIL:
+    - "[console]clear %player_name% THE_LAST_DAY_YSDB 1" 
+    - "[console]clear %player_name% BSG_ZHI_TONG_YAO 1" 
+
+    - "[console]give %player_name% THE_LAST_DAY_PAINKILLERCIVIL 1"
+THE_LAST_DAY_PAINKILLERCIVIL_unlock:
     - "[console]xp -1L %player_name%"
-    - "[console]manuaddp %player_name% recipe.MINERUSTADDONS_STONESPEAR"
-    - "[console]manuaddp %player_name% recipe.unlockable.MINERUSTADDONS_TACTICALBOW"
-    - "[console]manuaddp %player_name% recipe.unlockable.MINERUSTADDONS_CROSSBOW"
+    - "[console]manuaddp %player_name% recipe.THE_LAST_DAY_PAINKILLERCIVIL"
+    - "[console]manuaddp %player_name% recipe.unlockable.THE_LAST_DAY_BU_LUO_FEN"
 
 
 
 
-MINERUSTADDONS_TACTICALBOW:
-    - "[console]clear %player_name% MINERUSTADDONS_NAILS 4" 
-    - "[console]clear %player_name% MINERUSTADDONS_IMPROVEDSEWINGKIT 2" 
-    - "[console]clear %player_name% MINERUSTADDONS_METALFRAGMENTS 2" 
-    - "[console]clear %player_name% MINERUSTADDONS_MHQ 2" 
+THE_LAST_DAY_BU_LUO_FEN:
+    - "[console]clear %player_name% BSG_BU_LUO_FEN 1" 
+    - "[console]clear %player_name% BSG_ZHI_TONG_YAO 1" 
 
-    - "[console]give %player_name% MINERUSTADDONS_TACTICALBOW 1"
-MINERUSTADDONS_TACTICALBOW_unlock:
+    - "[console]give %player_name% THE_LAST_DAY_BU_LUO_FEN 1"
+THE_LAST_DAY_BU_LUO_FEN_unlock:
     - "[console]xp -1L %player_name%"
-    - "[console]manuaddp %player_name% recipe.MINERUSTADDONS_TACTICALBOW"
+    - "[console]manuaddp %player_name% recipe.THE_LAST_DAY_BU_LUO_FEN"
 
 
 
 
 
-MINERUSTADDONS_CROSSBOW:
-    - "[console]clear %player_name% MINERUSTADDONS_NAILS 2" 
-    - "[console]clear %player_name% MINERUSTADDONS_PIECEWOOD 2" 
-    - "[console]clear %player_name% MINERUSTADDONS_ROPE 2" 
-
-    - "[console]give %player_name% MINERUSTADDONS_CROSSBOW 1"
-MINERUSTADDONS_CROSSBOW_unlock:
+THE_LAST_DAY_BANDGE:
+    - "[console]clear %player_name% MINERUSTADDONS_WRAPPEDCLOTH 4"
+    - "[console]give %player_name% THE_LAST_DAY_BANDGE 1"
+THE_LAST_DAY_BANDGE_unlock:
     - "[console]xp -1L %player_name%"
-    - "[console]manuaddp %player_name% recipe.MINERUSTADDONS_CROSSBOW"
+    - "[console]manuaddp %player_name% recipe.THE_LAST_DAY_BANDGE"
 
 
 
 
 
-MINERUSTADDONS_LONGSWORD:
-    - "[console]clear %player_name% MINERUSTADDONS_METALFRAGMENTS 3" 
-    - "[console]clear %player_name% MINERUSTADDONS_PIECEWOOD 2" 
+THE_LAST_DAYP_YSDW:
+    - "[console]clear %player_name% THE_LAST_DAY_YSDB 1" 
+    - "[console]clear %player_name% MINERUSTADDONS_SYRINGE 1" 
 
-    - "[console]give %player_name% MINERUSTADDONS_LONGSWORD 1"
-MINERUSTADDONS_LONGSWORD_unlock:
+    - "[console]give %player_name% THE_LAST_DAYP_YSDW 1"
+THE_LAST_DAYP_YSDW_unlock:
     - "[console]xp -1L %player_name%"
-    - "[console]manuaddp %player_name% recipe.MINERUSTADDONS_LONGSWORD"
-    - "[console]manuaddp %player_name% recipe.unlockable.MINERUSTADDONS_MACE"
-    - "[console]manuaddp %player_name% recipe.unlockable.MINERUSTADDONS_METALSWORD"
-    - "[console]manuaddp %player_name% recipe.unlockable.MINERUSTADDONS_WARHAMMER"
+    - "[console]manuaddp %player_name% recipe.THE_LAST_DAYP_YSDW"
+    - "[console]manuaddp %player_name% recipe.unlockable.THE_LAST_DAY_PAINKILLERCIVIL"
 
 
 
 
-MINERUSTADDONS_METALSWORD:
-    - "[console]clear %player_name% MINERUSTADDONS_METALFRAGMENTS 4" 
-    - "[console]clear %player_name% MINERUSTADDONS_NAILS 2" 
-    - "[console]clear %player_name% MINERUSTADDONS_STICKITEM 1" 
-
-    - "[console]give %player_name% MINERUSTADDONS_METALSWORD 1"
-MINERUSTADDONS_METALSWORD_unlock:
+MINERUSTADDONS_WRAPPEDCLOTH:
+    - "[console]clear %player_name% MINERUSTADDONS_CLOTH 4"
+    - "[console]give %player_name% MINERUSTADDONS_WRAPPEDCLOTH 1"
+MINERUSTADDONS_WRAPPEDCLOTH_unlock:
     - "[console]xp -1L %player_name%"
-    - "[console]manuaddp %player_name% recipe.MINERUSTADDONS_METALSWORD"
-
-
-
-
-
-MINERUSTADDONS_MACE:
-    - "[console]clear %player_name% MINERUSTADDONS_METALFRAGMENTS 4" 
-    - "[console]clear %player_name% MINERUSTADDONS_NAILS 8" 
-    - "[console]clear %player_name% MINERUSTADDONS_STICKITEM 1" 
-
-    - "[console]give %player_name% MINERUSTADDONS_MACE 1"
-MINERUSTADDONS_MACE_unlock:
-    - "[console]xp -1L %player_name%"
-    - "[console]manuaddp %player_name% recipe.MINERUSTADDONS_MACE"
-
-
-
-
-
-MINERUSTADDONS_WARHAMMER:
-    - "[console]clear %player_name% MINERUSTADDONS_METALFRAGMENTS 8" 
-    - "[console]clear %player_name% MINERUSTADDONS_NAILS 4" 
-    - "[console]clear %player_name% MINERUSTADDONS_STICKITEM 1" 
-
-    - "[console]give %player_name% MINERUSTADDONS_WARHAMMER 1"
-MINERUSTADDONS_WARHAMMER_unlock:
-    - "[console]xp -1L %player_name%"
-    - "[console]manuaddp %player_name% recipe.MINERUSTADDONS_WARHAMMER"
-
-
-
-
-
-MINERUSTADDONS_BONETOOL:
-    - "[console]clear %player_name% MINERUSTADDONS_RESBONE 3"
-    - "[console]give %player_name% MINERUSTADDONS_BONETOOL 1"
-MINERUSTADDONS_BONETOOL_unlock:
-    - "[console]xp -1L %player_name%"
-    - "[console]manuaddp %player_name% recipe.MINERUSTADDONS_BONETOOL"
-    - "[console]manuaddp %player_name% recipe.unlockable.MINERUSTADDONS_STONEPICKAXE"
-
-
-
-
-MINERUSTADDONS_STONEAXE:
-    - "[console]clear %player_name% MINERUSTADDONS_PIECESTONE 3" 
-    - "[console]clear %player_name% MINERUSTADDONS_PIECEWOOD 2" 
-
-    - "[console]give %player_name% MINERUSTADDONS_STONEAXE 1"
-MINERUSTADDONS_STONEAXE_unlock:
-    - "[console]xp -1L %player_name%"
-    - "[console]manuaddp %player_name% recipe.MINERUSTADDONS_STONEAXE"
-
-
-
-
-
-MINERUSTADDONS_STONEPICKAXE:
-    - "[console]clear %player_name% MINERUSTADDONS_PIECESTONE 3" 
-    - "[console]clear %player_name% MINERUSTADDONS_PIECEWOOD 2" 
-
-    - "[console]give %player_name% MINERUSTADDONS_STONEPICKAXE 1"
-MINERUSTADDONS_STONEPICKAXE_unlock:
-    - "[console]xp -1L %player_name%"
-    - "[console]manuaddp %player_name% recipe.MINERUSTADDONS_STONEPICKAXE"
-
-
-
-
-
-MINERUSTADDONS_METALAXE:
-    - "[console]clear %player_name% MINERUSTADDONS_METALFRAGMENTS 3" 
-    - "[console]clear %player_name% MINERUSTADDONS_PIECEWOOD 2" 
-
-    - "[console]give %player_name% MINERUSTADDONS_METALAXE 1"
-MINERUSTADDONS_METALAXE_unlock:
-    - "[console]xp -1L %player_name%"
-    - "[console]manuaddp %player_name% recipe.MINERUSTADDONS_METALAXE"
-
-
-
-
-
-MINERUSTADDONS_HATCHET:
-    - "[console]clear %player_name% MINERUSTADDONS_MHQ 3" 
-    - "[console]clear %player_name% MINERUSTADDONS_PIECEWOOD 2" 
-
-    - "[console]give %player_name% MINERUSTADDONS_HATCHET 1"
-MINERUSTADDONS_HATCHET_unlock:
-    - "[console]xp -1L %player_name%"
-    - "[console]manuaddp %player_name% recipe.MINERUSTADDONS_HATCHET"
-
-
-
-
-
-MINERUSTADDONS_PIECEWOOD:
-    - "[console]clear %player_name% MINERUSTADDONS_RESBONE 3"
-    - "[console]give %player_name% MINERUSTADDONS_PIECEWOOD 1"
-MINERUSTADDONS_PIECEWOOD_unlock:
-    - "[console]xp -1L %player_name%"
-    - "[console]manuaddp %player_name% recipe.MINERUSTADDONS_PIECEWOOD"
-    - "[console]manuaddp %player_name% recipe.unlockable.MINERUSTADDONS_WOODENSWORD"
-
-
-
-
-MINERUSTADDONS_WOODENSWORD:
-    - "[console]clear %player_name% MINERUSTADDONS_PIECEWOOD 4"
-    - "[console]give %player_name% MINERUSTADDONS_WOODENSWORD 1"
-MINERUSTADDONS_WOODENSWORD_unlock:
-    - "[console]xp -1L %player_name%"
-    - "[console]manuaddp %player_name% recipe.MINERUSTADDONS_WOODENSWORD"
-    - "[console]manuaddp %player_name% recipe.unlockable.MINERUSTADDONS_MACHETE"
+    - "[console]manuaddp %player_name% recipe.MINERUSTADDONS_WRAPPEDCLOTH"
+    - "[console]manuaddp %player_name% recipe.unlockable.THE_LAST_DAY_BANDGECIVIL"
+    - "[console]manuaddp %player_name% recipe.unlockable.THE_LAST_DAYP_YSDW"
+    - "[console]manuaddp %player_name% recipe.unlockable.THE_LAST_DAY_HONGZHUAN"
 
 

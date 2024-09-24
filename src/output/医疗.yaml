@@ -1,0 +1,8 @@
+nodenum=0; item_id=THE_LAST_DAY:BANDGECIVIL; x=544.0; y=160.0; unlockable=[THE_LAST_DAY:BANDGE]; recipe_items=MINERUSTADDONS:CLOTH; required_quantities=[4]; itemname|=民用绷带|; iteminfo|=家中常备的急救品。|;
+nodenum=1; item_id=THE_LAST_DAY:HONGZHUAN; x=672.0; y=160.0; unlockable=[THE_LAST_DAY:HUIXIONGBAO]; recipe_items=THE_LAST_DAY:BANDGE,MINERUSTADDONS:BLOOD; required_quantities=[1, 1]; itemname|=Salewa药包|; iteminfo|=功能齐全的药包。|;
+nodenum=2; item_id=THE_LAST_DAY:HUIXIONGBAO; x=672.0; y=224.0; unlockable=[None]; recipe_items=THE_LAST_DAY:HONGZHUAN; required_quantities=[2]; itemname|=Grizzly急救包|; iteminfo|=量大管饱。|;
+nodenum=3; item_id=THE_LAST_DAY:PAINKILLERCIVIL; x=608.0; y=224.0; unlockable=[THE_LAST_DAY:BU_LUO_FEN]; recipe_items=THE_LAST_DAY:YSDB,BSG:ZHI_TONG_YAO; required_quantities=[1, 1]; itemname|=民用止痛药|; iteminfo|=减弱痛觉，可能有副作用。|;
+nodenum=4; item_id=THE_LAST_DAY:BU_LUO_FEN; x=608.0; y=288.0; unlockable=[None]; recipe_items=BSG:BU_LUO_FEN,BSG:ZHI_TONG_YAO; required_quantities=[1, 1]; itemname|=布洛芬止痛药|; iteminfo|=强效止痛，有一定副作用。|;
+nodenum=5; item_id=THE_LAST_DAY:BANDGE; x=544.0; y=224.0; unlockable=[None]; recipe_items=MINERUSTADDONS:WRAPPEDCLOTH; required_quantities=[4]; itemname|=军用绷带|; iteminfo|=质量更好的绷带。|;
+nodenum=6; item_id=THE_LAST_DAYP:YSDW; x=608.0; y=160.0; unlockable=[THE_LAST_DAY:PAINKILLERCIVIL]; recipe_items=THE_LAST_DAY:YSDB,MINERUSTADDONS:SYRINGE; required_quantities=[1, 1]; itemname|=盐水袋|; iteminfo|=能补充一些体力。|;
+nodenum=7; item_id=MINERUSTADDONS:WRAPPEDCLOTH; x=608.0; y=96.0; unlockable=[THE_LAST_DAY:BANDGECIVIL, THE_LAST_DAYP:YSDW, THE_LAST_DAY:HONGZHUAN]; recipe_items=MINERUSTADDONS:CLOTH; required_quantities=[4]; itemname|=布卷|; iteminfo|=没有消毒的布卷，适合制作药物|;
