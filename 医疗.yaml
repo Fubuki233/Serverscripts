@@ -1,0 +1,13 @@
+nodenum=0; item_id=THE_LAST_DAY:BANDGECIVIL; x=544.0; y=160.0; unlockable=[None]; recipe_items=MINERUSTADDONS:CLOTH; required_quantities=[4]; itemname|=民用绷带|; iteminfo|=家中常备的急救品。|;
+nodenum=1; item_id=THE_LAST_DAY:PAINKILLERCIVIL; x=672; y=224; unlockable=[None]; recipe_items=THE_LAST_DAY:YSDB,BSG:ZHI_TONG_YAO; required_quantities=[1, 1]; itemname|=民用止痛药|; iteminfo|=减弱痛觉，可能有副作用。|;
+nodenum=2; item_id=THE_LAST_DAY:HUIXIONGBAO; x=576; y=288; unlockable=[None]; recipe_items=THE_LAST_DAY:BANDGE,THE_LAST_DAY:PAINKILLERCIVIL, BSG:YI_XUE_YE_TI; required_quantities=[4, 2, 1]; itemname|=Grizzly急救包|; iteminfo|=量大管饱。|;
+nodenum=3; item_id=THE_LAST_DAY:BANDGE; x=544.0; y=224.0; unlockable=[None]; recipe_items=MINERUSTADDONS:WRAPPEDCLOTH, BSG:YI_XUE_YE_TI; required_quantities=[4, 1]; itemname|=军用绷带|; iteminfo|=质量更好的绷带。|;
+nodenum=4; item_id=THE_LAST_DAY:MAFEI; x=672; y=352; unlockable=[None]; recipe_items=THE_LAST_DAY:PAINKILLERCIVIL,BSG:DAO_GUAN,BSG:YI_XUE_YE_TI; required_quantities=[1, 1, 1]; itemname|=吗啡注射器|; iteminfo|=暂时让你忘记疼痛。|;
+nodenum=5; item_id=THE_LAST_DAY:YSDW; x=672; y=160; unlockable=[None]; recipe_items=BSG:SHU_XIE_GONG_JU,BSG:DAO_GUAN,BSG:YI_XUE_YE_TI; required_quantities=[1, 1, 1]; itemname|=盐水袋注射器|; iteminfo|=可以补充一些能量.|;
+nodenum=6; item_id=THE_LAST_DAY:D_22; x=736; y=352; unlockable=[None]; recipe_items=THE_LAST_DAY:MAFEI,THE_LAST_DAY:YSDW; required_quantities=[1, 1]; itemname|=D-22注射器|; iteminfo|=剂量超级加倍！|;
+nodenum=7; item_id=THE_LAST_DAY:SHENSHANGXIANSU; x=608; y=352; unlockable=[None]; recipe_items=THE_LAST_DAY:MAFEI,THE_LAST_DAY:BULUOFEN; required_quantities=[1, 1]; itemname|=肾上腺素注射器|; iteminfo|=激发你的运动潜能！|;
+nodenum=8; item_id=MINERUSTADDONS:WRAPPEDCLOTH; x=672; y=96; unlockable=[THE_LAST_DAY:BANDGECIVIL, THE_LAST_DAY:YSDW, MINERUSTADDONS:BLOOD]; recipe_items=MINERUSTADDONS:CLOTH; required_quantities=[2]; itemname|=布卷|; iteminfo|=没有消毒的布卷，适合制作药物|;
+nodenum=9; item_id=THE_LAST_DAY:HONGZHUAN; x=512; y=288; unlockable=[None]; recipe_items=THE_LAST_DAY:BANDGE,THE_LAST_DAY:YSDB; required_quantities=[3, 1]; itemname|=Salewa药包|; iteminfo|=功能齐全的药包。|;
+nodenum=10; item_id=THE_LAST_DAY:BULUOFEN; x=672; y=288; unlockable=[None]; recipe_items=BSG:YI_XUE_YE_TI,BSG:ZHI_TONG_YAO; required_quantities=[1, 2]; itemname|=布洛芬止痛药|; iteminfo|=强效止痛，有一定副作用。|;
+nodenum=11; item_id=BSG:YI_XUE_YE_TI; x=768; y=224; unlockable=[None]; recipe_items=BSG:ZHI_TONG_YAO,BSG:SHU_XIE_GONG_JU; required_quantities=[1, 1]; itemname|=医学液体|; iteminfo|=可以用来调配许多药品|;
+nodenum=12; item_id=MINERUSTADDONS:BLOOD; x=768; y=160; unlockable=[None]; recipe_items=BSG:SHU_XIE_GONG_JU,MINERUSTADDONS:ANIMALFAT; required_quantities=[1, 2]; itemname|=血袋|; iteminfo|=一般用来急救。|;

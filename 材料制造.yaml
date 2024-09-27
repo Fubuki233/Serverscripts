@@ -1,0 +1,14 @@
+nodenum=0; item_id=MINERUSTADDONS:ROPE; x=640.0; y=96.0; unlockable=[None]; recipe_items=MINERUSTADDONS:CLOTH; required_quantities=[2]; itemname|=绳子|; iteminfo|=手搓出的亚麻绳子。|;
+nodenum=1; item_id=MINERUSTADDONS:STRONGROPE; x=704; y=96; unlockable=[None]; recipe_items=MINERUSTADDONS:ROPE; required_quantities=[2]; itemname|=粗绳|; iteminfo|=把两条绳子加工成一条粗绳，强度更高了。|;
+nodenum=2; item_id=MINERUSTADDONS:IMPROVEDSEWINGKIT; x=896; y=96; unlockable=[None]; recipe_items=MINERUSTADDONS:SEWINGKIT,MINERUSTADDONS:BOLTS,MINERUSTADDONS:METALSPRING; required_quantities=[1, 1, 1]; itemname|=高级缝纫包|; iteminfo|=有点奢侈了。|;
+nodenum=3; item_id=MINERUSTADDONS:SEWINGKIT; x=832; y=96; unlockable=[None]; recipe_items=MINERUSTADDONS:ROPE,MINERUSTADDONS:PLANKITEM,MINERUSTADDONS:NAILS; required_quantities=[1, 1, 1]; itemname|=缝纫包|; iteminfo|=能用来缝缝补补，有时包括你的伤口。|;
+nodenum=4; item_id=MINERUSTADDONS:METALFRAGMENTS; x=640; y=160; unlockable=[None]; recipe_items=MINERUSTADDONS:SCRAP; required_quantities=[16]; itemname|=粗铁|; iteminfo|=如果用熔炉烧炼，可能会有更高的效率|;
+nodenum=5; item_id=MINERUSTADDONS:BOLTS; x=512; y=160; unlockable=[None]; recipe_items=MINERUSTADDONS:METALFRAGMENTS; required_quantities=[1]; itemname|=螺栓|; iteminfo|=可以加固许多东西。|;
+nodenum=6; item_id=MINERUSTADDONS:NAILS; x=768; y=96; unlockable=[None]; recipe_items=MINERUSTADDONS:METALFRAGMENTS; required_quantities=[1]; itemname|=钉子|; iteminfo|=建筑的基础材料。|;
+nodenum=7; item_id=MINERUSTADDONS:PLANKITEM; x=512; y=96; unlockable=[None]; recipe_items=MINERUSTADDONS:PIECEWOOD; required_quantities=[4]; itemname|=木板|; iteminfo|=锯木头得到的基础建材。|;
+nodenum=8; item_id=MINERUSTADDONS:STICKITEM; x=576; y=96; unlockable=[None]; recipe_items=MINERUSTADDONS:PLANKITEM; required_quantities=[1]; itemname|=木柄|; iteminfo|=光滑圆润，适合当什么东西的手柄。|;
+nodenum=9; item_id=MINERUSTADDONS:METALSPRING; x=576; y=160; unlockable=[None]; recipe_items=MINERUSTADDONS:METALFRAGMENTS; required_quantities=[8]; itemname|=弹簧|; iteminfo|=可能能用来做更精密的设备，最好还是通过机床制作。|;
+nodenum=10; item_id=MINERUSTADDONS:CLOTH; x=768; y=160; unlockable=[None]; recipe_items=MINERUSTADDONS:OLDCLOTH; required_quantities=[1]; itemname|=纤维|; iteminfo|=把旧布撕成纤维，以便后续加工|;
+nodenum=11; item_id=MINERUSTADDONS:MHQ; x=704; y=160; unlockable=[None]; recipe_items=MINERUSTADDONS:QUALITYDETAILS; required_quantities=[2]; itemname|=高品质金属|; iteminfo|=手工制作的话，损耗未免太大了。|;
+nodenum=12; item_id=MINERUSTADDONS:TARP; x=896; y=160; unlockable=[None]; recipe_items=MINERUSTADDONS:OLDCLOTH,MINERUSTADDONS:IMPROVEDSEWINGKIT; required_quantities=[4, 1]; itemname|=防水布|; iteminfo|=性能更加优秀的布料，甚至制作防弹衣也需要这种材料。|;
+nodenum=13; item_id=MINERUSTADDONS:OLDCLOTH; x=832; y=160; unlockable=[None]; recipe_items=MINERUSTADDONS:CLOTH; required_quantities=[2]; itemname|=旧布|; iteminfo|=合成衣物的必需品。|;

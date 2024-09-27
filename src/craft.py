@@ -19,7 +19,7 @@ class DraggableRectangle:
         self.x = x1
         self.y = y1
         if self.x > 977:
-            self.x_axis = f"{((x1-474)*2+474) / 1920}*方法.取屏幕宽度-{977 / 1920}*方法.取屏幕宽度"
+            self.x_axis = f"{((x1 - 474) * 2 + 474) / 1920}*方法.取屏幕宽度-{977 / 1920}*方法.取屏幕宽度"
             self.y_axis = f"{(y1 * 2) / 1080}*方法.取屏幕高度+界面变量.滚动值*24+方法.取屏幕高度"
         else:
             self.x_axis = f"{((x1 - 474) * 2 + 474) / 1920}*方法.取屏幕宽度"
@@ -94,9 +94,9 @@ class DraggableRectangle:
             if abs(event.y - i) < 16 and i % 32 == 0:
                 self.y = i
                 if self.x > 977:
-                    self.y_axis = f"{(self.y * 2) / 1080 }*方法.取屏幕高度+界面变量.滚动值*24+方法.取屏幕高度"
+                    self.y_axis = f"{(self.y * 2) / 1080}*方法.取屏幕高度+界面变量.滚动值*24+方法.取屏幕高度"
                 else:
-                    self.y_axis = f"{(self.y * 2) / 1080 }*方法.取屏幕高度+界面变量.滚动值*24"
+                    self.y_axis = f"{(self.y * 2) / 1080}*方法.取屏幕高度+界面变量.滚动值*24"
                 break
         # 移动背景图
 
@@ -258,7 +258,7 @@ def create_line():
 
 # 创建主界面
 root = tk.Tk()
-root.title("树形图设计者")
+root.title("制作页面生成器")
 id = 0
 # 定义输入字段
 Item_ID_var = tk.StringVar()
@@ -340,7 +340,7 @@ tk.Entry(root, textvariable=icons).grid(row=5, column=1)
 
 def process_node_data():  # 解析节点信息文件
     # 定义全局变量
-    global node_total_import, item_id_import, x_import, y_import, unlockable_import, recipe_items_import, required_quantities_import, node_total,itemname_import,iteminfo_import
+    global node_total_import, item_id_import, x_import, y_import, unlockable_import, recipe_items_import, required_quantities_import, node_total, itemname_import, iteminfo_import
 
     # 初始化变量
     item_id_import = []
@@ -573,14 +573,16 @@ def generate_item_core(item_id, x, y, texture, texture_hovered, unlockable, reci
     print(f"itemid={item_id}")
     item_key = item_id.lower().split(":")[1]  # 提取下划线后的内容并小写
     print(f"lowerid={lower_id}")
-    var=[f'''
+    var = [f'''
       界面变量.recipe{i}='{recipe_items[i].lower().split(":")[1]}';
       界面变量.recipe{i}num='{required_quantities[i]}';
-    '''for i in range(len(recipe_items))]
-    var+=[f'''
+      界面变量.recipe_name{i}='{recipe_items[i].lower()}'
+    ''' for i in range(len(recipe_items))]
+    var += [f'''
       界面变量.recipe{i}='None';
+      界面变量.recipe_name{i}='None'
       界面变量.recipe{i}num='0';
-    '''for i in range(len(recipe_items),4)]
+    ''' for i in range(len(recipe_items), 4)]
     # 动态生成局部变量和判断逻辑
     if lower_id[0] != "None":
         recipe_variables = [
@@ -667,8 +669,8 @@ def generate_item_core(item_id, x, y, texture, texture_hovered, unlockable, reci
       界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
       界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
       界面变量.unlockcmd=界面变量.itemid&'_unlock';
+      界面变量.noenoughitems="0"
       {''.join([f'{var[i]}' for i in range(len(var))])}
-      
 {item_id.replace(":", "_")}_locked_texture:
   x: "{x}"
   y: "{y}"
@@ -696,7 +698,7 @@ def generate_item_core(item_id, x, y, texture, texture_hovered, unlockable, reci
       界面变量.unlockable='player_has_permission_recipe.unlockable.'&界面变量.itemid;
       界面变量.hasper='player_has_permission_recipe.'&界面变量.itemid;
       界面变量.unlockcmd=界面变量.itemid&'_unlock';
-      {''.join([f'{var[i]}' for i in range(len(var))])}
+      界面变量.noenoughitems="0"
 """
 
 
@@ -783,7 +785,7 @@ def generate_files(nodes_list):
 
     # 打开文件写入
     with open('output/core.yaml', 'w', encoding='utf-8') as core_file, open('output/command.yaml', 'w',
-                                                                               encoding='utf-8') as command_file, open(
+                                                                            encoding='utf-8') as command_file, open(
         'output/var.yaml', 'w', encoding='utf-8') as var_file, open(
         f'output/node_file_{time.strftime('%Y-%m-%d %H-%M-%S', time.localtime())}.yaml', 'w',
         encoding='utf-8') as node_store:
